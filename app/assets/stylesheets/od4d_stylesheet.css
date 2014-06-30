@@ -63,10 +63,32 @@ input, select, textarea {
 END
 */ 
 
-
 .center-box {
+	top: 138px;
 	margin: 0px auto;
-	max-width: 98%;
+	max-width: 100%;
+	background-color: #3c3c3c;
+	padding: 0% 1% 1% 1%;
+	overflow: auto;
+	position: relative;
+}
+
+.inner-shadow
+{
+    height: 200px; 
+    width: 100%;
+    -moz-box-shadow:    inset  0  8px 8px -8px #1b1b1b; 
+                        inset  0 -8px 8px -8px #1b1b1b;
+    -webkit-box-shadow: inset  0  8px 8px -8px #1b1b1b; 
+                        inset  0 -8px 8px -8px #1b1b1b;
+     box-shadow:        inset  0  8px 8px -8px #1b1b1b; 
+                        inset  0 -8px 8px -8px #1b1b1b;
+}
+
+.out-shadow {
+	-moz-box-shadow:    0px 2px 8px -2px #1b1b1b;
+  	-webkit-box-shadow: 0px 2px 8px -2px #1b1b1b;
+  	box-shadow:         0px 2px 8px -2px #1b1b1b;
 }	
 
 body {
@@ -78,7 +100,19 @@ body {
 	background-color: #eeeeee;
 	margin: 0px;
 }
+/*
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
 
+.articleContainer, footer, header { position: relative; }
+
+@media screen and (min-width: 50em ) {
+  .rightColumn { margin-left: 22em; background: red;}
+
+  .leftColumn { position: absolute; top: 0; left: 0; width: 20.75em; background: blue; }   
+}
+*/
 
 h1 {
 	font-size: 2em;
@@ -157,20 +191,11 @@ nav.header-menu {
     padding: 5px;
 }
 
-/*ul.header-menu li {
-    display: inline-block;
-	color: #ffffff;
-	line-height: 2;
-	margin-right: 20px;
-	margin-left: 0;
-	width: auto;
-	text-align: left;
-}*/
-
 ul {
        list-style-type: square;
        margin: 15px 0px 0px 25px;
        line-height: 1.3em;
+       text-align: justify;
 }
 
 footer {
@@ -178,4 +203,44 @@ footer {
 	color: #ffffff;
 	background-color: #da6235;
 	text-align: left;
+	height: 204px; 
+}
+
+/*
+
+ul.header-menu li {
+    display: inline-block;
+	color: #ffffff;
+	line-height: 2;
+	margin-right: 20px;
+	margin-left: 0;
+	width: auto;
+	text-align: left;
+}
+
+*/
+#Introduction {
+  float: left;
+}
+
+#Objectives {
+  width: 25%;
+  float: left;
+}
+
+#Specific-Tasks {
+  width: 72%;
+  float: left;
+  margin-left: 2%;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 50em ) {
+   #Objectives {position: relative; width: 100%; } 
+   #Specific-Tasks {float:left; width: 100%; margin: 0px 0px 20px 0px;}  
+}
+
+video {
+  width: 100%    !important;
+  height: auto
 }
