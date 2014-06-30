@@ -1,3 +1,5 @@
+[![Build Status](https://snap-ci.com/W3CBrasil/od4d.org/branch/master/build_image)](https://snap-ci.com/W3CBrasil/od4d.org/branch/master)
+
 # OD4D - od4d.org
 
 This repository contains the source code for the new od4d.org website.
