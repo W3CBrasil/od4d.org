@@ -13,6 +13,8 @@ Session.vim
 .vagrant/
 
 ### Ruby ###
+.env
+.env.*
 *.gem
 *.rbc
 /.config
@@ -39,6 +41,7 @@ Session.vim
 capybara-*.html
 /log/*.log
 /db/*.sqlite3
+/db/*.sqlite3-journal
 /public/system
 /coverage/
 /spec/tmp
