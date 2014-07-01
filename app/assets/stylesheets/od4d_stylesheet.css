@@ -77,11 +77,11 @@ END
 {
     height: 200px; 
     width: 100%;
-    -moz-box-shadow:    inset  0  8px 8px -8px #1b1b1b; 
+    -moz-box-shadow:    inset  0  8px 8px -8px #1b1b1b, 
                         inset  0 -8px 8px -8px #1b1b1b;
-    -webkit-box-shadow: inset  0  8px 8px -8px #1b1b1b; 
+    -webkit-box-shadow: inset  0  8px 8px -8px #1b1b1b, 
                         inset  0 -8px 8px -8px #1b1b1b;
-     box-shadow:        inset  0  8px 8px -8px #1b1b1b; 
+     box-shadow:        inset  0  8px 8px -8px #1b1b1b, 
                         inset  0 -8px 8px -8px #1b1b1b;
 }
 
