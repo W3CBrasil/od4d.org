@@ -47,7 +47,6 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     colorize (0.7.3)
-    dotenv-deployment (0.0.2)
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
@@ -122,7 +121,6 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano-rails
-  dotenv-deployment
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   spring

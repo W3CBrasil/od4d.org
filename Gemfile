@@ -5,7 +5,6 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
-gem 'dotenv-deployment'
 
 group :development do
   gem 'spring'

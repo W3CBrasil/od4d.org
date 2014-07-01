@@ -5,7 +5,6 @@ set :repo_url, 'git@github.com:w3cbrasil/od4d.org.git'
 
 set :deploy_to, '/opt/od4d-org'
 
-set :linked_files, %w{.env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
