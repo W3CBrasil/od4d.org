@@ -1,0 +1,10 @@
+<h1>WebFoundation Articles</h1>
+<p>
+<% @articles.each do |article|%>
+  <li>
+    Url: <a href="<%=article.url%>"><%=article.title%></a><br/>
+    Author: <%= article.author %><br/>
+    Summary: <%= article.summary %><br/>
+  </li>
+<% end %>
+</p>
