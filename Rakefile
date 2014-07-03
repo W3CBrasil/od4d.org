@@ -10,5 +10,9 @@ task :deploy do
     raise "Please set the server address using the OD4D_PROD_SERVER environment variable"
   end
 
+  # this will be use by capistrano to decide which git revision to deploy
+  # if not provided, it will use master
+  ENV['REVISION'] = ENV['SNAP_COMMIT'] if ENV['SNAP_CI']
+
   sh 'cap production deploy'
 end

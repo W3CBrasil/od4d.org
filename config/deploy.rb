@@ -2,6 +2,7 @@ lock '3.2.1'
 
 set :application, 'od4d.org'
 set :repo_url, 'git@github.com:w3cbrasil/od4d.org.git'
+set :branch, ENV["REVISION"] || "master"
 
 set :deploy_to, '/opt/od4d-org'
 
