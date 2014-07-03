@@ -83,11 +83,30 @@ body {
 	margin: 0px;
 }
 
+header a, footer a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+header a {
+	padding: 8px;
+}
+
+nav {
+	max-width: 1180px;
+	position: relative;
+	padding: 0px 0px 0px 0px;
+	margin: 0px auto;
+
+}
+
 .main {
 	background-color: #ffffff;
-	margin: 24px;
-	display: block;
-}
+	max-width: 65em;
+	padding: 0px 15px 0px 15px;
+	margin: 0px auto;
+	position: relative;
+	}
 
 h1 {
 	font-size: 2em;
@@ -125,34 +144,24 @@ b {
 	background-color: #ffffff;
 }
 
-
 article {
 	padding-bottom: 20px;
 	padding-right: 20px;
-	
 }
 
-
-article a {
+a {
 	color: #da6235;
 	text-decoration: none;
 }
 
-article a:hover {
+a:hover {
 	text-decoration: underline;
 }
 
-header a, footer a {
-	color: #ffffff;
-	text-decoration: none;
-}
-
-header a {
-	padding: 8px;
-}
 
 footer a:hover {
 	color: #ab2f00;
+	text-decoration: none;
 }
 
 header a:hover {
@@ -177,7 +186,7 @@ footer {
 	background-color: #da6235;
 	text-align: left;
 	height: 204px;
-	margin-top: 200px;
+	margin-top: 24px;
 
 }
 
@@ -245,7 +254,6 @@ ul.header-menu li {
     left: 0;
     width: 100%;
     height: 100%;
-
 }
 
 /*
