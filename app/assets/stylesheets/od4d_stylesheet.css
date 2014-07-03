@@ -73,7 +73,6 @@ END
 	position: relative;
 }
 
-
 body {
 	font-size: 18px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -84,6 +83,11 @@ body {
 	margin: 0px;
 }
 
+.main {
+	background-color: #ffffff;
+	margin: 24px;
+	display: block;
+}
 
 h1 {
 	font-size: 2em;
@@ -119,13 +123,15 @@ b {
 
 .content {
 	background-color: #ffffff;
-	margin-top: 26px;
-	margin-bottom: 26px;
 }
 
+
 article {
-	padding: 24px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	
 }
+
 
 article a {
 	color: #da6235;
@@ -154,10 +160,7 @@ header a:hover {
 	padding: 8px;
 }
 
-nav.header-menu {
-	font-size: 22px;
-	font-family: 'Cuprum', sans-serif;
-	color: #ffffff;
+header {
 	background-color: #d9d9d9;
     padding: 15px;
 }
@@ -174,6 +177,8 @@ footer {
 	background-color: #da6235;
 	text-align: left;
 	height: 204px;
+	margin-top: 200px;
+
 }
 
 /*
