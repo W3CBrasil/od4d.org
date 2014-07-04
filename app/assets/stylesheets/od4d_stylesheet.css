@@ -138,6 +138,16 @@ h2 {
 	padding: 0px;
 }
 
+h3 {
+	font-size: 1.4em;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 600;
+	color: #666666;
+	line-height: 1.2em;
+	padding: 0px;
+	margin-top: 0px
+}
+
 p {
 	font-size: 1em;
 	font-family: 'Exo 2', sans-serif;
@@ -274,17 +284,7 @@ article.rss {
 	border-bottom-color: #cccccc;
 	padding-bottom: 15px;
 	margin: 0px 22px 22px 0px;
-	padding-bottom: 24px;
-}
-
-p.titleFeed {
-	font-size: 1.4em;
-	font-family: 'Exo 2', sans-serif;
-	font-weight: 600;
-	color: #666666;
-	line-height: 1.2em;
-	padding: 0px;
-	margin-top: 0px
+	padding-bottom: 15px;
 }
 
 p.author
@@ -331,6 +331,19 @@ p.date
 	width: 45%;
 	position: relative;
 	float: left; 
+}
+
+.button {
+  font-size: .875em;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  padding: 4px 6px 4px 6px;
+  margin: 10px 0 10px 0;
+  background-color: #fdb499;
+  border: 1px solid #da6235;
+  color: #cd4714;
+  text-decoration: none;
+  position: relative;
 }
 .clear { clear: left; }
 
