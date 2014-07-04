@@ -22,7 +22,9 @@ class ArticleDAO
         article.url = article_hash["url"]
         article.title = article_hash["headline"]
         article.author = article_hash["author"]
-        article.summary = article_hash["articleBody"][0..100]
+        article.summary = article_hash["articleBody"][0..500]
+        article.articleSection = article_hash["articleSection"]
+        article.datePublished = article_hash["datePublished"]
         article
     end
 

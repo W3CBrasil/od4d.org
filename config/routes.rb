@@ -56,6 +56,5 @@ Rails.application.routes.draw do
 
   root :to => redirect('/about')
   get '/about' => 'pages#about'
-  get '/feeds' => 'pages#feeds'
-  resources :articles, :only => [:show]
+  resources :articles, :only => [:index]
 end
