@@ -121,7 +121,9 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano-rails
+  colorize
   rails (= 4.1.1)
+  rake
   sass-rails (~> 4.0.3)
   spring
   sqlite3
