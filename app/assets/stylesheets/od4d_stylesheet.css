@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -74,13 +75,23 @@ END
 }
 
 body {
-	font-size: 18px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1em;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
 	color: #2b2b2b;
-	line-height: 1.3em;
+	line-height: 1.5em;
 	background-color: #ffffff;
 	margin: 0px;
+}
+/*
+header {
+	background-color: #f6963f;
+    padding: 15px;
+}
+*/
+header {
+	background-color: #d9d9d9;
+    padding: 15px;
 }
 
 header a, footer a {
@@ -93,16 +104,15 @@ header a {
 }
 
 nav {
-	max-width: 1180px;
+	max-width: 61em;
 	position: relative;
 	padding: 0px 0px 0px 0px;
 	margin: 0px auto;
-
 }
 
 .main {
 	background-color: #ffffff;
-	max-width: 65em;
+	max-width: 61em;
 	padding: 0px 15px 0px 15px;
 	margin: 0px auto;
 	position: relative;
@@ -110,34 +120,35 @@ nav {
 
 h1 {
 	font-size: 2em;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 700;
 	line-height: 1em;
-	color: #0f676e;
+	color: #da6235;
 	margin: 20px 0px 25px 0px;
+	font-variant: 
 }
 
 h2 {
-	font-size: 1.5em;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
-	color: #0f676e;
-	line-height: 1em;
+	font-size: 1.6em;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 700;
+	color: #da6235;
+	line-height: 1.4em;
 	margin: 25px 0px 0px 0px;
 	padding: 0px;
 }
 
 p {
 	font-size: 1em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
 	color: #2b2b2b;
 	margin: 15px 0px 0px 0px;
-	line-height: 1.3em;
+	line-height: 1.5em;
 }
 
-b {
-	font-weight: 400;
+em {
+	font-weight: 500;
 }
 
 .content {
@@ -145,8 +156,7 @@ b {
 }
 
 article {
-	padding-bottom: 20px;
-	padding-right: 20px;
+	padding-right: 25px;
 }
 
 a {
@@ -164,20 +174,10 @@ footer a:hover {
 	text-decoration: none;
 }
 
-header a:hover {
-	background-color: #da6235;
-	padding: 8px;
-}
-
-header {
-	background-color: #d9d9d9;
-    padding: 15px;
-}
-
 ul {
-       list-style-type: square;
-       margin: 15px 0px 0px 25px;
-       line-height: 1.3em;
+   list-style-type: square;
+   margin: 15px 0px 0px 25px;
+   line-height: 1.5em;
 }
 
 footer {
@@ -187,7 +187,16 @@ footer {
 	text-align: left;
 	height: 204px;
 	margin-top: 24px;
+}
 
+p.footbar {
+	float: left;
+}
+
+p.copyright {
+	float: right;
+	color:#c5c5c5;
+	font-size: 16px;
 }
 
 /*
@@ -259,10 +268,29 @@ ul.header-menu li {
 /*
 START ARTICLE STYLES
 */
+article.rss {
+	border-bottom-style: solid;
+    border-width: 1px;
+	border-bottom-color: #cccccc;
+	padding-bottom: 15px;
+	margin: 0px 22px 22px 0px;
+	padding-bottom: 24px;
+}
+
+p.titleFeed {
+	font-size: 1.4em;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 600;
+	color: #666666;
+	line-height: 1.2em;
+	padding: 0px;
+	margin-top: 0px
+}
+
 p.author
 {
 	font-size: .875em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 400;
 	color: #666666;
 	margin: 5px 0px 0px 0px;
@@ -272,7 +300,7 @@ p.author
 p.category
 {
 	font-size: .875em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 400;
 	color: #666666;
 	margin: 15px 0px 0px 0px;
@@ -280,17 +308,17 @@ p.category
 
 p.summary {
 	font-size: 1em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
 	color: #2b2b2b;
 	margin: 6px 0px 0px 0px;
-	line-height: 1.3em;
+	line-height: 1.5em;
 }
 
 p.date
 {
-	font-size: .700em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-size: .800em;
+	font-family: 'Exo 2', sans-serif;
 	font-weight: 400;
 	color: #666666;
 	margin: 3px 0px 0px 0px;
@@ -313,4 +341,3 @@ p.date
 /*
 END ARTICLE STYLES
 */
-

@@ -1,26 +1,28 @@
+
 <!DOCTYPE HTML>
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:schema="http://schema.org/">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:900italic,100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <title>Open Data for Development - About</title>
   </head>
   <body>
     <header>
-        <nav>
-          <%= image_tag("logo-od4d.png", :alt => "Logo OD4D") %>
-        </nav>
+      <nav>
+        <%= image_tag("logo-od4d.png", :alt => "Logo OD4D") %>
+      </nav>
     </header>
-    <Section class="main" resource="#about-od4d" typeof="schema:Article">
-        <h1 property="schema:title">About the Project</h1>
-        <meta property="schema:datePublished" content="2014-06-20"/>
-        <meta property="schema:wordCount" content="503"/>
-        <meta property="schema:inLanguage" content="English"/>
-        <meta property="schema:copyrightHolder" content="W3C"/>
-        <meta property="schema:headline" content="About Open Data 4 Development"/>
-        <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
-        <meta property="schema:keywords" content="about;od4d"/>
+    <section class="main" resource="#about-od4d" typeof="schema:Article">
+      <h1 property="schema:title">About the Project</h1>
+      <meta property="schema:datePublished" content="2014-06-20"/>
+      <meta property="schema:wordCount" content="503"/>
+      <meta property="schema:inLanguage" content="English"/>
+      <meta property="schema:copyrightHolder" content="W3C"/>
+      <meta property="schema:headline" content="About Open Data 4 Development"/>
+      <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
+      <meta property="schema:keywords" content="about;od4d"/>
       <section id="Video">
         <p resource="#od4d-about-video" property="schema:video" typeof="schema:VideoObject">
           <meta property="schema:name" content="Open Government Data and OD4D "/>
@@ -97,17 +99,16 @@
         </p>
       </section>
     </section>
-
-    <footer class="inner-shadow">
-      <section>
-        <section class="center-box out-shadow">
-          <p style="float: left;">
+    <footer class="inner-shadow clear">
+      <section class="center-box out-shadow">
+        <nav>
+          <p class="footbar">
             <a href="http://www.od4d.org/terms-and-conditions/">Terms and conditions</a>
-           </p>
-          <p style="float: right; color:#b5b5b5; font-size: 16px;">
+          </p>
+          <p class="copyright">
             © 2014 Open Data for Development - All Rights Reserved.
           </p>
-        </section>
+        <nav>
       </section>
     </footer>
   </body>
