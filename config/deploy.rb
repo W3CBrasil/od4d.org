@@ -4,7 +4,7 @@ set :application, 'od4d.org'
 set :repo_url, 'git@github.com:w3cbrasil/od4d.org.git'
 set :branch, ENV["REVISION"] || "master"
 
-set :deploy_to, '/opt/od4d-org'
+set :deploy_to, '/opt/od4d/od4d-org'
 
 set :linked_files, %w{config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
