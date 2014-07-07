@@ -3,6 +3,7 @@
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:schema="http://schema.org/">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='http://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Exo+2:900italic,100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -11,7 +12,15 @@
   <body>
     <header>
       <nav>
-        <%= image_tag("logo-od4d.png", :alt => "Logo OD4D") %>
+        <section class="logo"> 
+        <%= image_tag("logo-od4d2.png", :alt => "Logo OD4D") %>
+        </section> 
+        <section class="center-nenu">  
+          <ul class="header-menu">
+          <li><a href="/about">About the Project</a></li>
+          <li><a href="/articles/">Connected Network</a></li>
+        </ul> 
+        </section> 
       </nav>
     </header>
     <section class="main" resource="#about-od4d" typeof="schema:Article">

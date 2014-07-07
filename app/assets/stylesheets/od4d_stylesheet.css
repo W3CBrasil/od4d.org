@@ -61,7 +61,7 @@ input, select, textarea {
 }
 
 /*
-END
+END OF RESET CODE
 */ 
 
 .center-box {
@@ -72,6 +72,50 @@ END
 	padding: 0% 1% 1% 1%;
 	overflow: auto;
 	position: relative;
+}
+	
+.center-nenu {
+	max-width: 100%;
+	overflow: auto;
+	position: relative;
+	float: left;
+	top: 40px;
+	z-index: 400;
+	margin-left: 40px;
+}
+
+.logo {
+	max-width: 100%;
+	overflow: auto;
+	position: relative;
+	float: left;
+	z-index: 400;
+}
+
+header a {
+	font-size: 1em;
+	color: #cccccc;
+	font-weight: 600;
+	font-family: 'Exo', sans-serif;
+
+}
+
+header a:hover {
+	font-size: 1em;
+	color: #ffffff;
+	font-weight: 600;
+	font-family: 'Exo', sans-serif;
+	text-decoration: none;
+}
+
+ul.header-menu li {
+    display: inline-block;
+	margin-right: 20px;
+	margin-left: 0px;
+	width: auto;
+	text-align: left;
+	list-style-type: none;
+
 }
 
 body {
@@ -90,17 +134,14 @@ header {
 }
 */
 header {
-	background-color: #d9d9d9;
+	background-color: #444444;
     padding: 15px;
+    height: 115px;
 }
 
-header a, footer a {
+footer a {
 	color: #ffffff;
 	text-decoration: none;
-}
-
-header a {
-	padding: 8px;
 }
 
 nav {
@@ -113,24 +154,24 @@ nav {
 .main {
 	background-color: #ffffff;
 	max-width: 61em;
-	padding: 0px 15px 0px 15px;
+	padding: 30px 15px 0px 15px;
 	margin: 0px auto;
 	position: relative;
 	}
 
 h1 {
-	font-size: 2em;
+	font-size: 1.7em;
 	font-family: 'Exo 2', sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1em;
 	color: #da6235;
 	margin: 20px 0px 25px 0px;
 }
 
 h2 {
-	font-size: 1.6em;
+	font-size: 1.4em;
 	font-family: 'Exo 2', sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	color: #da6235;
 	line-height: 1.4em;
 	margin: 25px 0px 0px 0px;
@@ -198,6 +239,7 @@ footer {
 	margin-top: 24px;
 }
 
+
 p.footbar {
 	float: left;
 }
@@ -205,20 +247,14 @@ p.footbar {
 p.copyright {
 	float: right;
 	color:#c5c5c5;
-	font-size: 16px;
+	font-size: 14px;
 }
 
-/*
-ul.header-menu li {
-    display: inline-block;
-	color: #ffffff;
-	line-height: 2;
-	margin-right: 20px;
-	margin-left: 0;
-	width: auto;
-	text-align: left;
+@media screen and (max-width: 35em ) {
+p.footbar {float: left;}
+p.copyright {float: left;}
+
 }
-*/
 
 .inner-shadow
 {
