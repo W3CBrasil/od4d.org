@@ -1,6 +1,11 @@
 require 'fuseki'
 
 class ArticleDAO
+
+    def initialize(fuseki = nil)
+      @fuseki = fuseki || Fuseki.new('http://localhost:3030', 'articles')
+    end
+
     def list_articles
         articles = []
         articles_hash_array = get_fuseki_articles
@@ -12,8 +17,7 @@ class ArticleDAO
 
     private
     def get_fuseki_json
-        fu = Fuseki.new('http://localhost:3030', 'articles')
-        res = fu.query('SELECT * {?subject ?predicate ?object}')
+        res = @fuseki.query('SELECT * {?subject ?predicate ?object}')
         JSON.parse(res)
     end
 
