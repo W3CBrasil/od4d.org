@@ -12,7 +12,7 @@ class ArticleDAO
 
     private
     def get_fuseki_json
-        fu = Fuseki.new('http://localhost:3030', 'articles') 
+        fu = Fuseki.new('http://localhost:3030', 'articles')
         res = fu.query('SELECT * {?subject ?predicate ?object}')
         JSON.parse(res)
     end
@@ -24,7 +24,6 @@ class ArticleDAO
         article.author = article_hash["author"]
         article.summary = article_hash["articleBody"][0..500] if article_hash["articleBody"]
         article.description = article_hash["description"]
-        puts article.description
         article.articleSection = article_hash["articleSection"]
         article.datePublished = article_hash["datePublished"]
         article

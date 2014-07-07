@@ -10,5 +10,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'colorize'
   gem 'rake'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'spring'
 end
