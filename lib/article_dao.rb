@@ -7,15 +7,10 @@ class ArticleDAO
     end
 
     def list_articles
-        articles = []
-        articles_hash_array = get_fuseki_articles
-        articles_hash_array.each do |article_hash|
-            articles.push(create_from_hash(article_hash))
-        end
-        articles
+      articles_hash_array = get_fuseki_articles
+      articles_hash_array.map { |article_hash| create_from_hash(article_hash) }
     end
 
-    private
     def get_fuseki_json
         res = @fuseki.query('SELECT * {?subject ?predicate ?object}')
         JSON.parse(res)
@@ -29,8 +24,14 @@ class ArticleDAO
         article.summary = article_hash["articleBody"][0..500] if article_hash["articleBody"]
         article.description = article_hash["description"]
         article.articleSection = article_hash["articleSection"]
-        article.datePublished = article_hash["datePublished"]
+        article.datePublished = format_date(article_hash["datePublished"])
         article
+    end
+
+    private
+    def format_date(date)
+      date_time = DateTime.iso8601(date)
+      date_time.strftime("%m/%d/%Y")
     end
 
     def get_fuseki_articles
