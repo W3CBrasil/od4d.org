@@ -20,7 +20,7 @@
                 		<h3><%= article.title %></h3>
                 		<p class="author"> <%= article.author %></p>
                 		<p class="category"> <%= article.articleSection %></p>
-                        <p class="summary"> <%= article.summary %></p>
+                        <p class="summary"> <%= article.summary || article.description %></p>
                         <p class="date"> <%= article.datePublished %></p>
                         <button class="button"><a href=<%= article.url %>>Read More</a></button>
                 	</article>

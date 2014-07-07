@@ -1,3 +1,3 @@
 class Article
-  attr_accessor :url, :title, :author, :summary, :articleSection, :datePublished
+  attr_accessor :url, :title, :author, :summary, :description, :articleSection, :datePublished
 end
