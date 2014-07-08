@@ -79,9 +79,9 @@ END OF RESET CODE
 	overflow: auto;
 	position: relative;
 	float: left;
-	top: 40px;
+	top: 28px;
 	z-index: 400;
-	margin-left: 40px;
+	margin-left: 30px;
 }
 
 .logo {
@@ -92,19 +92,24 @@ END OF RESET CODE
 	z-index: 400;
 }
 
+header {
+	background-color: #444444;
+    padding: 15px;
+    height: 105px;
+}
+
 header a {
 	font-size: 1em;
 	color: #cccccc;
-	font-weight: 600;
-	font-family: 'Exo', sans-serif;
-
+	font-weight: 500;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 header a:hover {
 	font-size: 1em;
 	color: #ffffff;
-	font-weight: 600;
-	font-family: 'Exo', sans-serif;
+	font-weight: 500;
+	font-family: 'Roboto Condensed', sans-serif;
 	text-decoration: none;
 }
 
@@ -133,11 +138,7 @@ header {
     padding: 15px;
 }
 */
-header {
-	background-color: #444444;
-    padding: 15px;
-    height: 115px;
-}
+
 
 footer a {
 	color: #ffffff;
