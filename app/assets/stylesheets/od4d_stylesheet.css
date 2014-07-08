@@ -207,6 +207,11 @@ h3 {
 	margin-top: 0px
 }
 
+h3 a {
+  color: #666666;
+}
+
+
 p {
 	font-size: 1em;
 	font-family: 'Exo 2', sans-serif;
@@ -229,7 +234,7 @@ article {
 }
 
 a {
-	color: #da6235;
+	color: #963c1b;
 	text-decoration: none;
 }
 
@@ -390,15 +395,19 @@ p.date
 .button {
   font-size: .875em;
   font-family: 'Exo 2', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   padding: 4px 6px 4px 6px;
   margin: 10px 0 10px 0;
-  background-color: #fdb499;
-  border: 1px solid #da6235;
-  color: #cd4714;
+  background-color: #eeeeee;
+  border: 1px solid #444444;
   text-decoration: none;
   position: relative;
 }
+
+button a {
+  color: #333333;
+}
+
 .clear { clear: left; }
 
 @media screen and (max-width: 62em ) {
