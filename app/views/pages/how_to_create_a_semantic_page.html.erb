@@ -18,7 +18,7 @@
 There are 3 things that makes an RDF statement: the subject, the predicate and the object.
     </p>
 
-    <pre><code>
+    <pre><code class="language-markup">
       <%=h '#### <aqui pode aparecer um exemplo de tripla>' %>
     </code></pre>
 
@@ -26,7 +26,7 @@ There are 3 things that makes an RDF statement: the subject, the predicate and t
       RDF needs Uniform Resource Identifiers to specify subjects and predicates. To know more about them <a http="http://www.w3.org/TR/cooluris/">here</a>
     </p>
 
-    <pre><code>
+    <pre><code class="language-markup">
       <%=h '#### <aqui um exemplo de URI>' %>
     </code></pre>
 
@@ -55,7 +55,7 @@ Some concepts of RDFa are important:
       <br />
       See this example, from W3C RDFa Lite docs:
 
-      <pre><code>
+      <pre><code class="language-markup">
         <%=h '<p vocab="http://schema.org/" typeof="Person">
            My name is
            <span property="name">Manu Sporny</span>
@@ -69,18 +69,18 @@ Some concepts of RDFa are important:
       and Resource:
       <br />
       See this example, from W3C RDFa Lite docs:
-      <pre><code>
-        <%=h '<p vocab="http://schema.org/" resource="#manu" typeof="Person">
-             My name is
-             <span property="name">Manu Sporny</span>
-             and you can give me a ring via
-             <span property="telephone">1-800-555-0199</span>.
-             <img property="image" src="http://manu.sporny.org/images/manu.png" />
-        </p>' %>
+      <pre><code class="language-markup">
+  <%=h '<p vocab="http://schema.org/" resource="#manu" typeof="Person">
+       My name is
+       <span property="name">Manu Sporny</span>
+       and you can give me a ring via
+       <span property="telephone">1-800-555-0199</span>.
+       <img property="image" src="http://manu.sporny.org/images/manu.png" />
+  </p>' %>
       </code></pre>
       <br />
       Another example:
-      <pre><code>
+      <pre><code class="language-markup">
         <%=h '<div vocab="http://schema.org/" typeof="Product">
           <img property="image" src="droid.jpg" />
           <span property="name">Android Phone</span>
@@ -90,9 +90,9 @@ Some concepts of RDFa are important:
       This example describes the subject of the picture, using RDFa triples.
       <br/>
       Now you can write your own semantic html, clicking here.
-      <code>
-        <%=h '####<será que é isso mesmo a interação?>' %>
-      </code>
+      <pre><code class="language-markup">
+        <%=h '#### <será que é isso mesmo a interação?>' %>
+      </code></pre>
     </p>
 
   </article>
