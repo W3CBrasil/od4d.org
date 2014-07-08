@@ -2,7 +2,7 @@
   <title>Open Data for Development - How to create a semantic page</title>
 <% end %>
 
-  <section class="main" resource="#how-to-create-a-semantic-page" typeof="schema:Article">
+  <article class="main" resource="#how-to-create-a-semantic-page" typeof="schema:Article">
     <h1 property="schema:headline">How to create a semantic page</h1>
     <meta property="schema:datePublished" content="2014-07-08"/>
     <meta property="schema:wordCount" content="503"/>
@@ -11,8 +11,88 @@
     <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
     <meta property="schema:keywords" content="howto;semantic;od4d"/>
 
+
+    <h3>1. Understanting RDF concept</h3>
     <p>
-      The content will be here
+      Resource Description Framework it's a way to write XML that describes relashionship, concept or things.
+There are 3 things that makes an RDF statement: the subject, the predicate and the object.
     </p>
 
-  </section>
+    <pre><code>
+      <%=h '#### <aqui pode aparecer um exemplo de tripla>' %>
+    </code></pre>
+
+    <p>
+      RDF needs Uniform Resource Identifiers to specify subjects and predicates. To know more about them <a http="http://www.w3.org/TR/cooluris/">here</a>
+    </p>
+
+    <pre><code>
+      <%=h '#### <aqui um exemplo de URI>' %>
+    </code></pre>
+
+    <h3>2. RDFa and RDF: WTF?</h3>
+    <p>
+      RDFa it's not the same thing of RDF. They're different because (pode usar "The difference is because) RDF is just a data model designed for the Web and it serves for specify relations. RDFa is how you can describe RDF relations in your HTML code (<a href="http://manu.sporny.org/2012/mythical-differences/">Read why it's better than microformats!</a>)
+Some concepts of RDFa are important:
+    </p>
+
+    <p>
+      Remember that you will always have a triple: a described relation between objects.
+    </p>
+
+    <p>
+      The @prefix, that is an <http="http://www.w3.org/TeamSubmission/turtle/">turtle</a> expression, serves to declare the abreviation of the URI, specified by a <a href="http://www.w3.org/blog/data/2014/01/06/vocabularies-at-w3c/">vocabulary</a> described by RDF triples in a single domain. Vocabularies defines what triple means, because it allows desambiguation.
+    </p>
+
+    <p>
+      RDFa lite is a simple version of <a href="http://www.w3.org/TR/rdfa-primer/">RDFa Primer</a> and it's used to describe RFD to browsers. You can read the documentation of RDFa Lite at W3C's <a http="http://www.w3.org/TR/rdfa-lite/">docs</a>.
+    </p>
+
+    <p>
+      RDFa uses basically:
+      <br/>
+      Atribute: vocab, typeof, property, resource, prefix.
+      <br />
+      See this example, from W3C RDFa Lite docs:
+
+      <pre><code>
+        <%=h '<p vocab="http://schema.org/" typeof="Person">
+           My name is
+           <span property="name">Manu Sporny</span>
+           and you can give me a ring via
+           <span property="telephone">1-800-555-0199</span>
+           or visit
+           <a property="url" href="http://manu.sporny.org/">my homepage</a>.
+        </p>' %>
+      </code></pre>
+      <br />
+      and Resource:
+      <br />
+      See this example, from W3C RDFa Lite docs:
+      <pre><code>
+        <%=h '<p vocab="http://schema.org/" resource="#manu" typeof="Person">
+             My name is
+             <span property="name">Manu Sporny</span>
+             and you can give me a ring via
+             <span property="telephone">1-800-555-0199</span>.
+             <img property="image" src="http://manu.sporny.org/images/manu.png" />
+        </p>' %>
+      </code></pre>
+      <br />
+      Another example:
+      <pre><code>
+        <%=h '<div vocab="http://schema.org/" typeof="Product">
+          <img property="image" src="droid.jpg" />
+          <span property="name">Android Phone</span>
+        </div>' %>
+      </code></pre>
+      <br/>
+      This example describes the subject of the picture, using RDFa triples.
+      <br/>
+      Now you can write your own semantic html, clicking here.
+      <code>
+        <%=h '####<será que é isso mesmo a interação?>' %>
+      </code>
+    </p>
+
+  </article>
