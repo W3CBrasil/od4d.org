@@ -74,28 +74,52 @@ END OF RESET CODE
 	position: relative;
 }
 	
-.center-nenu {
-	max-width: 100%;
-	overflow: auto;
+nav {
 	position: relative;
-	float: left;
-	top: 28px;
-	z-index: 400;
-	margin-left: 30px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px auto;
 }
 
 .logo {
 	max-width: 100%;
 	overflow: auto;
 	position: relative;
-	float: left;
+	display: inline-block;
 	z-index: 400;
+	vertical-align: middle;
+	margin-left: 15px;
+}
+
+.contribute {
+	max-width: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
+	margin-top: 15px;
+	padding: 15px;
+	text-align: right;
+	margin-left: 100px;
+}
+
+.center-nenu{
+	max-width: 100%;
+	overflow: auto;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	z-index: 400;
+	margin-left: 30px;
+}
+.head-align	{
+	max-width: 61em;
+	margin: 0px auto;
+	position: relative;
 }
 
 header {
 	background-color: #444444;
     padding: 15px;
-    height: 105px;
+
 }
 
 header a {
@@ -145,12 +169,6 @@ footer a {
 	text-decoration: none;
 }
 
-nav {
-	max-width: 61em;
-	position: relative;
-	padding: 0px 0px 0px 0px;
-	margin: 0px auto;
-}
 
 .main {
 	background-color: #ffffff;

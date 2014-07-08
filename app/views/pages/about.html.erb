@@ -14,18 +14,22 @@
   </head>
   <body>
     <header>
-      <nav>
-        <section class="logo"> 
+     <section class="head-align"> 
+      <div class="logo"> 
         <%= image_tag("logo-od4d2.png", :alt => "Logo OD4D") %>
-        </section> 
-        <section class="center-nenu">  
-          <ul class="header-menu">
+      </div> 
+      <nav class="center-nenu">  
+        <ul class="header-menu">
           <li><a href="/about">ABOUT THE PROJECT</a></li>
+          
           <li><a href="/articles/">CONNECTED NETWORK</a></li>
-        </ul> 
-        </section> 
+        </ul>
       </nav>
-    </header>
+      <div class="contribute">
+        <a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a>
+      </div>
+     </section> 
+  </header>
     <section class="main" resource="#about-od4d" typeof="schema:Article">
       <h1 property="schema:title">About the Project</h1>
       <meta property="schema:datePublished" content="2014-06-20"/>
