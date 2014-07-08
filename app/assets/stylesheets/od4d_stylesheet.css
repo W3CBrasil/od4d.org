@@ -62,7 +62,7 @@ input, select, textarea {
 
 /*
 END OF RESET CODE
-*/ 
+*/
 
 .center-box {
 	top: 138px;
@@ -73,7 +73,7 @@ END OF RESET CODE
 	overflow: auto;
 	position: relative;
 }
-	
+
 nav {
 	position: relative;
 	padding: 0px 0px 0px 0px;
@@ -110,7 +110,7 @@ nav {
 	z-index: 400;
 	margin-left: 30px;
 }
-.head-align	{
+.center-align	{
 	max-width: 61em;
 	margin: 0px auto;
 	position: relative;
@@ -277,13 +277,13 @@ p.copyright {float: left;}
 
 .inner-shadow
 {
-    height: 200px; 
+    height: 200px;
     width: 100%;
-    -moz-box-shadow:    inset  0  8px 8px -8px #1b1b1b, 
+    -moz-box-shadow:    inset  0  8px 8px -8px #1b1b1b,
                         inset  0 -8px 8px -8px #1b1b1b;
-    -webkit-box-shadow: inset  0  8px 8px -8px #1b1b1b, 
+    -webkit-box-shadow: inset  0  8px 8px -8px #1b1b1b,
                         inset  0 -8px 8px -8px #1b1b1b;
-     box-shadow:        inset  0  8px 8px -8px #1b1b1b, 
+     box-shadow:        inset  0  8px 8px -8px #1b1b1b,
                         inset  0 -8px 8px -8px #1b1b1b;
 }
 
@@ -291,7 +291,7 @@ p.copyright {float: left;}
 	-moz-box-shadow:    0px 2px 8px -2px #1b1b1b;
   	-webkit-box-shadow: 0px 2px 8px -2px #1b1b1b;
   	box-shadow:         0px 2px 8px -2px #1b1b1b;
-}	
+}
 
 #Introduction {
   float: left;
@@ -310,8 +310,8 @@ p.copyright {float: left;}
 }
 
 @media screen and (max-width: 50em ) {
-   #Objectives {position: relative; width: 100%; } 
-   #Specific-Tasks {float:left; width: 100%; margin: 0px 0px 20px 0px;}  
+   #Objectives {position: relative; width: 100%; }
+   #Specific-Tasks {float:left; width: 100%; margin: 0px 0px 20px 0px;}
 }
 
 .video-container {
@@ -384,7 +384,7 @@ p.date
 	padding-top: 0px;
 	width: 45%;
 	position: relative;
-	float: left; 
+	float: left;
 }
 
 .button {
@@ -402,8 +402,8 @@ p.date
 .clear { clear: left; }
 
 @media screen and (max-width: 62em ) {
-   .feeds {position: relative; width: 92%;} 
-     
+   .feeds {position: relative; width: 92%;}
+
 }
 /*
 END ARTICLE STYLES
