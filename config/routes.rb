@@ -56,5 +56,6 @@ Rails.application.routes.draw do
 
   root :to => redirect('/about')
   get '/about' => 'pages#about'
+  get '/terms-and-conditions' => 'pages#terms_and_conditions'
   resources :articles, :only => [:index]
 end
