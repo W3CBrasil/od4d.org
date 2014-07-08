@@ -14,12 +14,12 @@
     <%= yield :head %>
 </head>
 <body>
-  <header>
+  <header role="banner">
    <section class="head-align">
     <div class="logo">
       <%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %>
     </div>
-    <nav class="center-nenu">
+    <nav class="center-nenu" role="navigation">
       <ul class="header-menu">
         <li><a href="/about">ABOUT THE PROJECT</a></li>
 
@@ -34,7 +34,7 @@
 
   <%= yield %>
 
-  <footer class="inner-shadow clear">
+  <footer class="inner-shadow clear" role="contentinfo">
     <section class="center-box out-shadow">
       <nav>
         <p class="footbar">
