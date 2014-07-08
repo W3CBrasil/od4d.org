@@ -27,15 +27,21 @@
       </nav>
     </header>
          <section class="main"><br>
-            <h1 property="schema:title">Connected network</h1>
+            <h1>Partners Feeds</h1>
                 <% @articles.each do |article| %>
-                	<article class="feeds rss">
-                		<h3><%= article.title %></h3>
-                		<p class="author">Author: <%= article.author %></p>
-                		<p class="category"> <%= article.articleSection %></p>
-                        <p class="summary"> <%= article.summary || article.description %></p>
-                        <p class="date">Date: <%= article.datePublished %></p>
-                        <button class="button"><a href=<%= article.url %>>Read More</a></button>
+                	<article class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
+                		<h3 property="schema:title"><%= article.title %></h3>
+                		<p class="author" property="schema:author"> <%= article.author %></p>
+                		<p class="category" property="schema:articleSection"> <%= article.articleSection %></p>
+                        <%if article.summary.blank?%>
+                            <p class="summary" property="schema:description"> <%= article.description %></p>
+                        <%else%>
+                            <p class="summary" property="schema:summary"> <%= article.summary%></p>
+                        <%end%>
+                        <%if !article.datePublished.nil? then%>
+                            <p class="date" property="schema:datePublished" content="<%=article.datePublished%>"> <%=article.datePublished %></p>
+                        <%end%>
+                        <button class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
                 	</article>
                 <% end %>
         </section>  
