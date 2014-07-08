@@ -24,14 +24,13 @@ class ArticleDAO
         article.summary = article_hash["articleBody"][0..500] if article_hash["articleBody"]
         article.description = article_hash["description"]
         article.articleSection = article_hash["articleSection"]
-        article.datePublished = format_date(article_hash["datePublished"])
+        article.datePublished = get_date(article_hash["datePublished"])
         article
     end
 
     private
-    def format_date(date)
-      date_time = DateTime.iso8601(date)
-      date_time.strftime("%m/%d/%Y")
+    def get_date(date)
+      DateTime.iso8601(date)
     end
 
     def get_fuseki_articles

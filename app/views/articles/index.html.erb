@@ -13,21 +13,21 @@
     </head>
     <body>
     <header>
-     <section class="head-align"> 
-      <div class="logo"> 
+     <section class="head-align">
+      <div class="logo">
         <%= image_tag("logo-od4d2.png", :alt => "Logo OD4D") %>
-      </div> 
-      <nav class="center-nenu">  
+      </div>
+      <nav class="center-nenu">
         <ul class="header-menu">
           <li><a href="/about">ABOUT THE PROJECT</a></li>
-          
+
           <li><a href="/articles/">CONNECTED NETWORK</a></li>
         </ul>
       </nav>
       <div class="contribute">
         <a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a>
       </div>
-     </section> 
+     </section>
   </header>
          <section class="main"><br>
             <h1>Partners Feeds</h1>
@@ -42,20 +42,20 @@
                             <p class="summary" property="schema:summary"> <%= article.summary%></p>
                         <%end%>
                         <%if !article.datePublished.nil? then%>
-                            <p class="date" property="schema:datePublished" content="<%=article.datePublished%>"> <%=article.datePublished %></p>
+                            <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>"> <%=article.datePublished.strftime("%m/%d/%Y") %></p>
                         <%end%>
                         <button class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
                 	</article>
                 <% end %>
-        </section>  
-        </section>      
+        </section>
+        </section>
         <footer class="inner-shadow clear">
             <section class="center-box out-shadow">
                 <nav><p class="footbar">
-                <a href="http://www.od4d.org/terms-and-conditions/">Terms and conditions</a> 
+                <a href="http://www.od4d.org/terms-and-conditions/">Terms and conditions</a>
                 </p>
                 <p class="copyright">
-                 © 2014 Open Data for Development - All Rights Reserved.   
+                 © 2014 Open Data for Development - All Rights Reserved.
                 </p>
                 <nav>
             </section>
