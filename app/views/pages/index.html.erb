@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <title>Open Data for Development - Home Page</title>
+  <title>Open Data for Development</title>
 <% end %>
 
   <section resource="#about" typeof="schema:Article" role="main" class="main">
@@ -10,7 +10,7 @@
     <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
     <meta property="schema:keywords" content="about;od4d"/>
     <section class="home-left">
-      <h1><a href="/about">Understand Open Data</a></h1> 
+      <h1><a href="/about">Understand Open Data</a></h1>
       <section id="Video" resource="#od4d-about-video" property="schema:video" typeof="schema:VideoObject">
         <meta property="schema:name" content="Open Government Data and OD4D "/>
         <div class="video-container">
@@ -18,13 +18,13 @@
         </div>
       </section>
       <h1>Feeds from our partners</h1>
-        <% @articles.each do |article| %>
-          <article class="feeds-home rss" resource="<%=article.url%>">
-            <h3><a href=<%=article.url%>><%= article.title %></a></h3>
-            <p class"rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> | <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
-            <%end%></p>
-          </article>
-        <% end %>
+      <% @articles.each do |article| %>
+        <article class="feeds-home rss" resource="<%=article.url%>">
+          <h3><a href="/articles#<%=article.slug%>"><%= article.title %></a></h3>
+          <p class"rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> | <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+          <%end%></p>
+        </article>
+      <% end %>
     </section>
     <aside class="home-right">
       <h1>Get Started</h1>
@@ -38,5 +38,5 @@
          Read our terms and conditions </br>
          Examples
       </p>
-    </aside>  
-  </section>  
+    </aside>
+  </section>

@@ -1,6 +1,10 @@
 class Article
   attr_accessor :url, :title, :author, :summary, :description, :articleSection, :datePublished
 
+  def slug
+    title.parameterize
+  end
+
   def share_twitter
      "https://twitter.com/intent/tweet?url=#{URI.escape(url)}&text=#{URI.escape(title)}&via=OD4D"
   end
