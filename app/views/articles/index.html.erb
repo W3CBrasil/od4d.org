@@ -19,6 +19,13 @@
             <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
           <%end%>
           <button class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
+          <span>
+            <a href="<%= article.share_twitter %>">Twitter</a>
+            &nbsp;
+            <a href="<%= article.share_linkedin %>">Linkedin</a>
+            &nbsp;
+            <a href="<%= article.share_googleplus %>">Google+</a>
+          </span>
       	</article>
       <% end %>
   </section>
