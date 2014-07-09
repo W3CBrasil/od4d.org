@@ -35,7 +35,7 @@ class ArticleDAO
 
     private
     def get_date(date)
-      DateTime.iso8601(date)
+      DateTime.iso8601(date) unless date.nil?
     end
 
     def get_fuseki_articles

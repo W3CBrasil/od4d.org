@@ -52,8 +52,6 @@ ol {
 	text-align: right;
 	margin-top: 15px;
 	padding: 15px;
-	text-align: right;
-	margin-left: 100px;
 }
 
 .center-nenu{
@@ -78,17 +76,14 @@ header {
 }
 
 header a {
-	font-size: 1em;
+	font-size: 0.875em;
 	color: #cccccc;
 	font-weight: 500;
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
 header a:hover {
-	font-size: 1em;
 	color: #ffffff;
-	font-weight: 500;
-	font-family: 'Roboto Condensed', sans-serif;
 	text-decoration: none;
 }
 
