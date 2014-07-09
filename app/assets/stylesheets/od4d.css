@@ -1,3 +1,19 @@
+.home-left {
+	width: 65%;
+	margin: 0px;
+	position: relative;
+	display: inline-block;
+}
+
+.home-right {
+	width: 32%;
+	margin: 0px;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+
 .center-box {
 	top: 138px;
 	margin: 0px auto;
@@ -312,6 +328,15 @@ p.summary {
 	margin: 6px 0px 0px 0px;
 	line-height: 1.5em;
 }
+p.rsshome {
+	display: inline-block;
+	font-size: .875em;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 400;
+	color: #666666;
+	margin: 0px 0px 0px 0px;
+	
+}
 
 p.date
 {
@@ -327,6 +352,14 @@ p.date
 	margin-top: 0px;
 	padding-top: 0px;
 	width: 45%;
+	position: relative;
+	float: left;
+}
+
+.feeds-home {
+	margin-top: 0px;
+	padding-top: 0px;
+	width: 100%;
 	position: relative;
 	float: left;
 }

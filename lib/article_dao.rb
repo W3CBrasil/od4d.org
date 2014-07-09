@@ -1,4 +1,5 @@
 require 'fuseki'
+require 'json'
 
 class ArticleDAO
 
@@ -9,6 +10,10 @@ class ArticleDAO
     def list_articles
       articles_hash_array = get_fuseki_articles
       articles_hash_array.map { |article_hash| create_from_hash(article_hash) }
+    end
+
+    def list_articles_limitted_by(record_number)
+        list_articles[0..record_number-1]
     end
 
     def get_fuseki_json

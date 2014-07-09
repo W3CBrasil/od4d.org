@@ -23,4 +23,18 @@ describe ArticleDAO do
     end
   end
 
+  describe "get limitted articles" do
+
+    it "should return 2 articles" do
+
+      articleDao = ArticleDAO.new
+
+      articles = articleDao.list_articles_limitted_by(2)
+
+      
+      expect(articles.length).to eq(2)
+
+    end
+  end
+
 end
