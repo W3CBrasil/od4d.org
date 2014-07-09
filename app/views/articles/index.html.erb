@@ -8,7 +8,7 @@
       <% @articles.each do |article| %>
         <article class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
       		<h3 property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h3>
-      		<p class="author" property="schema:author"> <%= article.author %></p>
+      		<p class="author" property="schema:author">Author: <%= article.author %></p>
       		<p class="category" property="schema:articleSection"> <%= article.articleSection %></p>
           <%if article.summary.blank?%>
             <p class="summary" property="schema:description"> <%= article.description %></p>
@@ -16,7 +16,7 @@
             <p class="summary" property="schema:summary"> <%= article.summary%></p>
           <%end%>
           <%if !article.datePublished.nil? then%>
-            <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>"> <%=article.datePublished.strftime("%m/%d/%Y") %></p>
+            <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
           <%end%>
           <button class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
       	</article>
