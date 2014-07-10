@@ -65,7 +65,7 @@ ol {
 }
 
 @media screen and (max-width: 62em ) {
-.logo { background-color: red;
+.logo { 
 	width: 281px;
 	display: block;
 	vertical-align: middle;
