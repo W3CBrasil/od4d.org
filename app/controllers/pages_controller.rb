@@ -9,6 +9,8 @@ class PagesController < ApplicationController
   end
   def how_to_new
   end
+  def glossary
+  end
   def index
     @articles = ArticleDAO.new.list_articles_limitted_by(2)
   end
