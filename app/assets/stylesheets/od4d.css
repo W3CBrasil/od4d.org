@@ -1,3 +1,4 @@
+
 .home-left {
 	width: 65%;
 	margin: 0px;
@@ -153,6 +154,7 @@ footer a {
 	padding: 30px 15px 0px 15px;
 	margin: 0px auto;
 	position: relative;
+	z-index: -1;
 	}
 
 h1 {
@@ -280,12 +282,12 @@ p.copyright {float: left;}
 }
 
 #Objectives {
-  width: 28%;
+  width: 69%;
   float: left;
 }
 
 #Specific-Tasks {
-  width: 69%;
+  width: 28%;
   float: left;
   margin-left: 3%;
   margin-bottom: 50px;
