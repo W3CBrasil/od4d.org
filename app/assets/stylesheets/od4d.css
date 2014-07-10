@@ -30,9 +30,9 @@ nav {
 	margin: 0px auto;
 }
 
-ol { 
-    list-style-type: decimal; 
-    list-style-position: inside; 
+ol {
+    list-style-type: decimal;
+    list-style-position: inside;
 }
 
 .logo {
@@ -65,7 +65,7 @@ ol {
 }
 
 @media screen and (max-width: 62em ) {
-.logo { 
+.logo {
 	width: 281px;
 	display: block;
 	vertical-align: middle;
@@ -91,7 +91,7 @@ ol {
 }
 
 .center-align	{
-	max-width: 61em;
+	max-width: 68em;
 	margin: 0px auto;
 	position: relative;
 }
@@ -357,7 +357,7 @@ p.rsshome {
 	font-weight: 400;
 	color: #666666;
 	margin: 0px 0px 0px 0px;
-	
+
 }
 
 p.date
@@ -407,4 +407,9 @@ button a {
 @media screen and (max-width: 62em ) {
    .feeds {position: relative; width: 92%;}
 
+}
+
+.cases img {
+	width: 311px;
+	text-align:center;
 }
