@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:schema="http://schema.org/" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,7 +14,7 @@
     <%= javascript_include_tag 'application' %>
     <%= yield :head %>
 </head>
-<body>
+<body prefix="schema: http://schema.org/">
   <header role="banner">
    <section class="center-align">
     <div class="logo">
