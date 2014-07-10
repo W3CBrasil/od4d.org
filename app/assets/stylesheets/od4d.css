@@ -402,3 +402,12 @@ button a {
    .feeds {position: relative; width: 92%;}
 
 }
+
+.cases article h2 {
+	color: #666666;
+}
+
+.cases article .case {
+	width:311px;
+	height:161px;
+}
