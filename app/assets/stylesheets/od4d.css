@@ -364,10 +364,16 @@ p.date
 	line-height: 1.3em;
 }
 
+.social-buttons {
+	margin: 20;
+	background-color: red;
+
+}
+
 .feeds {
 	margin-top: 0px;
 	padding-top: 0px;
-	width: 45%;
+	width: 100%;
 	position: relative;
 	float: left;
 }
@@ -390,6 +396,12 @@ p.date
   border: 1px solid #444444;
   text-decoration: none;
   position: relative;
+}
+
+.button:hover
+{
+	cursor: hand;
+	cursor: pointer;
 }
 
 button a {

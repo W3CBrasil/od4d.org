@@ -18,7 +18,7 @@
           <%if !article.datePublished.nil? then%>
             <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
           <%end%>
-          <button class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
+          <a property="schema:url" href=<%=article.url%>><button tabindex="-1" class="button">Read More</button></a>
           <span class="social-buttons">
             <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter", :size => "24x24") %></a>
             &nbsp;
