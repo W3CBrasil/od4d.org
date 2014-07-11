@@ -5,6 +5,10 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
+
+gem 'jquery-rails'
+gem 'foundation-rails'
+
 group :development do
   gem 'capistrano-rails'
   gem 'colorize'

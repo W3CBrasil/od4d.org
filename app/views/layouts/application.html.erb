@@ -20,20 +20,38 @@
     <div class="logo">
       <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
     </div>
-    <nav class="center-menu" role="navigation">
-      <ul class="header-menu">
-        <li><a href="/about">ABOUT THE PROJECT</a></li>
-        <li><a href="/articles">CONNECTED NETWORK</a></li>
-        <li><a href="/how-to-create-a-semantic-page">BE SEMANTIC</a></li>
-        <li><a href="/how-to-integrate">CONNECT WITH US</a></li>
-        <li><a href="/cases">PRACTICAL CASES</a></li>
-      </ul>
-    </nav>
 
-    <div class="contribute">
-      <a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a>
-    </div>
-   </section>
+      <div class="div-nav-menu">
+        <nav class="top-bar nav-alignment" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+            </li>
+             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+
+          <section class="top-bar-section">
+            <ul class="right">
+                <li><a href="/about">ABOUT THE PROJECT</a></li> 
+                <li><a href="/articles">CONNECTED NETWORK</a></li>
+                <li class="has-dropdown">
+                  <a href="#">LEARN</a>
+                  <ul class="dropdown">
+                    <li><a href="/how-to-create-a-semantic-page">CREATE A SEMANTIC PAGE</a></li>
+                    <li><a href="/how-to-new">CREATE A SEMANTIC PAGE (NEW)</a></li>
+                    <li><a href="/how-to-integrate">CONNECT WITH US</a></li>    
+                    <li><a href="/cases">PRACTICAL CASES</a></li>
+                    <li><a href="/glossary">GLOSSARY</a></li>
+                  </ul>
+                </li>
+                <li><a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a></li>
+            </ul>
+            
+          </section>
+        </nav>
+      </div>
+        
+         </section>
   </header>
 
   <%= yield %>
