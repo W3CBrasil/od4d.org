@@ -10,7 +10,20 @@ desc "Deploy to production"
     # if not provided, it will use master
     ENV['REVISION'] = ENV['SNAP_COMMIT'] if ENV['SNAP_CI']
 
+    configure_deploy_ssh_key
     sh "cap #{environment} deploy"
+  end
+
+  def configure_deploy_ssh_key
+    server = ENV['OD4D_STAGING_SERVER'] || ENV['OD4D_PROD_SERVER']
+    command = <<-eos
+      echo "$DEPLOY_SSH_KEY" > ~/.ssh/deploy-key
+      chmod 0600 ~/.ssh/deploy-key
+      echo -e "\nHost #{server}\n\tUserKnownHostsFile /dev/null\n\tIdentityFile ~/.ssh/deploy-key\n\tForwardAgent yes" >> $HOME/.ssh/config
+      ssh-agent > ~/ssh-agent_exports
+      source ~/ssh-agent_exports && ssh-add ~/.ssh/deploy-key
+    eos
+    sh command if ENV['CI']
   end
 
   desc "Deploy to development"
