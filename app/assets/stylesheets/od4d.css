@@ -182,6 +182,7 @@ p {
 
 em {
 	font-weight: 500;
+	font-style: normal;
 }
 
 .content {
@@ -199,6 +200,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
+	color: #da6235;
 }
 
 
@@ -421,6 +423,7 @@ p.date
 .button {
   font-size: .875em;
   font-family: 'Exo 2', sans-serif;
+  color: #444444;
   font-weight: 300;
   padding: 4px 6px 4px 6px;
   margin: 10px 0 10px 0;
@@ -434,6 +437,9 @@ p.date
 {
 	cursor: hand;
 	cursor: pointer;
+  	background-color: #eeeeee;
+  	border: 1px solid #444444;
+  	color: #444444
 }
 
 button a {
