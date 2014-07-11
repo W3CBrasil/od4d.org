@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <title>Open Data for Development - Practical Cases</title>
+<% end %>
+
+<section class="main" role="main">
+
+  <section class="cases">
+    <h1>Practical Cases</h1>
+
+    <% @practical_cases.each do |practical_case| %>
+      <article id="<%=practical_case.slug%>" class="rss" resource="<%=practical_case.url%>" typeof="schema:Article">
+        <h3 property="schema:headline"><a href=<%=practical_case.url%>><%= practical_case.title %></a></h3>
+        <p class="author" property="schema:author">Author: <%= practical_case.author %></p>
+        <%if !practical_case.datePublished.nil? then%>
+          <p class="date" property="schema:datePublished" content="<%=practical_case.datePublished.iso8601%>">Date: <%=practical_case.datePublished.strftime("%m/%d/%Y") %></p>
+        <%end%>
+        <div class="social-buttons">
+          <a href="<%=practical_case.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter", :size => "24x24") %></a>
+          &nbsp;
+          <a href="<%=practical_case.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn", :size => "24x24") %></a>
+          &nbsp;
+          <a href="<%=practical_case.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+", :size => "24x24") %></a>
+        </div>
+        <div property="schema:articleBody">
+          <%= practical_case.articleBody.html_safe %>
+        </div>
+      </article>
+    <% end %>
+
+  </section>
+</section>
