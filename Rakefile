@@ -2,6 +2,7 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
+desc "Deploy to production"
 task :deploy do
   # this will be use by capistrano to decide which git revision to deploy
   # if not provided, it will use master
