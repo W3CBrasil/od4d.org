@@ -6,12 +6,16 @@ namespace :deploy do
 desc "Deploy to production"
 
   def deploy(environment)
+    sh "cap #{environment} deploy"
+  end
+
+  def deploy_ci(environment)
     # this will be use by capistrano to decide which git revision to deploy
     # if not provided, it will use master
     ENV['REVISION'] = ENV['SNAP_COMMIT'] if ENV['SNAP_CI']
 
     configure_deploy_ssh_key
-    sh "cap #{environment} deploy"
+    sh "source ~/ssh-agent-exports && cap #{environment} deploy"
   end
 
   def configure_deploy_ssh_key
@@ -20,10 +24,10 @@ desc "Deploy to production"
       echo "$DEPLOY_SSH_KEY" > ~/.ssh/deploy-key
       chmod 0600 ~/.ssh/deploy-key
       echo -e "\nHost #{server}\n\tUserKnownHostsFile /dev/null\n\tIdentityFile ~/.ssh/deploy-key\n\tForwardAgent yes" >> $HOME/.ssh/config
-      ssh-agent > ~/ssh-agent_exports
-      source ~/ssh-agent_exports && ssh-add ~/.ssh/deploy-key
+      ssh-agent > ~/ssh-agent-exports
+      source ~/ssh-agent-exports && ssh-add ~/.ssh/deploy-key
     eos
-    sh command if ENV['CI']
+    sh command
   end
 
   desc "Deploy to development"
@@ -33,11 +37,11 @@ desc "Deploy to production"
 
   desc "Deploy to staging"
   task :staging do
-    deploy("staging")
+    deploy_ci("staging")
   end
 
   desc "Deploy to production"
   task :production do
-    deploy("production")
+    deploy_ci("production")
   end
 end
