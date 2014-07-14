@@ -28,7 +28,8 @@ desc "Deploy to production"
       echo "$DEPLOY_SSH_KEY" > ~/.ssh/deploy-key
       chmod 0600 ~/.ssh/deploy-key
       echo -e "\nHost #{server}\n\tUserKnownHostsFile /dev/null\n\tIdentityFile ~/.ssh/deploy-key\n\tForwardAgent yes" >> $HOME/.ssh/config
-      $(ssh-agent)
+      ssh-agent > ~/ssh-agent_exports
+      source ~/ssh-agent_exports
       ssh-add ~/.ssh/deploy-key
     eos
   end
