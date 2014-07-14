@@ -13,69 +13,157 @@
     <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
     <meta property="schema:keywords" content="howto;semantic;od4d"/>
 
-    <section>
-      <h2>1. Understanting RDF concept</h2>
-      <p>
-        Resource Description Framework it's a way to write XML that describes relashionship, concept or things.
-There are 3 things that makes an RDF statement: the subject, the predicate and the object.
-      </p>
-      <pre><code class="language-markup"><%=h '  <http://www.od4d.org/about#about>  rdf:type  schema:Article' %></code></pre>
-      <p>
-        RDF needs Uniform Resource Identifiers to specify subjects and predicates. To know more about them <a http="http://www.w3.org/TR/cooluris/">here</a>
-      </p>
-      <pre><code class="language-markup"><%=h '  <http://www.od4d.org/about#about>' %></code></pre>
-    </section>
 
+<h2>RDFa:</h2>
+        <p>RDFa is a extension markup for HTML, with this you can put semantic data in your HTML, static or dynamic, other web sites can reason about it without accessing your database. For instance, search engines use this information to display better search results, with better ranking, and more precise searches. Here is how it might appear for a semantic web site:</p>
+        <p><a href="https://support.google.com/webmasters/answer/1408986?hl=en">https://support.google.com/webmasters/answer/1408986?hl=en</a></p>
+
+
+        <p>Most common, and recommended <a href="/glossary#vocabulary">vocabularies</a>: http://schema.org/, DBPedia, others?</p>
+
+    <p>RDFa Tutorial:</p>
+        <p>Here we are going to show how <a href="/about">http://od4d.org/about</a> page was made using RDFa markup to describe semantic data.</p>
+        <p>This is a piece of the raw html of "od4d.org/about" page, before making it semantic:</p>
+        <p>
+            <pre><code class="language-markup"><%=h '<article>
+    <h1>About the Project</h1>
     <section>
-      <h2>2. RDFa and RDF: WTF?</h2>
-      <p>
-        RDFa it's not the same thing of RDF. They're different because RDF is just a data model designed for the Web and it serves for specify relations. RDFa is how you can describe RDF relations in your HTML code (<a href="http://manu.sporny.org/2012/mythical-differences/">Read why it's better than microformats!</a>)
-      </p>
-      <br />
-      <section>
-        <h3>Some concepts of RDFa are important:</h3>
         <p>
-          Remember that you will always have a triple: a described relation between objects.
+            <video src="//player.vimeo.com/video/69632849"> </video>
         </p>
-        <p>
-          The @prefix, that is an <a href="http://www.w3.org/TeamSubmission/turtle/">turtle</a> expression, serves to declare the abreviation of the URI, specified by a <a href="http://www.w3.org/blog/data/2014/01/06/vocabularies-at-w3c/">vocabulary</a> described by RDF triples in a single domain. Vocabularies defines what triple means, because it allows desambiguation.
-        </p>
-        <p>
-          RDFa lite is a simple version of <a href="http://www.w3.org/TR/rdfa-primer/">RDFa Primer</a> and it's used to describe RFD to browsers. You can read the documentation of RDFa Lite at W3C's <a http="http://www.w3.org/TR/rdfa-lite/">docs</a>.
-        </p>
-      </section>
-      <br />
-      <section>
-        <h3>RDFa uses basically:</h3>
-        <p>
-          Atributes: vocab, typeof, property, resource, prefix. See this example, from W3C RDFa Lite docs:
-          <br/>
-          <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" typeof="Person">
-     My name is
-     <span property="name">Manu Sporny</span>
-     and you can give me a ring via
-     <span property="telephone">1-800-555-0199</span>
-     or visit
-     <img property="url" href="http://manu.sporny.org/">my homepage</a>.
-  </p>' %></code></pre>
-        </p>
-        <p>
-        and Resource. See this example, from W3C RDFa Lite docs:
-          <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" resource="#manu" typeof="Person">
-     My name is
-     <span property="name">Manu Sporny</span>
-     and you can give me a ring via
-     <span property="telephone">1-800-555-0199</span>.
-     <img property="image" src="http://manu.sporny.org/images/manu.png" />
-  </p>' %></code></pre>
-        </p>
-        <p>
-          Another example describing the subject of the picture, using RDFa triples.:
-          <pre><code class="language-markup"><%=h '  <div vocab="http://schema.org/" typeof="Product">
-    <img property="image" src="droid.jpg" />
-    <span property="name">Android Phone</span>
-  </div>' %></code></pre>
-        </p>
-      </section>
     </section>
+    <section>
+        <h2>Introduction</h2>
+        <p>Sharing governmental information in open, accessible...</p>
+    </section>
+</article>
+.
+.
+.'%></code></pre>
+        </p>
+
+        <p>Let's start making it semantic, we're going to start declaring our very first resource, using the attributes: <em>resource, vocab, typeof</em>.</p>
+        <p>
+            <pre><code class="language-markup"><%=h '<article vocab="http://schema.org" resource="#about" typeof="Article">'%></code></pre>
+        </p>
+        <p>
+            The aditional attributes means the following:
+            <ul>
+                <li><em>vocab</em>: This resource is going to use the informed <a href="/glossary#vocabulary">vocabulary</a>, all the RDFa inside this resource will be relative to this <a href="/glossary#vocabulary">vocabulary</a></li>
+                <li><em>resource</em>: This tag, and all of it's content, describes the "#about" resource. The "#about" resource has the absolute URI: <em><%="#{request.protocol}#{request.host_with_port}/about/#about"%></em>. When referencing resources from other domains, the absolute URI should be used. </li>
+                <li><em>typeof</em>: This resource is of the following type. This type should be from the declared <a href="/glossary#vocabulary">vocabulary</a>.</li>
+            </ul>
+        </p>
+
+        <p>
+            Now let's decribe it a little bit further:
+        </p>
+
+        <p>
+            <pre data-line="3"><code class="language-markup"><%=h '<article vocab="http://schema.org" resource="#about" typeof="Article">
+    <h1 property="headline">About the Project</h1>
+    <section>
+        <p>
+            <video property="embedUrl" src="//player.vimeo.com/video/69632849"> </video>
+        </p>
+    </section>
+    <section>
+        <h2 property="description">Introduction</h2>
+        <p>Sharing governmental information in open, accessible...</p>
+    </section>
+    <section property="articleBody">
+        <p>
+         The general objective of this research project is to contribute to the development of Open Data strategies leading to accountability, innovative services and effective public policies in strategic segments, thus promoting a more inclusive economy of knowledge in Latin America and the Caribbean. In order to achieve this, the project investigates the potential of Open Data in public policies on 3 fronts: <b>transparency, new services, and equitable development.</b>
+         .
+         .
+         .
+        </p>
+        <p property="author">Author: W3C</p>
+        <p property="datePublished">05/05/2014</p>
+    </section>
+</article>' %></code></pre>
+            </p>
+
+        <p>Here we are using the attribute <em>property</em> in some places, this attribute describe what an html tag element represents for it's resource, which is the html tag content, e.g. <em><%=h '<p>THIS CONTENT for example</p>'%></em>, based on pre-defined attributes that some <a href="/glossary#vocabulary">vocabulary</a> specifies. </p> <p>With this enhancements our content is much more described, it's going to be way easier to know what's what when computers access this page. In this specific example, we specified the following properties, from the <a href="http://schema.org/Article">http://schema.org/Article</a> <a href="/glossary#vocabulary">vocabulary</a>: <em>headline, embedUrl, description, articleBody, author</em> </p>
+
+        <p>Now, it's also important to pay attention for how an value should be provided for a given property specified in the <a href="/glossary#vocabulary">vocabulary</a> being used. For example dates are interpreted differently by people and computers. For this reason we should present it for the user in a more "human" way, and for computers in a more technical way. To do that, we can use the <em>content</em> property.</p>
+
+        <p>
+            <pre><code class="language-markup"><%=h '        .
+        .
+       <p property="author">Author: W3C</p>
+       <p property="datePublished" content="2014-05-05T00:00:00+00:00">05/05/2014</p>
+    </section>
+</article>' %></code></pre>
+        </p>
+
+        <p>As can be seen in the example above, the <em>content</em> attribute in the <em><%=h '"<p property="datePublished" content="2014-05-05T00:00:00+00:00">"'%></em> is different than the actual content provided in <em><%=h '"05/05/2014</p>"'%></em>, even though they represent the same date. With this, when applications and tools come across this html, they will be able to actually understand the date represented, because they are going to use the the attribute <em>content</em> of the tag, which is in the format that they expect it to be, ISO 8061, as specified <a href='http://schema.org/Date'>here</a></p>
+
+        <p> That's it, that's how to markup html with RDFa following some conventions, now let's include a tricky thing here, something that would make our markup ambiguous. Let's say that we want to describe our content with more than one <a href="/glossary#vocabulary">vocabulary</a>, we need to properly represent that in order to computers understand it. First let's do it the way we know so far, just introducing a html tag that already exists, the tag <em>meta</em>. </p>
+
+        <p>
+            <pre><code class="language-markup"><%=h '<article vocab="http://schema.org" resource="#about" typeof="Article">
+<h1 property="headline">About the Project</h1>
+<section resource="#od4d-about-video" vocab="http://ogp.me/ns#" typeof="video.movie">
+    <meta property="title" content="Open Data for a easier life"/>
+    <p>
+        <video property="url" src="//player.vimeo.com/video/69632849"></video>
+    </p>
+</section>'%></code></pre>
+        </p>
+
+        <p>Here a new <a href="/glossary#vocabulary">vocabulary</a> was used to describe our content, the <a href="http://ogp.me/ns#">http://ogp.me/ns#</a> <a href="/glossary#vocabulary">vocabulary</a>, which is the Open Graph Protocol that Facebook created. Here we are using it to show that many <a href="/glossary#vocabulary">vocabularies</a> can be used to describe content semantically. Even though, one may use as many <a href="/glossary#vocabulary">vocabularies</a> as he/she wants, choosing very well defined <a href="/glossary#onthology">onthologies</a>, will help minimize the amount of <a href="/glossary#vocabulary">vocabularies</a> needed.</p>
+
+        <p> Another important thing to note here, there is a little thing to fix. We are defining our video, with "http://ogp.me/ns" <a href="/glossary#vocabulary">vocabulary</a>, but it is also inside of a resource said to be using "http://schema.org" <a href="/glossary#vocabulary">vocabulary</a>, this is an ambiguity, RDFa does not allow it unless just one resource is being defined inside another. So let's fix it using <em>namespaces</em> or <em>aliases</em> with the attribute prefix specified by RDFa. Here's how to declare them:</p>
+        <p>
+            <pre><code class="language-markup"><%=h '<html xmlns="http://www.w3.org/1999/xhtml">
+<head>...</head>
+<body prefix="schema: http://schema.org/
+              og: http://ogp.me/ns#">'%></code></pre>
+        </p>
+
+        <p>And here's the entire code, using the aliases/namespaces to use properties and types of some <a href="/glossary#vocabulary">vocabulary</a>:</p>
+
+        <p>
+           <pre><code class="language-markup"> <%=h '<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>...</head>
+ <body prefix="schema: http://schema.org/
+               og: http://ogp.me/ns#">
+  <article resource="#about" typeof="schema:Article">
+      <h1 property="schema:headline">About the Project</h1>
+      <section resource="#od4d-about-video" typeof="og:video.movie">
+          <meta property="og:title" content="Open Data for a easier life"/>
+          <p>
+              <video property="og:url" src="//player.vimeo.com/video/69632849"> </video>
+          </p>
+      </section>
+      <section>
+          <h2 property="schema:description">Introduction</h2>
+          <p>Sharing governmental information in open, accessible...</p>
+      </section>
+      <section property="schema:articleBody">
+          <p>
+           The general objective of this research project is to contribute to the development of Open Data strategies leading to accountability, innovative services and effective public policies in strategic segments, thus promoting a more inclusive economy of knowledge in Latin America and the Caribbean. In order to achieve this, the project investigates the potential of Open Data in public policies on 3 fronts: <b>transparency, new services, and equitable development.</b>
+           .
+           .
+           .
+          </p>
+          <p property="schema:author">Author: W3C</p>
+      </section>
   </article>
+  .
+  .
+  .
+  </body>
+  </html>'%></code></pre></p>
+        <p>
+            The example above is the final version of a semantic html, for the two resources that we were trying to describe semantically. The <em>prefix</em> is used to to create namespaces, or aliases for the <a href="/glossary#vocabulary">vocabulary</a> URI, to be easier to use it. We use the <em>prefix</em> attribute in the main html element for content, the <em>body</em>, this because we wanted to describe resources only in the content part of the website. But the <em>prefix</em> tag could be also used in the <em>html</em> tag, to markup semantic data in the <em>head</em> section of the page. Here two aliases were created, the <em>schema</em> and the <em>og</em> for the <em>http://schema.org, http://ogp.me/ns#</em> <a href="/glossary#vocabulary">vocabularies</a> respectivelly. Every type and property that we use further down the html code, is prefixed with it's respective alias/namespace, like this, there is no ambiguity, and also just by rapidily looking into it, we know from which <a href="/glossary#vocabulary">vocabulary</a> the types and properties are from.
+        </p>
+        <p>References:</p>
+        <ul>
+            <li><a href="http://www.w3.org/standards/semanticweb/">W3C Semantic Web Standards</a></li>
+            <li><a href="http://rdfa.info/">RDFa Playground</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/146898?hl=en">Google RDFa Support</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/1408986?hl=en">Google Microdata Support</a></li>
+        </ul>
+</article>

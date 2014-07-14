@@ -1,0 +1,81 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'prism-only', media: 'all' %>
+  <%= javascript_include_tag 'prism-only' %>
+  <title>Open Data for Development - Introduction to RDF and RDFa</title>
+<% end %>
+
+  <article class="main" resource="#introduction-to-rdf-and-rdfa" typeof="schema:Article">
+    <h1 property="schema:headline">Introduction to RDF and RDFa</h1>
+    <meta property="schema:datePublished" content="2014-07-08"/>
+    <meta property="schema:wordCount" content="503"/>
+    <meta property="schema:inLanguage" content="en-US"/>
+    <meta property="schema:copyrightHolder" content="W3C"/>
+    <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
+    <meta property="schema:keywords" content="howto;rdf;rdfa;semantic;od4d"/>
+
+    <section>
+      <h2>1. Understanting RDF concept</h2>
+      <p>
+        Resource Description Framework it's a way to write XML that describes relashionship, concept or things.
+There are 3 things that makes an RDF statement: the subject, the predicate and the object.
+      </p>
+      <pre><code class="language-markup"><%=h '  <http://www.od4d.org/about#about>  rdf:type  schema:Article' %></code></pre>
+      <p>
+        RDF needs Uniform Resource Identifiers to specify subjects and predicates. To know more about them <a http="http://www.w3.org/TR/cooluris/">here</a>
+      </p>
+      <pre><code class="language-markup"><%=h '  <http://www.od4d.org/about#about>' %></code></pre>
+    </section>
+
+    <section>
+      <h2>2. RDFa and RDF: WTF?</h2>
+      <p>
+        RDFa it's not the same thing of RDF. They're different because RDF is just a data model designed for the Web and it serves for specify relations. RDFa is how you can describe RDF relations in your HTML code (<a href="http://manu.sporny.org/2012/mythical-differences/">Read why it's better than microformats!</a>)
+      </p>
+      <br />
+      <section>
+        <h3>Some concepts of RDFa are important:</h3>
+        <p>
+          Remember that you will always have a triple: a described relation between objects.
+        </p>
+        <p>
+          The @prefix, that is an <a href="http://www.w3.org/TeamSubmission/turtle/">turtle</a> expression, serves to declare the abreviation of the URI, specified by a <a href="http://www.w3.org/blog/data/2014/01/06/vocabularies-at-w3c/">vocabulary</a> described by RDF triples in a single domain. Vocabularies defines what triple means, because it allows desambiguation.
+        </p>
+        <p>
+          RDFa lite is a simple version of <a href="http://www.w3.org/TR/rdfa-primer/">RDFa Primer</a> and it's used to describe RFD to browsers. You can read the documentation of RDFa Lite at W3C's <a http="http://www.w3.org/TR/rdfa-lite/">docs</a>.
+        </p>
+      </section>
+      <br />
+      <section>
+        <h3>RDFa uses basically:</h3>
+        <p>
+          Atributes: vocab, typeof, property, resource, prefix. See this example, from W3C RDFa Lite docs:
+          <br/>
+          <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" typeof="Person">
+     My name is
+     <span property="name">Manu Sporny</span>
+     and you can give me a ring via
+     <span property="telephone">1-800-555-0199</span>
+     or visit
+     <img property="url" href="http://manu.sporny.org/">my homepage</a>.
+  </p>' %></code></pre>
+        </p>
+        <p>
+        and Resource. See this example, from W3C RDFa Lite docs:
+          <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" resource="#manu" typeof="Person">
+     My name is
+     <span property="name">Manu Sporny</span>
+     and you can give me a ring via
+     <span property="telephone">1-800-555-0199</span>.
+     <img property="image" src="http://manu.sporny.org/images/manu.png" />
+  </p>' %></code></pre>
+        </p>
+        <p>
+          Another example describing the subject of the picture, using RDFa triples.:
+          <pre><code class="language-markup"><%=h '  <div vocab="http://schema.org/" typeof="Product">
+    <img property="image" src="droid.jpg" />
+    <span property="name">Android Phone</span>
+  </div>' %></code></pre>
+        </p>
+      </section>
+    </section>
+  </article>
