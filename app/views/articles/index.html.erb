@@ -29,7 +29,8 @@
           <%elsif !article.description.blank? %>
             <p class="summary" property="schema:description"> <%= article.description %></p>
           <%end%>
-          <a property="schema:url" href=<%=article.url%>><button tabindex="-1" class="button">Read More</button></a>
+
+          <button tabindex="-1" class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
       	</article>
       <% end %>
   </section>
