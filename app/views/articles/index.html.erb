@@ -4,10 +4,10 @@
 
   <section class="main" role="main">
     <br>
-    <h1>Partners Feeds</h1>
+    <h1>Connected Network</h1>
       <% @articles.each do |article| %>
         <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
-      		<h3 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h3>
+      		<h2 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h2>
       		<%if !article.author.blank? then%>
             <p class="author" property="schema:author">Author: <%= article.author %></p>
           <%end%>

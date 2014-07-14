@@ -1,13 +1,13 @@
 
 .home-left {
-	width: 65%;
+	width: 55%;
 	margin: 0px;
 	position: relative;
 	display: inline-block;
 }
 
 .home-right {
-	width: 32%;
+	width: 39%;
 	margin: 0px;
 	position: relative;
 	display: inline-block;
@@ -15,6 +15,38 @@
 	margin-left: 20px;
 }
 
+div.separator {
+	border-right:1px solid #1b1b1b;
+	position: relative;
+	vertical-align: top;
+	height:580px;
+	display:inline-block;
+	margin: 8px;
+	width: 1px;
+	border-color: #dddddd;
+}
+
+@media screen and (max-width: 62em ) {
+
+.home-left {
+	width: 100%;
+	margin: 0px;
+	position: relative;
+	display: inline-block;
+}
+
+.home-right {
+	width: 100%;
+	margin: 0px;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+	}
+div.separator {
+	display: none;
+}	
+}
 .center-box {
 	top: 138px;
 	margin: 0px auto;
@@ -157,14 +189,15 @@ h2 {
 }
 
 h3 {
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 600;
-	color: #666666;
+	color: #da6235;
 	line-height: 1.2em;
 	padding: 0px;
 	margin-top: 0px
 }
+
 
 h3 a {
   color: #666666;
@@ -323,8 +356,8 @@ p.copyright {float: left;}
 START ARTICLE STYLES
 */
 
-h3.Feeds {
-	font-size: 1.2em;
+h2.Feeds {
+	font-size: 1.1em;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 600;
 	color: #666666;
@@ -333,7 +366,7 @@ h3.Feeds {
 	margin-top: 0px
 }
 
-h3.Feeds a {
+h2.Feeds a {
   color: #666666;
 }
 
@@ -448,10 +481,6 @@ button a {
 
 .clear { clear: left; }
 
-@media screen and (max-width: 62em ) {
-   .feeds {position: relative; width: 92%;}
-
-}
 
 .cases article h2 {
 	color: #666666;

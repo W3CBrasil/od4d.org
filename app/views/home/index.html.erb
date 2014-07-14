@@ -5,31 +5,35 @@
   <section role="main" class="main">
     <section class="home-left">
       <h1><a href="/about">Understand Open Data</a></h1>
+      <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
       <section id="Video" resource="/about/#od4d-about-video">
         <div class="video-container">
-          <iframe property="schema:embedUrl" src="//player.vimeo.com/video/69632849"></iframe>
+          <iframe src="//player.vimeo.com/video/69632849"></iframe>
         </div>
       </section>
-      <h1>Feeds from our partners</h1>
+      
+    </section>
+    <div class="separator"></div>
+    <aside class="home-right">
+     
+      <h2>Connected Network</h2><br>
       <% @articles.each do |article| %>
         <article class="feeds-home rss" resource="<%=article.url%>">
           <h3><a href="/articles#<%=article.slug%>"><%= article.title %></a></h3>
-          <p class="rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> | <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+          <p class="rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> <br> <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
           <%end%></p>
         </article>
       <% end %>
-    </section>
-    <aside class="home-right">
-      <h1>Get Started</h1>
-      <h2><a href="/learn/how-to-create-a-semantic-page">How to create a semantic page</a></h2>
-      <p>Understanting RDF concept <br>
-         RDFa and RDF: WTF? <br>
-         Examples
-      </p>
-      <h2><a href="/learn/how-to-integrate">How to connect your site with us</a></h2>
-      <p>Understanting how to connect <br>
-         Read our terms and conditions <br>
-         Examples
-      </p>
+      <h2><a href="/learn/introduction-to-rdf-and-rdfa">RDA and RDFa concepts</a></h2>
+      <ul>
+        <li>Understanting RDF concept </li>
+         <li>RDFa and RDF? </li>
+         <li>Code examples </li>
+      </ul>
+      <h2><a href="/learn/how-to-integrate">How to integrate with us</a></h2>
+      <ul>
+        <li>Understanting how to connect </li>
+        <li>Read our terms and conditions </li>
+      </ul>
     </aside>
   </section>
