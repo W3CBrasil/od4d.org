@@ -14,7 +14,7 @@
       <% @articles.each do |article| %>
         <article class="feeds-home rss" resource="<%=article.url%>">
           <h3><a href="/articles#<%=article.slug%>"><%= article.title %></a></h3>
-          <p class"rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> | <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+          <p class="rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> | <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
           <%end%></p>
         </article>
       <% end %>
