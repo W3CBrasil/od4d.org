@@ -338,7 +338,7 @@ h3.Feeds a {
 }
 
 .social-buttons {
-	display: inline-block; 
+	display: inline-block;
 	position: relative;
 	margin: 10px;
 	vertical-align: middle;
@@ -460,4 +460,9 @@ button a {
 .cases article .case {
 	width:311px;
 	height:161px;
+}
+
+.partners img {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
