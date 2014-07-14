@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/glossary' => 'pages#glossary'
   resources :articles, :only => [:index]
   resources :cases, :only => [:index]
+  resources :partners, :only => [:index]
 end

@@ -1,0 +1,21 @@
+<% content_for :head do %>
+  <title>Open Data for Development - Partners</title>
+<% end %>
+
+<section class="main" role="main">
+
+  <section class="partners">
+    <h1>Partners</h1>
+
+    <% @partners.each do |partner| %>
+      <article class="rss" typeof="schema:Organization">
+        <%= image_tag(partner.logo, :alt => partner.name, :size => "250x90", :property => "schema:logo") %>
+        <h2 property="schema:name"><a target="_blank" href=<%= partner.url %>><%= partner.name %></a></h2>
+        <div property="schema:description">
+          <%= partner.description %>
+        </div>
+      </article>
+    <% end %>
+
+  </section>
+</section>
