@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root :to => redirect('/index')
-  get '/index' => 'pages#index'
+  root 'home#index'
   get '/about' => 'pages#about'
   get '/terms-and-conditions' => 'pages#terms_and_conditions'
   get '/how-to-create-a-semantic-page' => 'pages#how_to_create_a_semantic_page'

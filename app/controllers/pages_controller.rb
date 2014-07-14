@@ -11,9 +11,6 @@ class PagesController < ApplicationController
   end
   def glossary
   end
-  def index
-    @articles = ArticleDAO.new.list_articles_limitted_by(2)
-  end
   def cases
   end
 end
