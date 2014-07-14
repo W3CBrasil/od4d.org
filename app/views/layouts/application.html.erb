@@ -16,11 +16,10 @@
 </head>
 <body prefix="schema: http://schema.org/">
   <header role="banner">
-   <section class="center-align">
-    <div class="logo">
-      <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
-    </div>
-
+    <section class="center-align">
+      <div class="logo">
+        <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
+      </div>
       <div class="div-nav-menu">
         <nav class="top-bar nav-alignment" data-topbar role="navigation">
           <ul class="title-area">
@@ -29,14 +28,13 @@
              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>
-
           <section class="top-bar-section">
             <ul class="right">
-                <li><%= link_to("ABOUT THE PROJECT", controller: "pages", action: "about") %></li>
-                <li><%= link_to("CONNECTED NETWORK", controller: "articles") %></li>
-                <li><%= link_to("PARTNERS", controller: "partners") %></li>
-                <li class="has-dropdown">
-                  <a href="#">LEARN</a>
+              <li><%= link_to("ABOUT THE PROJECT", controller: "pages", action: "about") %></li>
+              <li><%= link_to("CONNECTED NETWORK", controller: "articles") %></li>
+              <li><%= link_to("PARTNERS", controller: "partners") %></li>
+              <li class="has-dropdown">
+                <a href="#">LEARN</a>
                   <ul class="dropdown">
                     <li><%= link_to("CONNECT WITH US", controller: "learn", action: "how_to_integrate_with_od4d") %></li>
                     <li><%= link_to("INTRODUCTION RDF AND RDFa", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></li>
@@ -46,12 +44,10 @@
                 </li>
                 <li><a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a></li>
             </ul>
-
           </section>
         </nav>
       </div>
-
-         </section>
+    </section>
   </header>
 
   <%= yield %>
