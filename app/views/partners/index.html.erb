@@ -8,8 +8,8 @@
     <h1>Partners</h1>
 
     <% @partners.each do |partner| %>
-      <article class="rss" typeof="schema:Organization">
-        <h2 property="schema:name"><a target="_blank" href=<%= partner.url %>><%= partner.name %></a></h2>
+      <article id="<%= partner.slug %>" class="rss" typeof="schema:Organization" resource="<%=partner.url%>">
+        <h2 property="schema:name"><a href=<%= partner.url %>><%= partner.name %></a></h2>
         <%= image_tag(partner.logo, :alt => partner.name, :size => "250x90", :property => "schema:logo") %>
         <div property="schema:description">
           <%= partner.description %>
