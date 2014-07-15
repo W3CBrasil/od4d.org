@@ -11,17 +11,28 @@
           <iframe src="//player.vimeo.com/video/69632849"></iframe>
         </div>
       </section>
-      
+
     </section>
     <div class="separator"></div>
     <aside class="home-right">
-     
+
       <h2>Connected Network</h2><br>
       <% @articles.each do |article| %>
         <article class="feeds-home rss" resource="<%=article.url%>">
           <h3><a href="/articles#<%=article.slug%>"><%= article.title %></a></h3>
-          <p class="rsshome"><em>Category:</em> <%= article.articleSection %> | <em>Author:</em> <%= article.author %><%if !article.datePublished.nil? then%> <br> <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
-          <%end%></p>
+          <p class="rsshome">
+              <em>Category:</em> <%= article.articleSection.join(", ") %>
+              <br />
+              <%if !article.author.blank? then%>
+                <em>Author:</em> <%= article.author %>
+              <% end %>
+              <% if !article.author.blank? && !article.datePublished.nil? then %>
+                &nbsp;|&nbsp;
+              <% end %>
+              <% if !article.datePublished.nil? then %>
+                <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+              <% end %>
+          </p>
         </article>
       <% end %>
       <h2><a href="/learn/introduction-to-rdf-and-rdfa">RDA and RDFa concepts</a></h2>
