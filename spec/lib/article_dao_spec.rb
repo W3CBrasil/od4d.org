@@ -21,6 +21,41 @@ describe ArticleDAO do
 
       expect(article.datePublished).to eq(DateTime.new(2014,7,25,4,13,5,"+03:00"))
     end
+
+    it "should convert many articleSection to array of articleSection" do
+      fuseki = Object.new
+      def fuseki.query(string)
+        '{
+      "head": {
+        "vars": [ "s" , "p" , "o" ]
+      } ,
+      "results": {
+        "bindings": [
+          {
+            "s": { "type": "uri" , "value": "http://webfoundation.org/2014/05/affordability-takes-centre-stage-at-the-stockholm-internet-forum/" } ,
+            "p": { "type": "uri" , "value": "http://schema.org/articleSection" } ,
+            "o": { "type": "literal" , "value": "A" }
+          } ,
+          {
+            "s": { "type": "uri" , "value": "http://webfoundation.org/2014/05/affordability-takes-centre-stage-at-the-stockholm-internet-forum/" } ,
+            "p": { "type": "uri" , "value": "http://schema.org/articleSection" } ,
+            "o": { "type": "literal" , "value": "B" }
+          } ,
+          {
+            "s": { "type": "uri" , "value": "http://webfoundation.org/2014/05/affordability-takes-centre-stage-at-the-stockholm-internet-forum/" } ,
+            "p": { "type": "uri" , "value": "http://schema.org/articleSection" } ,
+            "o": { "type": "literal" , "value": "C" }
+          }
+        ]
+      }
+    }'
+      end
+      articleDao = ArticleDAO.new(fuseki)
+      article = articleDao.list_articles[0]
+
+      expect(article.articleSection).to eq(['A', 'B', 'C'])
+    end
+
   end
 
   describe "#list_articles_limitted_by" do
@@ -88,7 +123,7 @@ describe ArticleDAO do
       articleDao = ArticleDAO.new(fuseki)
 
       articles = articleDao.list_articles_limitted_by(2)
-      
+
       expect(articles.length).to eq(2)
 
     end

@@ -1,36 +1,34 @@
 <% content_for :head do %>
-  <title>Open Data for Development - Feeds</title>
+        <title>Open Data for Development - Feeds</title>
 <% end %>
 
-  <section class="main" role="main">
-    <br>
-    <h1>Connected Network</h1>
-      <% @articles.each do |article| %>
+<section class="main" role="main">
+<br>
+<h1>Connected Network</h1>
+<% @articles.each do |article| %>
         <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
-      		<h2 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h2>
-      		<%if !article.author.blank? then%>
-            <p class="author" property="schema:author">Author: <%= article.author %></p>
-          <%end%>
-          <%if !article.datePublished.blank? then%>
-            <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
-          <%end%>
-          <div class="social-buttons">
-            <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter", :size => "24x24") %></a>
-            &nbsp;
-            <a href="<%=article.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn", :size => "24x24") %></a>
-            &nbsp;
-            <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+", :size => "24x24") %></a>
-          </div>
+        <h2 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h2>
+        <%if !article.author.blank? then%>
+                <p class="author" property="schema:author">Author: <%= article.author %></p>
+        <%end%>
+        <%if !article.datePublished.blank? then%>
+                <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
+        <%end%>
+        <div class="social-buttons">
+                <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter", :size => "24x24") %></a>
+                &nbsp;
+                <a href="<%=article.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn", :size => "24x24") %></a>
+                &nbsp;
+                <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+", :size => "24x24") %></a>
+        </div>
+        <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %></p>
+        <%if !article.summary.blank? %>
+                <p class="summary" property="schema:summary"> <%= article.summary%></p>
+        <%elsif !article.description.blank? %>
+                <p class="summary" property="schema:description"> <%= article.description %></p>
+        <%end%>
 
-
-      		<p class="category" property="schema:articleSection"> <%= article.articleSection %></p>
-          <%if !article.summary.blank? %>
-            <p class="summary" property="schema:summary"> <%= article.summary%></p>
-          <%elsif !article.description.blank? %>
-            <p class="summary" property="schema:description"> <%= article.description %></p>
-          <%end%>
-
-          <button tabindex="-1" class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
-      	</article>
-      <% end %>
-  </section>
+        <button tabindex="-1" class="button"><a property="schema:url" href=<%=article.url%>>Read More</a></button>
+        </article>
+<% end %>
+</section>
