@@ -24,7 +24,7 @@
               <em>Category:</em> <%= article.articleSection.join(", ") %>
               <br />
               <%if !article.author.blank? then%>
-                <em>Author:</em> <%= article.author %>
+                <em>By:</em> <%= article.author %>
               <% end %>
               <% if !article.author.blank? && !article.datePublished.nil? then %>
                 &nbsp;|&nbsp;
