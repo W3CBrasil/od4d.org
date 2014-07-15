@@ -1,9 +1,10 @@
 
-.home-left {
-	width: 55%;
-	margin: 0px;
-	position: relative;
-	display: inline-block;
+.network {
+	 float: left; 
+	 margin-right: 15px;
+}
+.align-left {
+ 	margin-top: 20px;	
 }
 
 .home-right {
@@ -388,6 +389,15 @@ article.rss {
 	padding-bottom: 15px;
 	margin: 0px 22px 22px 0px;
 	padding-bottom: 15px;
+}
+article.partners {
+	border-bottom-style: solid;
+    border-width: 1px;
+	border-bottom-color: #cccccc;
+	padding-bottom: 15px;
+	margin: 0px 22px 22px 0px;
+	padding-bottom: 15px;
+	display: inline-block;
 }
 
 p.author {

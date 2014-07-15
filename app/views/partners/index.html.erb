@@ -8,10 +8,10 @@
     <h1>Partners</h1>
 
     <% @partners.each do |partner| %>
-      <article id="<%= partner.slug %>" class="rss" typeof="schema:Organization" resource="<%=partner.url%>">
+      <article id="<%= partner.slug %>" class="partners" typeof="schema:Organization" resource="<%=partner.url%>">
         <h2 property="schema:name"><a href=<%= partner.url %>><%= partner.name %></a></h2>
-        <%= image_tag(partner.logo, :alt => partner.name, :property => "schema:logo") %>
-        <div property="schema:description">
+        <%= image_tag(partner.logo, :alt => partner.name, :property => "schema:logo", :class => "network") %>
+        <div property="schema:description" class="align-left">
           <%= partner.description %>
         </div>
       </article>
