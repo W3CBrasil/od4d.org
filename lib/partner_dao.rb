@@ -39,7 +39,7 @@ class PartnerDAO
     partner = Partner.new
     partner.name = "World Wide Web Foundation"
     partner.url = "http://www.webfoundation.org/projects/open-data-lab/"
-    partner.logo = "foundation.jpg"
+    partner.logo = "foundation.png"
     partner.description = "Building sustainable capacity to use open data through local and regional training, action,
     innovation, incubation and research."
     partner
