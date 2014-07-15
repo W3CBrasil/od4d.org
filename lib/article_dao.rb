@@ -28,7 +28,6 @@ class ArticleDAO
     article.author = article_hash["author"]
     article.summary = article_hash["articleBody"][0..500] if article_hash["articleBody"]
     article.description = article_hash["description"]
-    puts article_hash["articleSection"]
     article.articleSection = article_hash["articleSection"]
     article.articleSection = [article.articleSection] unless article.articleSection.is_a? Array
     article.datePublished = get_date(article_hash["datePublished"])
