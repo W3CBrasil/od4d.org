@@ -7,6 +7,15 @@
  	margin-top: 20px;	
 }
 
+.home-left {
+	width: 65%;
+	width: 55%;
+ 	margin: 0px;
+ 	position: relative;
+ 	display: inline-block;
+ }
+
+
 .home-right {
 	width: 39%;
 	margin: 0px;
