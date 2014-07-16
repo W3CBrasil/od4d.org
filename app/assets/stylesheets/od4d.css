@@ -1,10 +1,10 @@
 
 .network {
-	 float: left; 
+	 float: left;
 	 margin-right: 15px;
 }
 .align-left {
- 	margin-top: 20px;	
+ 	margin-top: 20px;
 }
 
 .home-left {
@@ -55,7 +55,7 @@ div.separator {
 	}
 div.separator {
 	display: none;
-}	
+}
 }
 .center-box {
 	top: 138px;
@@ -326,16 +326,16 @@ p.copyright {float: left;}
   	box-shadow:         0px 2px 8px -2px #1b1b1b;
 }
 
-#Introduction {
+#introduction {
   float: left;
 }
 
-#Objectives {
+#objectives {
   width: 69%;
   float: left;
 }
 
-#Specific-Tasks {
+#specific-Tasks {
   width: 28%;
   float: left;
   margin-left: 3%;
@@ -343,8 +343,8 @@ p.copyright {float: left;}
 }
 
 @media screen and (max-width: 50em ) {
-   #Objectives {position: relative; width: 100%; }
-   #Specific-Tasks {float:left; width: 100%; margin: 0px 0px 20px 0px;}
+   #objectives {position: relative; width: 100%; }
+   #specific-Tasks {float:left; width: 100%; margin: 0px 0px 20px 0px;}
 }
 
 .video-container {
