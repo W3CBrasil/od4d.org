@@ -4,7 +4,7 @@
 
   <section role="main" class="main">
     <section class="home-left">
-      <h1><a href="/about">Understand Open Data</a></h1>
+      <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
       <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
       <section id="Video" resource="/about/#od4d-about-video">
         <div class="video-container">
@@ -19,7 +19,7 @@
       <h2>Connected Network</h2><br>
       <% @articles.each do |article| %>
         <article class="feeds-home rss" resource="<%=article.url%>">
-          <h3><a href="/articles#<%=article.slug%>"><%= article.title %></a></h3>
+          <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
           <p class="rsshome">
               <em>Category:</em> <%= article.articleSection.join(", ") %>
               <br />
@@ -35,13 +35,13 @@
           </p>
         </article>
       <% end %>
-      <h2><a href="/learn/introduction-to-rdf-and-rdfa">RDA and RDFa concepts</a></h2>
+      <h2><%= link_to("RDA and RDFa concepts", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></h2>
       <ul>
         <li>Understanting RDF concept </li>
          <li>RDFa and RDF? </li>
          <li>Code examples </li>
       </ul>
-      <h2><a href="/learn/how-to-integrate">How to integrate with us</a></h2>
+      <h2><%= link_to("How to integrate with us", controller: "learn", action: "how_to_integrate_with_od4d") %></h2>
       <ul>
         <li>Understanting how to connect </li>
         <li>Read our terms and conditions </li>
