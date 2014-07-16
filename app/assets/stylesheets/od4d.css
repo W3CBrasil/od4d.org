@@ -6,8 +6,7 @@
 .align-left {
  	margin-top: 20px;
  	width: 100%;
- 	background-color: red;
-}
+ }
 
 .home-left {
 	width: 65%;
@@ -406,9 +405,10 @@ article.partners {
     border-width: 1px;
 	border-bottom-color: #cccccc;
 	padding-bottom: 15px;
-	margin: 0px 22px 22px 0px;
+	margin: 0px;
 	padding-bottom: 15px;
-	display: inline-block;
+	padding-right: 0px;
+
 }
 
 p.author {
