@@ -2,20 +2,17 @@
   <title>Open Data for Development - Partners</title>
 <% end %>
 
-<section class="main" role="main">
+<section class="partners">
+  <h1>Partners</h1>
 
-  <section class="partners">
-    <h1>Partners</h1>
+  <% @partners.each do |partner| %>
+    <article id="<%= partner.slug %>" class="partners" typeof="schema:Organization" resource="<%=partner.url%>">
+      <h2 property="schema:name"><a href=<%= partner.url %>><%= partner.name %></a></h2>
+      <%= image_tag(partner.logo, :alt => partner.name, :property => "schema:logo", :class => "network") %>
+      <div property="schema:description" class="align-left">
+        <%= partner.description %>
+      </div>
+    </article>
+  <% end %>
 
-    <% @partners.each do |partner| %>
-      <article id="<%= partner.slug %>" class="partners" typeof="schema:Organization" resource="<%=partner.url%>">
-        <h2 property="schema:name"><a href=<%= partner.url %>><%= partner.name %></a></h2>
-        <%= image_tag(partner.logo, :alt => partner.name, :property => "schema:logo", :class => "network") %>
-        <div property="schema:description" class="align-left">
-          <%= partner.description %>
-        </div>
-      </article>
-    <% end %>
-
-  </section>
 </section>

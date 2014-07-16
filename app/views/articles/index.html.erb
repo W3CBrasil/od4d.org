@@ -2,7 +2,7 @@
   <title>Open Data for Development - Feeds</title>
 <% end %>
 
-<section class="main" role="main">
+<section>
   <h1>Connected Network</h1>
   <% @articles.each do |article| %>
     <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
