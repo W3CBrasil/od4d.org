@@ -2,36 +2,35 @@
   <title>Open Data for Development</title>
 <% end %>
 
-  <section role="main" class="main">
+  <div role="main" class="main">
+
     <section class="home-left">
       <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
       <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
-      <section id="Video" resource="/about/#od4d-about-video">
-        <div class="video-container">
-          <iframe src="//player.vimeo.com/video/69632849"></iframe>
-        </div>
-      </section>
-
+      <div class="video-container">
+        <iframe src="//player.vimeo.com/video/69632849"></iframe>
+      </div>
     </section>
-    <div class="separator"></div>
-    <aside class="home-right">
 
+    <div class="separator"></div>
+
+    <aside class="home-right">
       <h2>Connected Network</h2><br>
       <% @articles.each do |article| %>
-        <article class="feeds-home rss" resource="<%=article.url%>">
+        <article class="feeds-home rss">
           <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
           <p class="rsshome">
-              <em>Category:</em> <%= article.articleSection.join(", ") %>
-              <br />
-              <%if !article.author.blank? then%>
-                <em>By:</em> <%= article.author %>
-              <% end %>
-              <% if !article.author.blank? && !article.datePublished.nil? then %>
-                &nbsp;|&nbsp;
-              <% end %>
-              <% if !article.datePublished.nil? then %>
-                <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
-              <% end %>
+            <em>Category:</em> <%= article.articleSection.join(", ") %>
+            <br />
+            <%if !article.author.blank? then%>
+              <em>By:</em> <%= article.author %>
+            <% end %>
+            <% if !article.author.blank? && !article.datePublished.nil? then %>
+              &nbsp;|&nbsp;
+            <% end %>
+            <% if !article.datePublished.nil? then %>
+              <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+            <% end %>
           </p>
         </article>
       <% end %>
@@ -47,4 +46,5 @@
         <li>Read our terms and conditions </li>
       </ul>
     </aside>
-  </section>
+
+  </div>
