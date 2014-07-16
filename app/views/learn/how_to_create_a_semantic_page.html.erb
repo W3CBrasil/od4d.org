@@ -106,7 +106,7 @@
     </p>
 
     <p>
-      As can be seen in the example above, the <em>content</em> attribute in the <em><%=h '"<p property="datePublished" content="2014-05-05T00:00:00+00:00">"'%></em> is different than the actual content provided in <em><%=h '"05/05/2014</p>"'%></em>, even though they represent the same date. With this, when applications and tools come across this html, they will be able to actually understand the date represented, because they are going to use the the attribute <em>content</em> of the tag, which is in the format that they expect it to be, ISO 8061, as specified <a href='http://schema.org/Date'>here</a>
+      As can be seen in the example above, the <em>content</em> attribute in the <em><%=h '"<p property="datePublished" content="2014-05-05T00:00:00+00:00">"'%></em> is different than the actual content provided in <em><%=h '"05/05/2014"'%></em>, even though they represent the same date. With this, when applications and tools come across this html, they will be able to actually understand the date represented, because they are going to use the the attribute <em>content</em> of the tag, which is in the format that they expect it to be, ISO 8061, as specified <a href='http://schema.org/Date'>here</a>
     </p>
 
     <p>
