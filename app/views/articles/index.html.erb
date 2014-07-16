@@ -13,7 +13,13 @@
         <%if !article.datePublished.blank? then%>
           <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
         <%end%>
-        
+        <div class="social-buttons">
+          <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter") %></a>
+          &nbsp;
+          <a href="<%=article.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn") %></a>
+          &nbsp;
+          <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+") %></a>
+        </div>
         <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %></p>
         <%if !article.summary.blank? %>
           <p class="summary" property="schema:summary"> <%= article.summary%></p>
