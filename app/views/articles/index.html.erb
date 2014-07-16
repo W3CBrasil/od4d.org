@@ -3,8 +3,7 @@
 <% end %>
 
 <section class="main" role="main">
-<br>
-<h1>Connected Network</h1>
+  <h1>Connected Network</h1>
   <% @articles.each do |article| %>
     <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
       <h2 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h2>
