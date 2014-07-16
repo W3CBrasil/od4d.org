@@ -26,14 +26,14 @@
 }
 
 div.separator {
-	border-right:1px solid #1b1b1b;
+	border-right:1px solid;
 	position: relative;
 	vertical-align: top;
 	height:580px;
 	display:inline-block;
 	margin: 8px;
 	width: 1px;
-	border-color: #dddddd;
+	border-color: #cccccc;
 }
 
 @media screen and (max-width: 62em ) {
@@ -61,7 +61,7 @@ div.separator {
 	top: 138px;
 	margin: 0px auto;
 	max-width: 100%;
-	background-color: #3c3c3c;
+	background-color: #333333;
 	padding: 0% 1% 1% 1%;
 	overflow: auto;
 	position: relative;
@@ -134,13 +134,13 @@ header {
 
 header a {
 	font-size: 0.875em !important;
-	color: #cccccc !important;
+	color: #c5c5c5 !important;
 	font-weight: 500 !important;
 	font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 header a:hover {
-	color: #ffffff;
+	color: #ffffff !important;
 	text-decoration: none;
 }
 
@@ -248,7 +248,7 @@ a:hover {
 
 
 footer a:hover {
-	color: #ab2f00;
+	color: #da6235;
 	text-decoration: none;
 }
 
@@ -443,7 +443,6 @@ p.rsshome {
 	font-weight: 400;
 	color: #666666;
 	margin: 0px 0px 0px 0px;
-
 }
 
 p.date
