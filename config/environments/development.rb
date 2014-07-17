@@ -35,5 +35,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-ENV["USE_GOOGLE_ANALYTICS_SCRIPT"] = "false"
+  config.use_google_analytics = false
 end
