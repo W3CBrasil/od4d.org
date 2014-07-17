@@ -21,21 +21,20 @@ header a:hover {
   text-align: center;
 }
 
-/* Menu */
-.div-nav-menu {
-  display: block;
-  float: none;
-}
-
 .top-bar {
   line-height: 0;
   float: none;
   display: block;
 }
 
-@media only screen and (min-width: 46.064em) and (max-width: 55em) {
-  .top-bar {
+.top-bar .toggle-topbar {
+  right: auto;
+}
 
+@media only screen and (min-width: 40.063em) and (max-width: 55em) {
+  .top-bar {
+    margin: 0px auto;
+    width: 34.250em;
   }
 }
 
@@ -46,7 +45,6 @@ header a:hover {
   }
 
   .div-nav-menu {
-    display: inline-block;
     float: right;
     line-height: 105px;
   }
