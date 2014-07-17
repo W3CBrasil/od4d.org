@@ -1,12 +1,10 @@
-require File.expand_path('../../../app/models/article.rb', __FILE__)
+require 'article'
 require 'article_dao'
 
 describe ArticleDAO do
-
   describe "#create_from_hash" do
-
     it "should convert date published to MM/DD/YYYY format" do
-      articleDao = ArticleDAO.new(nil)
+      articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)
 
       article_hash = {
         "url" => "don't care",
@@ -50,7 +48,7 @@ describe ArticleDAO do
       }
     }'
       end
-      articleDao = ArticleDAO.new(fuseki)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
       article = articleDao.list_articles[0]
 
       expect(article.articleSection).to eq(['A', 'B', 'C'])
@@ -112,21 +110,16 @@ describe ArticleDAO do
             "s": { "type": "uri" , "value": "http://webfoundation.org/2014/05/webs-25th-birthday-celebrated-at-webby-awards/" } ,
             "p": { "type": "uri" , "value": "http://schema.org/url" } ,
             "o": { "type": "uri" , "value": "http://webfoundation.org/2014/05/webs-25th-birthday-celebrated-at-webby-awards/" }
-          } 
+          }
         ]
       }
     }'
     end
 
     it "should return 2 articles" do
-
-      articleDao = ArticleDAO.new(fuseki)
-
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
       articles = articleDao.list_articles_limitted_by(2)
-
       expect(articles.length).to eq(2)
-
     end
   end
-
 end

@@ -3,11 +3,13 @@ require 'cgi'
 require 'uri'
 
 class Fuseki
+    SERVER = "http://localhost:3030"
+    FUSEKI_DATASET = "articles"
     REQUESTS = {:query => "query", :update => "update", :insert => "put" }
-    
-    def initialize(url, datasetName)
-        @url = url
-        @dataset = datasetName
+
+    def initialize
+        @url = SERVER
+        @dataset = FUSEKI_DATASET
     end
 
     def query(queryParam)
@@ -19,5 +21,3 @@ class Fuseki
     end
 
 end
-
-

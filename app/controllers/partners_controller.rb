@@ -1,5 +1,5 @@
 class PartnersController < ApplicationController
   def index
-    @partners = PartnerDAO.new.list_all_partners
+    @partners = PartnerDAO.new(Fuseki.new, FusekiJSONParser.new).list_partners
   end
 end

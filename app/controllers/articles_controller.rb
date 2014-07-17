@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = ArticleDAO.new.list_articles
+    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).list_articles
   end
 end
