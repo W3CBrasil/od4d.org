@@ -66,6 +66,6 @@
       </div>
     </div>
   </footer>
-  <%= render :partial => '/layouts/ga_script' if Rails.env.production? %>
+  <%= render :partial => '/layouts/ga_script' if ENV["USE_GOOGLE_ANALYTICS_SCRIPT"] == "true" %>
 </body>
 </html>
