@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require reset
- *= require foundation
+ *= require foundation-custom
  *= require od4d
  */
