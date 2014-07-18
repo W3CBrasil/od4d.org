@@ -14,10 +14,10 @@
 <body prefix="schema: http://schema.org/">
   <header role="banner">
     <div class="center-align">
-      <div class="logo">
+      <span class="logo">
         <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
-      </div>
-      <div class="div-nav-menu">
+      </span>
+      <span class="div-nav-menu">
         <nav class="top-bar" data-topbar role="navigation">
           <ul class="title-area">
             <li class="name">
@@ -25,7 +25,7 @@
              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>
-          <div class="section top-bar-section">
+          <span class="section top-bar-section">
             <ul>
               <li><%= link_to("ABOUT THE PROJECT", controller: "pages", action: "about") %></li>
               <li><%= link_to("CONNECTED NETWORK", controller: "articles") %></li>
@@ -41,9 +41,9 @@
                 </li>
                 <li><a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a></li>
             </ul>
-          </div>
+          </span>
         </nav>
-      </div>
+      </span>
     </div>
   </header>
 
