@@ -23,7 +23,6 @@
 	position: relative;
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 20px;
 }
 
 div.separator {
@@ -32,7 +31,7 @@ div.separator {
 	vertical-align: top;
 	height:580px;
 	display:inline-block;
-	margin: 8px;
+	margin: 10px;
 	width: 1px;
 	border-color: #cccccc;
 }
@@ -52,7 +51,6 @@ div.separator {
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
-		margin-left: 20px;
 	}
 
 	div.separator {
@@ -375,7 +373,7 @@ p.date
 	padding-bottom: 15px;
 	margin: 0px 0px 22px 0px;
 	padding-bottom: 15px;
-	width: 90%;
+	width: 95%;
 }
 
 .button {
