@@ -26,7 +26,7 @@ private
 
        add_hash_entry(subject_hash, predicate, object)
      end
-     resources.to_a.map {|entry| entry[1]}
+     resources
    end
 
    def get_subject_name(var_name, triple)

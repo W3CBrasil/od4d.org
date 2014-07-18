@@ -1,5 +1,9 @@
 class Partner
-  attr_accessor :description, :logo, :url, :name
+  attr_accessor :uri, :description, :logo, :url, :name
+
+  def initialize(uri)
+    @uri = uri
+  end
 
   def slug
     name.parameterize

@@ -15,15 +15,23 @@ class PartnerDAO
   end
 
   def list_partners
-    response_json = @fuseki.query(PARTNER_SELECT_QUERY)
-    resources = @fuseki_json_parser.convert(response_json)
+    load_partners.map{|k, v| v}
+  end
 
-    resources.map{|res| create_from_hash(res)}
+  def get_partner(partner_uri)
+    load_partners[partner_uri]
   end
 
 private
-  def create_from_hash(partner_hash)
-    partner = Partner.new
+  def load_partners
+    response_json = @fuseki.query(PARTNER_SELECT_QUERY)
+    resources = @fuseki_json_parser.convert(response_json)
+    resources.each{|uri, res| resources[uri] = create_from_hash(uri, res)}
+    resources
+  end
+
+  def create_from_hash(uri, partner_hash)
+    partner = Partner.new(uri)
     partner.url = partner_hash["url"]
     partner.name = partner_hash["name"]
     partner.description = partner_hash["description"]

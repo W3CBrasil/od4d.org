@@ -22,9 +22,9 @@
         </div>
         <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %></p>
         <%if !article.summary.blank? %>
-          <p class="summary" property="schema:summary"> <%= article.summary%></p>
+          <p class="summary" property="schema:summary"> <%= article.summary[0..500] %></p>
         <%elsif !article.description.blank? %>
-          <p class="summary" property="schema:description"> <%= article.description %></p>
+          <p class="summary" property="schema:description"> <%= article.description[0..500] %></p>
         <%end%>
     </article>
   <% end %>

@@ -1,5 +1,9 @@
 class Article
-  attr_accessor :url, :title, :author, :summary, :description, :articleBody, :articleSection, :datePublished
+  attr_accessor :uri, :url, :title, :author, :summary, :description, :articleBody, :articleSection, :datePublished, :publisher
+
+  def initialize(uri)
+    @uri = uri
+  end
 
   def slug
     title.parameterize
