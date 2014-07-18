@@ -15,7 +15,7 @@ describe ArticleDAO do
         "datePublished" => "2014-07-25T04:13:05+03:00"
       }
 
-      article = articleDao.create_from_hash(article_hash)
+      article = articleDao.create_from_hash("http://example.com", article_hash)
 
       expect(article.datePublished).to eq(DateTime.new(2014,7,25,4,13,5,"+03:00"))
     end

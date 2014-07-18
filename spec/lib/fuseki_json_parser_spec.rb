@@ -22,7 +22,7 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(1)
-      expect(resource_hashes[0]["type"]).to eq("http://schema.org/Article")
+      expect(resource_hashes["http://www.example.org/"]["type"]).to eq("http://schema.org/Article")
     end
   end
 
@@ -57,10 +57,10 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(2)
-      expect(resource_hashes[0]["type"]).to eq("http://schema.org/Article")
-      expect(resource_hashes[0]["description"]).to eq("Somewhat a short description")
+      expect(resource_hashes["http://www.example.org/"]["type"]).to eq("http://schema.org/Article")
+      expect(resource_hashes["http://www.example.org/"]["description"]).to eq("Somewhat a short description")
 
-      expect(resource_hashes[1]["type"]).to eq("http://schema.org/Organization")
+      expect(resource_hashes["http://www.whatever.org/"]["type"]).to eq("http://schema.org/Organization")
     end
   end
 
@@ -90,9 +90,9 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(1)
-      expect(resource_hashes[0]["category"].length).to eq(2)
-      expect(resource_hashes[0]["category"][0]).to eq("Project")
-      expect(resource_hashes[0]["category"][1]).to eq("General")
+      expect(resource_hashes["http://www.example.org/"]["category"].length).to eq(2)
+      expect(resource_hashes["http://www.example.org/"]["category"][0]).to eq("Project")
+      expect(resource_hashes["http://www.example.org/"]["category"][1]).to eq("General")
     end
   end
 
