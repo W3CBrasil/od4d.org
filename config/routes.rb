@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/about' => 'pages#about'
   get '/terms-and-conditions' => 'pages#terms_and_conditions'
+  get '/style-guide' => 'pages#style_guide'
 
   get '/learn/how-to-integrate' => 'learn#how_to_integrate_with_od4d'
   get '/learn/introduction-to-rdf-and-rdfa' => 'learn#introduction_to_rdf_and_rdfa'
