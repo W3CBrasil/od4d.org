@@ -15,7 +15,7 @@
 <aside class="home-right">
   <h2>Connected Network</h2><br>
   <% @articles.each do |article| %>
-    <article class="feeds-home rss">
+    <article class="feeds-home">
       <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
       <p class="rsshome">
         <em>Category:</em> <%= article.articleSection.join(", ") %>
