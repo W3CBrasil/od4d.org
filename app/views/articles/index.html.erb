@@ -6,7 +6,7 @@
   <h1>Connected Network</h1>
   <% @articles.each do |article| %>
     <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
-      <h2 class="Feeds" property="schema:headline"><a href=<%=article.url%>><%= article.title %></a></h2>
+      <h2 class="Feeds" property="schema:headline"><a href="<%=article.url%>"><%= article.title %></a></h2>
         <%if !article.author.blank? then%>
           <p class="author" property="schema:author">By: <%= article.author %></p>
         <%end%>
