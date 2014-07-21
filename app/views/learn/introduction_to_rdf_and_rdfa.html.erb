@@ -49,8 +49,9 @@ There are 3 things that makes an RDF statement: the subject, the predicate and t
       <h3>RDFa uses basically:</h3>
       <p>
         Atributes: vocab, typeof, property, resource, prefix. See this example, from W3C RDFa Lite docs:
-        <br/>
-        <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" typeof="Person">
+      </p>
+      <br/>
+      <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" typeof="Person">
    My name is
    <span property="name">Manu Sporny</span>
    and you can give me a ring via
@@ -58,24 +59,23 @@ There are 3 things that makes an RDF statement: the subject, the predicate and t
    or visit
    <img property="url" href="http://manu.sporny.org/">my homepage</a>.
 </p>' %></code></pre>
-      </p>
       <p>
-      and Resource. See this example, from W3C RDFa Lite docs:
-        <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" resource="#manu" typeof="Person">
+        and Resource. See this example, from W3C RDFa Lite docs:
+      </p>
+      <pre><code class="language-markup"><%=h '  <p vocab="http://schema.org/" resource="#manu" typeof="Person">
    My name is
    <span property="name">Manu Sporny</span>
    and you can give me a ring via
    <span property="telephone">1-800-555-0199</span>.
    <img property="image" src="http://manu.sporny.org/images/manu.png" />
 </p>' %></code></pre>
-      </p>
       <p>
         Another example describing the subject of the picture, using RDFa triples.:
-        <pre><code class="language-markup"><%=h '  <div vocab="http://schema.org/" typeof="Product">
+      </p>
+      <pre><code class="language-markup"><%=h '  <div vocab="http://schema.org/" typeof="Product">
   <img property="image" src="droid.jpg" />
   <span property="name">Android Phone</span>
 </div>' %></code></pre>
-      </p>
     </section>
   </section>
 </article>
