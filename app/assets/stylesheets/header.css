@@ -1,7 +1,7 @@
 /* Header */
 header {
   background-color: #333333;
-    padding: 15px;
+  padding: 15px;
 }
 
 header a {
@@ -16,49 +16,40 @@ header a:hover {
   text-decoration: none;
 }
 
+/* to center the logo on small screens */
 .logo {
-  display: block;
   text-align: center;
 }
 
-.top-bar {
-  line-height: 0;
-  float: none;
-  display: block;
-}
-
-.top-bar .toggle-topbar {
+/* to make the menu-button appear on the left side */
+.top-bar .menu-button {
   right: auto;
 }
 
-@media only screen and (min-width: 40.063em) and (max-width: 55em) {
+/* to center the top-bar when it appears under the logo */
+@media only screen and (min-width: 40.063em) and (max-width: 56em) {
   .top-bar {
     margin: 0px auto;
     width: 35em;
   }
 }
 
-@media only screen and (min-width: 55em) {
+/* position and align the header elements when they appear side-by-side */
+@media only screen and (min-width: 56em) {
   .logo {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .div-nav-menu {
-    float: right;
-    line-height: 105px;
+    text-align: left;
   }
 
   .top-bar {
-    position: relative;
-    padding: 0px 0px 0px 0px;
-    margin: 0px auto;
     display: inline-block;
-    vertical-align: middle;
+    position: absolute;
+    right: 0px;
+    top: 0px;
     line-height: 105px;
   }
 
-  .top-bar ul {
-    float: right;
+  .top-bar .top-bar-section {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

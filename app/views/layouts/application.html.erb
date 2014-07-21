@@ -14,36 +14,34 @@
 <body prefix="schema: http://schema.org/">
   <header role="banner">
     <div class="center-align">
-      <span class="logo">
+      <div class="logo">
         <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
-      </span>
-      <span class="div-nav-menu">
-        <nav class="top-bar" data-topbar role="navigation">
-          <ul class="title-area">
-            <li class="name">
-            </li>
-             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </div>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+          </li>
+           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon menu-button"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <div class="section top-bar-section">
+          <ul>
+            <li><%= link_to("ABOUT THE PROJECT", controller: "pages", action: "about") %></li>
+            <li><%= link_to("CONNECTED NETWORK", controller: "articles") %></li>
+            <li><%= link_to("PARTNERS", controller: "partners") %></li>
+            <li class="has-dropdown">
+              <a href="#">LEARN</a>
+                <ul class="dropdown">
+                  <li><%= link_to("CONNECT WITH US", controller: "learn", action: "how_to_integrate_with_od4d") %></li>
+                  <li><%= link_to("INTRODUCTION RDF AND RDFa", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></li>
+                  <li><%= link_to("CREATE A SEMANTIC PAGE", controller: "learn", action: "how_to_create_a_semantic_page") %></li>
+                  <li><%= link_to("GLOSSARY", controller: "learn", action: "glossary") %></li>
+                </ul>
+              </li>
+              <li><a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a></li>
           </ul>
-          <span class="section top-bar-section">
-            <ul>
-              <li><%= link_to("ABOUT THE PROJECT", controller: "pages", action: "about") %></li>
-              <li><%= link_to("CONNECTED NETWORK", controller: "articles") %></li>
-              <li><%= link_to("PARTNERS", controller: "partners") %></li>
-              <li class="has-dropdown">
-                <a href="#">LEARN</a>
-                  <ul class="dropdown">
-                    <li><%= link_to("CONNECT WITH US", controller: "learn", action: "how_to_integrate_with_od4d") %></li>
-                    <li><%= link_to("INTRODUCTION RDF AND RDFa", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></li>
-                    <li><%= link_to("CREATE A SEMANTIC PAGE", controller: "learn", action: "how_to_create_a_semantic_page") %></li>
-                    <li><%= link_to("GLOSSARY", controller: "learn", action: "glossary") %></li>
-                  </ul>
-                </li>
-                <li><a href="https://github.com/W3CBrasil/OD4D" target="blank"><%= image_tag("github32.png", :alt => "contribute on github") %></a></li>
-            </ul>
-          </span>
-        </nav>
-      </span>
+        </div>
+      </nav>
     </div>
   </header>
 
