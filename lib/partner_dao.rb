@@ -1,3 +1,4 @@
+require 'uri'
 require 'fuseki'
 require 'fuseki_json_parser'
 
@@ -15,14 +16,16 @@ class PartnerDAO
   end
 
   def list_partners
-    load_partners.map{|k, v| v}
+    load_partners.map{|k, v| v }
   end
 
   def get_partner(partner_uri)
-    load_partners[partner_uri]
+    uri = uri_str(partner_uri)
+    partners = list_partners  
+    partners.select{|p| p.uri.index(uri) == 0 }[0]
   end
 
-private
+  private
   def load_partners
     response_json = @fuseki.query(PARTNER_SELECT_QUERY)
     resources = @fuseki_json_parser.convert(response_json)
@@ -37,5 +40,10 @@ private
     partner.description = partner_hash["description"]
     partner.logo = partner_hash["logo"]
     partner
+  end
+
+  def uri_str(str)
+    uri = URI(str)
+    "#{uri.scheme}://#{uri.host}"
   end
 end

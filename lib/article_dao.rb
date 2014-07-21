@@ -23,16 +23,12 @@ class ArticleDAO
     list_articles[0..record_number-1]
   end
 
-  def get_article(article_uri)
-    load_articles[article_uri]
-  end
-
-  def create_from_hash(uri, article_hash)
-    article = Article.new(uri)
+  def create_from_hash(article_hash)
+    article = Article.new
     article.url = article_hash["url"]
     article.title = article_hash["headline"]
     article.author = article_hash["author"]
-    #article.publisher = @partnerDAO.get_partner(article_hash["publisher"])
+    article.publisher = @partnerDAO.get_partner(article_hash["publisher"]) unless article_hash["publisher"].to_s.empty?
     article.summary = article_hash["articleBody"] if article_hash["articleBody"]
     article.description = article_hash["description"]
     article.articleSection = article_hash["articleSection"]
@@ -46,7 +42,7 @@ class ArticleDAO
   def load_articles
     response_json = @fuseki.query(ARTICLE_SELECT_QUERY)
     resources = @fusekiJsonParser.convert(response_json)
-    resources.each{|uri, res| resources[uri] = create_from_hash(uri, res)}
+    resources.each{|uri, res| resources[uri] = create_from_hash(res)}
     resources
   end
 

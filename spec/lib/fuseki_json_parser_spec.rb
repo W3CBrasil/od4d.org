@@ -9,7 +9,7 @@ describe FusekiJSONParser do
       "results": {
         "bindings": [
           {
-            "s": { "type": "uri" , "value": "http://www.example.org/" } ,
+            "s": { "type": "uri" , "value": "http://www.example.org" } ,
             "p": { "type": "uri" , "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" } ,
             "o": { "type": "uri" , "value": "http://schema.org/Article" }
           }
@@ -22,7 +22,7 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(1)
-      expect(resource_hashes["http://www.example.org/"]["type"]).to eq("http://schema.org/Article")
+      expect(resource_hashes["http://www.example.org"]["type"]).to eq("http://schema.org/Article")
     end
   end
 
@@ -34,17 +34,17 @@ describe FusekiJSONParser do
       "results": {
         "bindings": [
           {
-            "subject": { "type": "uri" , "value": "http://www.example.org/" } ,
+            "subject": { "type": "uri" , "value": "http://www.example.org" } ,
             "predicate": { "type": "uri" , "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" } ,
             "object": { "type": "uri" , "value": "http://schema.org/Article" }
           },
           {
-            "subject": { "type": "uri" , "value": "http://www.example.org/" } ,
+            "subject": { "type": "uri" , "value": "http://www.example.org" } ,
             "predicate": { "type": "uri" , "value": "http://schema.org/description" } ,
             "object": { "type": "text" , "value": "Somewhat a short description" }
           },
           {
-            "subject": { "type": "uri" , "value": "http://www.whatever.org/" } ,
+            "subject": { "type": "uri" , "value": "http://www.whatever.org" } ,
             "predicate": { "type": "uri" , "value": "http://schema.org/type" } ,
             "object": { "type": "uri" , "value": "http://schema.org/Organization" }
           }
@@ -57,10 +57,10 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(2)
-      expect(resource_hashes["http://www.example.org/"]["type"]).to eq("http://schema.org/Article")
-      expect(resource_hashes["http://www.example.org/"]["description"]).to eq("Somewhat a short description")
+      expect(resource_hashes["http://www.example.org"]["type"]).to eq("http://schema.org/Article")
+      expect(resource_hashes["http://www.example.org"]["description"]).to eq("Somewhat a short description")
 
-      expect(resource_hashes["http://www.whatever.org/"]["type"]).to eq("http://schema.org/Organization")
+      expect(resource_hashes["http://www.whatever.org"]["type"]).to eq("http://schema.org/Organization")
     end
   end
 
@@ -72,12 +72,12 @@ describe FusekiJSONParser do
       "results": {
         "bindings": [
           {
-            "subject": { "type": "uri" , "value": "http://www.example.org/" } ,
+            "subject": { "type": "uri" , "value": "http://www.example.org" } ,
             "predicate": { "type": "uri" , "value": "http://schema.org/category" } ,
             "object": { "type": "uri" , "value": "Project" }
           },
           {
-            "subject": { "type": "uri" , "value": "http://www.example.org/" } ,
+            "subject": { "type": "uri" , "value": "http://www.example.org" } ,
             "predicate": { "type": "uri" , "value": "http://schema.org/category" } ,
             "object": { "type": "text" , "value": "General" }
           }
@@ -90,9 +90,9 @@ describe FusekiJSONParser do
       resource_hashes = fuseki_parser.convert(fuseki_json)
 
       expect(resource_hashes.length).to eq(1)
-      expect(resource_hashes["http://www.example.org/"]["category"].length).to eq(2)
-      expect(resource_hashes["http://www.example.org/"]["category"][0]).to eq("Project")
-      expect(resource_hashes["http://www.example.org/"]["category"][1]).to eq("General")
+      expect(resource_hashes["http://www.example.org"]["category"].length).to eq(2)
+      expect(resource_hashes["http://www.example.org"]["category"][0]).to eq("Project")
+      expect(resource_hashes["http://www.example.org"]["category"][1]).to eq("General")
     end
   end
 

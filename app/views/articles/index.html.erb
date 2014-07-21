@@ -20,7 +20,11 @@
           &nbsp;
           <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+") %></a>
         </div>
-        <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %></p>
+        <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %> </p>
+        <% if article.publisher %>
+          <p class="category" property="schema:articleSection"> <%= image_tag(article.publisher.logo)%> </p>
+        <%end%>
+
         <%if !article.summary.blank? %>
           <p class="summary" property="schema:summary"> <%= article.summary[0..500].make_urls_line_breakable %></p>
         <%elsif !article.description.blank? %>

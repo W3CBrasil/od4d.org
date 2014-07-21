@@ -3,10 +3,9 @@ require 'partner_dao'
 
 describe PartnerDAO do
   context "given caribbean institute fuseki json" do
-    it do
-      fuseki = Object.new
-      def fuseki.query(string)
-        '{
+    fuseki = Object.new
+    def fuseki.query(string)
+      '{
           "head": {
             "vars": [ "s" , "p" , "o" ]
           } ,
@@ -40,8 +39,9 @@ describe PartnerDAO do
             ]
           }
         }'
-      end
+    end
 
+    it "Should list partners" do
       partnerDAO = PartnerDAO.new(fuseki, FusekiJSONParser.new)
       partners = partnerDAO.list_partners
       partner = partners[0]
@@ -50,7 +50,16 @@ describe PartnerDAO do
       expect(partner.url).to eq("http://www.caribbeanopeninstitute.org/")
       expect(partner.logo).to eq("caribbean_institute.png")
       expect(partner.description).to eq("Facilitating open development approaches to inclusion, participation and innovation in the Caribbean, using open data as a catalyst. Hosts of the Developing the Caribbean Open Data Conference & Codesprint.")
+    end
 
+    it "Should get one partner" do
+      partnerDAO = PartnerDAO.new(fuseki, FusekiJSONParser.new)
+      partner = partnerDAO.get_partner("http://www.caribbeanopeninstitute.org")
+
+      expect(partner.name).to eq("The Caribbean Open Institute")
+      expect(partner.url).to eq("http://www.caribbeanopeninstitute.org/")
+      expect(partner.logo).to eq("caribbean_institute.png")
+      expect(partner.description).to eq("Facilitating open development approaches to inclusion, participation and innovation in the Caribbean, using open data as a catalyst. Hosts of the Developing the Caribbean Open Data Conference & Codesprint.")
     end
   end
 end
