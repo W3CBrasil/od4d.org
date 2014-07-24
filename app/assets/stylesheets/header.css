@@ -1,17 +1,17 @@
 /* Header */
-header {
+.top-page {
   background-color: #333333;
   padding: 15px;
 }
 
-header a {
+.top-page a {
   font-size: 0.875em !important;
   color: #c5c5c5 !important;
   font-weight: 500 !important;
   font-family: 'Roboto Condensed', sans-serif !important;
 }
 
-header a:hover {
+.top-page a:hover {
   color: #ffffff !important;
   text-decoration: none;
 }

@@ -3,7 +3,9 @@
 <% end %>
 
 <section class="home-left">
-  <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
+  <header>
+    <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
+  </header>
   <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
   <div class="video-container">
     <iframe src="//player.vimeo.com/video/69632849"></iframe>
@@ -13,7 +15,9 @@
 <div class="separator"></div>
 
 <aside class="home-right">
-  <h2>Connected Network</h2><br>
+  <header>
+    <h2>Connected Network</h2><br>
+  </header>
   <% @articles.each do |article| %>
     <article class="feeds-home">
       <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
@@ -27,7 +31,7 @@
           &nbsp;|&nbsp;
         <% end %>
         <% if !article.datePublished.nil? then %>
-          <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
+          <em>Date:</em> <time><%=article.datePublished.strftime("%m/%d/%Y") %></time>
         <% end %>
       </p>
     </article>
@@ -35,8 +39,8 @@
   <h2><%= link_to("RDA and RDFa concepts", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></h2>
   <ul>
     <li>Understanting RDF concept </li>
-     <li>RDFa and RDF? </li>
-     <li>Code examples </li>
+    <li>RDFa and RDF? </li>
+    <li>Code examples </li>
   </ul>
   <h2><%= link_to("How to integrate with us", controller: "learn", action: "how_to_integrate_with_od4d") %></h2>
   <ul>
