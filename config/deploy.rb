@@ -18,6 +18,20 @@ namespace :deploy do
     end
   end
 
+  desc 'Deploy secrets'
+  task :secrets do
+    secret = ENV["SECRET_KEY_BASE"] || `bundle exec rake secret`
+    secrets_file = File.read("config/secrets.yml").gsub(/{SECRET_KEY_BASE}/, secret)
+
+    on roles(:app), in: :sequence, wait: 5 do
+      unless test "[ -f #{shared_path}/config/secrets.yml ]"
+        execute :mkdir, '-p', "#{shared_path}/config"
+        upload! StringIO.new(secrets_file), "#{shared_path}/config/secrets.yml"
+      end
+    end
+  end
+
+  before 'deploy:starting', 'deploy:secrets'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
