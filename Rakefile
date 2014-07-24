@@ -10,8 +10,8 @@ desc "Deploy to production"
     sh "#{command} cap #{environment} deploy"
   end
 
-  def get_ci_setup_command
-    "#{get_setup_revision_command}\n#{get_setup_ssh_command}"
+  def get_ci_setup_command(server)
+    "#{get_setup_revision_command}\n#{get_setup_ssh_command(server)}"
   end
 
   def get_setup_revision_command
