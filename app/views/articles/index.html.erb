@@ -6,30 +6,32 @@
   <h1>Connected Network</h1>
   <% @articles.each do |article| %>
     <article id="<%=article.slug%>" class="feeds rss" resource="<%=article.url%>" typeof="schema:Article">
-      <h2 class="Feeds" property="schema:headline"><a href="<%=article.url%>"><%= article.title %></a></h2>
+      <header>
+        <h2 class="Feeds" property="schema:headline"><a href="<%=article.url%>"><%= article.title %></a></h2>
         <%if !article.author.blank? then%>
           <p class="author" property="schema:author">By: <%= article.author %></p>
         <%end%>
         <%if !article.datePublished.blank? then%>
           <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">Date: <%=article.datePublished.strftime("%m/%d/%Y") %></p>
         <%end%>
-        <div class="social-buttons">
-          <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter") %></a>
-          &nbsp;
-          <a href="<%=article.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn") %></a>
-          &nbsp;
-          <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+") %></a>
-        </div>
-        <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %> </p>
-        <% if article.publisher %>
-          <p class="category" property="schema:articleSection"> <%= image_tag(article.publisher.logo)%> </p>
-        <%end%>
+      </header>
+      <aside class="social-buttons">
+        <a href="<%=article.share_twitter%>"><%= image_tag("logo-twitter.png", :alt => "Share with Twitter") %></a>
+        &nbsp;
+        <a href="<%=article.share_linkedin%>"><%= image_tag("logo-linkedin.png", :alt => "Share with LinkedIn") %></a>
+        &nbsp;
+        <a href="<%=article.share_googleplus%>"><%= image_tag("logo-gplus.png", :alt => "Share with Google+") %></a>
+      </aside>
+      <p class="category" property="schema:articleSection"> <%= article.articleSection.join(", ") %> </p>
+      <% if article.publisher %>
+        <p class="category" property="schema:articleSection"> <%= image_tag(article.publisher.logo)%> </p>
+      <%end%>
 
-        <%if !article.summary.blank? %>
-          <p class="summary" property="schema:summary"> <%= article.summary[0..500].make_urls_line_breakable %></p>
-        <%elsif !article.description.blank? %>
-          <p class="summary" property="schema:description"> <%= article.description[0..500].make_urls_line_breakable %></p>
-        <%end%>
+      <%if !article.summary.blank? %>
+        <p class="summary" property="schema:summary"> <%= article.summary[0..500].make_urls_line_breakable %></p>
+      <%elsif !article.description.blank? %>
+        <p class="summary" property="schema:description"> <%= article.description[0..500].make_urls_line_breakable %></p>
+      <%end%>
     </article>
   <% end %>
 </section>
