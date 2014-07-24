@@ -31,7 +31,7 @@
           &nbsp;|&nbsp;
         <% end %>
         <% if !article.datePublished.nil? then %>
-          <em>Date:</em> <time><%=article.datePublished.strftime("%m/%d/%Y") %></time>
+          <em>Date:</em> <%=article.datePublished.strftime("%m/%d/%Y") %>
         <% end %>
       </p>
     </article>
