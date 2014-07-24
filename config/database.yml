@@ -7,6 +7,10 @@ development:
   <<: *default
   database: db/development.sqlite3
 
+test:
+  <<: *default
+  database: db/development.sqlite3
+
 staging:
   <<: *default
   database: db/staging.sqlite3

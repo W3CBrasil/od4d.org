@@ -5,8 +5,8 @@ Rails.application.load_tasks
 namespace :deploy do
 desc "Deploy to production"
 
-  def deploy(environment)
-    command = get_ci_setup_command if ENV['CI']
+  def deploy(environment, server = nil)
+    command = get_ci_setup_command(server) if ENV['CI']
     sh "#{command} cap #{environment} deploy"
   end
 
@@ -22,8 +22,7 @@ desc "Deploy to production"
     eos
   end
 
-  def get_setup_ssh_command
-    server = ENV['OD4D_STAGING_SERVER'] || ENV['OD4D_PROD_SERVER']
+  def get_setup_ssh_command(server)
     command = <<-eos
       echo "$DEPLOY_SSH_KEY" > ~/.ssh/deploy-key
       chmod 0600 ~/.ssh/deploy-key
@@ -34,20 +33,23 @@ desc "Deploy to production"
     eos
   end
 
-  desc "Deploy to development"
-  task :development do
-    deploy("development")
+  def get_server_from_env_variable(name)
+    fail "Please set the server address using the environment variable #{name}" if ENV[name].to_s.empty?
+    ENV[name]
   end
 
-  desc "Deploy to staging"
+  desc "Deploy to test environment"
+  task :test do
+    deploy("test")
+  end
+
+  desc "Deploy to staging environment"
   task :staging do
-    fail "Please set the server address using the environment variable OD4D_STAGING_SERVER" if ENV['OD4D_STAGING_SERVER'].to_s.empty?
-    deploy("staging")
+    deploy("staging", get_server_from_env_variable('OD4D_STAGING_SERVER'))
   end
 
-  desc "Deploy to production"
+  desc "Deploy to production environment"
   task :production do
-    fail "Please set the server address using the environment variable OD4D_PROD_SERVER" if ENV['OD4D_PROD_SERVER'].to_s.empty?
-    deploy("production")
+    deploy("production", get_server_from_env_variable('OD4D_PROD_SERVER'))
   end
 end
