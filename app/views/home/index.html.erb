@@ -3,9 +3,7 @@
 <% end %>
 
 <section class="home-left">
-  <header>
-    <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
-  </header>
+  <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
   <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
   <div class="video-container">
     <iframe src="//player.vimeo.com/video/69632849"></iframe>
@@ -15,9 +13,7 @@
 <div class="separator"></div>
 
 <aside class="home-right">
-  <header>
-    <h2>Connected Network</h2><br>
-  </header>
+  <h2>Connected Network</h2><br>
   <% @articles.each do |article| %>
     <article class="feeds-home">
       <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
