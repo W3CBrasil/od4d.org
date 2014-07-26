@@ -403,18 +403,3 @@ button a {
 }
 
 .clear { clear: left; }
-
-
-.cases article h2 {
-	color: #666666;
-}
-
-.cases article .case {
-	width:311px;
-	height:161px;
-}
-
-.partners img {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
