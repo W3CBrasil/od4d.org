@@ -7,6 +7,7 @@ gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'achecker'
   gem 'capistrano-rails'
   gem 'colorize'
   gem 'rake'
