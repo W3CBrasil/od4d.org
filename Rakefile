@@ -1,5 +1,11 @@
+begin
+  require 'achecker'
+rescue LoadError
+  puts "AChecker gem was not found. It is ok if you are not in development environment."
+end
+
 require File.expand_path('../config/application', __FILE__)
-require 'achecker'
+
 
 Rails.application.load_tasks
 
