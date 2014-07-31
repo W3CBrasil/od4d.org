@@ -33,19 +33,22 @@ class ArticleDAO
   end
 
   def get_value_from_hash(hash, key)
-    hash[key]["value"]
+    hash[key]["value"] if hash[key]
   end
 
   def create_from_hash(article_hash)
     article = Article.new
     article.url = get_value_from_hash(article_hash, "url")
     article.title = get_value_from_hash(article_hash, "headline")
-    article.author = get_value_from_hash(article_hash, "author")
-    article.publisher = @partnerDAO.get_partner(get_value_from_hash(article_hash, "publisher")) unless article_hash["publisher"].to_s.empty?
-    article.summary = get_value_from_hash(article_hash, "articleBody") if article_hash["articleBody"]
+    publisher_str = get_value_from_hash(article_hash, "publisher")
+    article.publisher = @partnerDAO.get_partner(publisher_str) unless article_hash["publisher"].to_s.empty?
     article.description = get_value_from_hash(article_hash, "description")
+
+    # Optional fields
     article.articleSection = get_value_from_hash(article_hash, "articleSection")
     article.articleSection = [article.articleSection] unless article.articleSection.is_a? Array
+    article.author = get_value_from_hash(article_hash, "author")
+    article.summary = get_value_from_hash(article_hash, "articleBody") if article_hash["articleBody"]
     date_raw = get_value_from_hash(article_hash, "datePublished")
     article.datePublished = get_date(date_raw)
     article
