@@ -6,9 +6,13 @@ class PartnerDAO
 
   PARTNER_SELECT_QUERY = '
     PREFIX schema: <http://schema.org/>
-    SELECT  ?s ?p ?o
-    WHERE   { ?s a schema:Organization .
-              ?s ?p ?o}'
+    SELECT  ?partner ?description ?logo ?url ?name
+    WHERE   { ?partner a schema:Organization .
+            OPTIONAL { ?partner schema:description ?description } .
+            OPTIONAL { ?partner schema:logo ?logo } .
+            OPTIONAL { ?partner schema:url ?url } .
+            OPTIONAL { ?partner schema:name  ?name } .
+            }'
 
   def initialize(fuseki, fuseki_json_parser)
     @fuseki = fuseki
@@ -16,34 +20,43 @@ class PartnerDAO
   end
 
   def list_partners
-    load_partners.map{|k, v| v }
+    load_partners
   end
 
   def get_partner(partner_uri)
-    uri = uri_str(partner_uri)
-    partners = list_partners  
-    partners.select{|p| p.uri.index(uri) == 0 }[0]
+    uri_obj = URI(partner_uri)
+    partners = list_partners
+
+    partners_found = partners.select do |p|
+      p.uri.host == uri_obj.host
+    end
+    partners_found[0]
   end
 
   private
   def load_partners
-    response_json = @fuseki.query(PARTNER_SELECT_QUERY)
-    resources = @fuseki_json_parser.convert(response_json)
-    resources.each{|uri, res| resources[uri] = create_from_hash(uri, res)}
-    resources
+    query_data = @fuseki.query(PARTNER_SELECT_QUERY)
+    response_json = JSON.parse(query_data)
+    resources = response_json["results"]["bindings"]
+    partners = []
+    resources.each do |partner_raw|
+      partners.push create_from_hash(partner_raw)
+    end
+    partners
   end
 
-  def create_from_hash(uri, partner_hash)
-    partner = Partner.new(uri)
-    partner.url = partner_hash["url"]
-    partner.name = partner_hash["name"]
-    partner.description = partner_hash["description"]
-    partner.logo = partner_hash["logo"]
+  def get_value_from_hash(hash, key)
+    hash[key]["value"]
+  end
+
+  def create_from_hash(partner_hash)
+    partner_uri = URI(get_value_from_hash partner_hash, "partner")
+    partner = Partner.new(partner_uri)
+    partner.url = get_value_from_hash partner_hash, "url"
+    partner.name = get_value_from_hash partner_hash, "name"
+    partner.description = get_value_from_hash partner_hash, "description"
+    partner.logo = get_value_from_hash partner_hash, "logo"
     partner
   end
 
-  def uri_str(str)
-    uri = URI(str)
-    "#{uri.scheme}://#{uri.host}"
-  end
 end
