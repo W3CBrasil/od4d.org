@@ -25,6 +25,22 @@
 	vertical-align: top;
 }
 
+div.article-snippet-header::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+div.article-snippet-header > div.right {
+	float: right;
+	font-weight: 300;
+	font-size: 0.6em;
+}
+
+div.article-snippet-header > div.left {
+	float: left;
+}
+
 div.separator {
 	border-right:1px solid;
 	position: relative;
@@ -149,8 +165,7 @@ p {
 }
 
 em {
-	font-weight: 500;
-	font-style: normal;
+	font-style: italic;
 }
 
 .content {
