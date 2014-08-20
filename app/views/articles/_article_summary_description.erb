@@ -1,0 +1,17 @@
+<%if !article.summary.blank? %>
+  <p class="summary" property="schema:summary">
+    <% text = article.summary[0..size.to_i].make_urls_line_breakable %>
+    <% if article.summary.size > size.to_i then %>
+    <%    text += "..." %>
+    <% end %>
+    <%= text %>
+  </p>
+<%elsif !article.description.blank? %>
+  <p class="summary" property="schema:description">
+    <% text = article.description[0..size.to_i].make_urls_line_breakable %>
+    <% if article.description.size > size.to_i then %>
+    <%    text += "..." %>
+    <% end %>
+    <%= text %>
+  </p>
+<%end%>

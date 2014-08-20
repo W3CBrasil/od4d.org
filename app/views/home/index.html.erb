@@ -16,27 +16,18 @@
   <h2><%= link_to("Connected Network", controller: "articles") %></h2><br>
   <% @articles.each do |article| %>
     <article class="feeds-home">
-      <div class="article-snippet-header">
-        <div class="right">
-          <%if !article.publisher.blank? then%>
-            <%= article.publisher.name%>
-          <%end%>
-        </div>
-        <div class="left">
-          <%= article.articleSection.join(", ").upcase %>
-        </div>
-      </div>
-      <h3><%= link_to(article.title, controller: "articles", anchor: article.slug) %></h3>
-      <p class="rsshome">
-        <% if !article.datePublished.nil? then %>
-          <em>publicado em <%=article.datePublished.strftime("%m/%d/%Y") %></em>
-        <% end %>
-        <%if !article.author.blank? then%>
-          <em>por <%= article.author %></em>
-        <% end %>
+      <%= article.articleSection.join(", ").upcase %>
+      <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
+      <span style="margin: 0px 0px 0px 0px;">
+        <%= render partial: "articles/article_summary_description", locals: {article: article, size: "100"} %>
+      </span>
+      <p class="sourcelink">
+        <%if !article.publisher.blank? then%>
+          <em>Source: <a href="<%=article.publisher.url%>" class="grey" target="_blank"><%= article.publisher.name%></a></em>
+        <%end%>
       </p>
       <% if @articles.last == article then %>
-      <p style="text-align: center;">
+      <p class="morenews">
         <em><%= link_to("ver mais notícias", controller: "articles") %></em>
       </p>
       <% end %>

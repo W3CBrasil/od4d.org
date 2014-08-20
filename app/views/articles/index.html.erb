@@ -27,11 +27,7 @@
         <p class="category" property="schema:articleSection"> <%= image_tag(article.publisher.logo)%> </p>
       <%end%>
 
-      <%if !article.summary.blank? %>
-        <p class="summary" property="schema:summary"> <%= article.summary[0..500].make_urls_line_breakable %></p>
-      <%elsif !article.description.blank? %>
-        <p class="summary" property="schema:description"> <%= article.description[0..500].make_urls_line_breakable %></p>
-      <%end%>
+      <%= render partial: "article_summary_description", locals: {article: article, size: "500"} %>
     </article>
   <% end %>
 </section>
