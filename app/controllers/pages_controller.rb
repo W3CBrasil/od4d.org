@@ -4,6 +4,5 @@ class PagesController < ApplicationController
   def terms_and_conditions
   end
   def style_guide
-    render :layout => false
   end
 end

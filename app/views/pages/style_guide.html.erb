@@ -1,38 +1,60 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href='http://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Exo+2:900italic,100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= yield :head %>
-</head>
-<body prefix="schema: http://schema.org/">
-  <header role="banner">
-    <div class="center-align">
-      <div class="logo">
-        <a href="/"><%= image_tag("logo-od4d2.png", :alt => "Open Data for Development") %></a>
-      </div>
-  </header>
+<section>
 
-  <div class="main" role="main">
+<h1>OD4D Style Guide</h1>
 
- </div>
+<h2>Background Colours</h2>
+<div style="width:100px;height:100px;background:#333333; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<div style="width:100px;height:100px;background:#fffffff; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px; border:1px solid #c5c5c5;"></div>
+<div style="width:100px;height:100px;background:#da6235; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<br>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#333333</div>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#ffffff</div>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#333333</div>
+<hr>
+<h2>Text Colours</h2>
+<div style="width:100px;height:100px;background:#2b2b2b; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<div style="width:100px;height:100px;background:#666666; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<div style="width:100px;height:100px;background:#da6235; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<div style="width:100px;height:100px;background:#c5c5c5; -moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px; display:inline-block; margin:30px 30px 0px 0px;"></div>
+<br>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#2b2b2b</div>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#666666</div>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#da6235</div>
+<div style="width:100px;height:50px;display:inline-block; margin:0px 30px 0px 0px;text-align:center;">#c5c5c5</div>
+<hr>
+<h2>Typography</h2>
+<p><a href="http://www.google.com/fonts/specimen/Exo+2"><em>Exo 2</em></a> is the default body font.</p>
+<br>
+<h1 style="margin: 0px; padding-bottom: 10px">Header 1</h1>
+<h2 style="margin: 0px; padding-bottom: 10px">Header 2</h2>
+<h3 style="margin: 0px; padding-bottom: 10px">Header 3</h3>
 
-  <footer class="inner-shadow clear" role="contentinfo">
-    <div class="center-box out-shadow">
-      <div class="center-align">
-
-        <p class="copyright">
-          © 2014 Open Data for Development - All Rights Reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-  <%= render :partial => '/layouts/ga_script' if Rails.application.config.use_google_analytics %>
-</body>
-</html>
+<p>Paragraph font weight: 300</p>
+<p style="font-weight:600;">Header font weight: 600</p>
+<p>Emphasized text use <em>"em"</em>. <em>"em font weight 500.</em></p>
+<br>
+<h3>Site Header Font Style</h3>
+<p><a href="http://www.google.com/fonts/specimen/Roboto+Condensed" style="font-family:'Roboto Condensed', sans-serif; font-weight: 500;font-size:1em;">Roboto Condensed</a> is the font used on the site header Menu</p>
+<br>
+<hr>
+<h2>Links</h2>
+<br>
+<h3>Body Links</h3>
+<p>Link color <a href="#"><em>#da6235</em></a>.
+  <br>Link hover: <u style="color:#da6235"><em>underline</em></u>
+  <br>Link weight <em>"em"</em>.
+</p>
+<br>
+<h3>Header Navigation Links</h3>
+<header style="background:#444444; padding: 10px; margin-top: 5px;color:#ffffff">
+  <a href="#">Menu Link Color #c5c5c5.</a>
+  <br><a href="#">Menu Link Hover:</a> #ffffff</p>
+</header>
+<br>
+<hr>
+<h2>Article Styles</h2>
+<br>
+<h2 class="Feeds">Article header</h2>
+<p>Font color: #666666, font-size: 1.1em, font-weigth: 600<br>
+Article link hover: <u><em>Underline</em></u></p>
+</section>
