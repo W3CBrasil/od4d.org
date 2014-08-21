@@ -1,3 +1,6 @@
+require 'string'
+# TODO: remove this require
+
 class HomeController < ApplicationController
   def index
     fuseki = Fuseki.new

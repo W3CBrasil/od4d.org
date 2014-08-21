@@ -1,4 +1,5 @@
 require 'string'
+# TODO: remove this require
 
 class ArticlesController < ApplicationController
   def index
