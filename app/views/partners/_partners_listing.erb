@@ -1,0 +1,6 @@
+<% partners.each do |partner| %>
+  <article id="<%= partner.slug %>" class="partners" typeof="schema:Organization" resource="<%=partner.url%>">
+    <h2 property="schema:name"><a href="<%= partner.url %>" target="_blank"><%= partner.name %></a></h2>
+    <%= image_tag(partner.logo, :alt => partner.name, :property => "schema:logo") %>
+  </article>
+<% end %>

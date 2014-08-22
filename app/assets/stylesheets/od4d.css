@@ -27,11 +27,13 @@
 
 .articles-listing {
 	float: left;
-	width: 70%;
+	width: 60%;
 }
 
 .partners-listing {
 	float: right;
+	width: 300px;
+	text-align: center;
 }
 
 div.separator {
@@ -327,7 +329,7 @@ article.partners {
 	margin: 0px;
 	padding-bottom: 15px;
 	padding-right: 0px;
-
+	text-align: center;
 }
 
 p.author {

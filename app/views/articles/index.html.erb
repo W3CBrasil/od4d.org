@@ -12,6 +12,7 @@
     <% end %>
   </section>
   <section id="partners_listing" class="partners-listing">
-    <h1>Nossos Parceiros</h1>
+    <h1 style="text-align: center;">Nossos Parceiros</h1>
+    <%= render partial: "partners/partners_listing", locals: {partners: @partners } %>
   </section>
 </section>
