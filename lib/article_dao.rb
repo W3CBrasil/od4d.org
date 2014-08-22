@@ -16,7 +16,8 @@ class ArticleDAO
                 OPTIONAL { ?article schema:articleSection ?articleSection } .
                 OPTIONAL { ?article schema:datePublished ?datePublished } .
                 OPTIONAL { ?article schema:publisher ?publisher } .
-                }'
+                }
+        ORDER BY DESC(?datePublished)'
 
   def initialize(fuseki, fusekiJsonParser)
     @fuseki = fuseki || Fuseki.new

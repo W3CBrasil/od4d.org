@@ -332,10 +332,10 @@ article.partners {
 	text-align: center;
 }
 
-p.author {
+span.author {
 	font-size: .875em;
 	font-family: 'Exo 2', sans-serif;
-	font-weight: 400;
+	font-weight: bold;
 	color: #666666;
 	margin: 5px 0px 0px 0px;
 	line-height: 1.3em;
@@ -389,6 +389,7 @@ p.date
 	color: #666666;
 	margin: 3px 0px 0px 0px;
 	line-height: 1.3em;
+	font-style: italic;
 }
 
 .feeds {

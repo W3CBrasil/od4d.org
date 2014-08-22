@@ -1,6 +1,14 @@
 <article class="feeds-home">
   <%= article.articleSection.join(", ").upcase %>
   <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
+  <%if !home && !article.datePublished.blank? then%>
+    <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">
+      publicado em <%=article.datePublished.strftime("%m/%d/%Y") %>
+      <%if !home && !article.author.blank? then%>
+       por <span class="author" property="schema:author"><%= article.author %></span>
+      <%end%>
+    </p>
+  <%end%>
   <span style="margin: 0px 0px 0px 0px;">
     <%= render partial: "articles/article_summary_description", locals: {article: article, size: "100"} %>
   </span>
