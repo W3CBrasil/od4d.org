@@ -4,7 +4,7 @@
 
 <section>
   <section id="articles_listing" class="articles-listing">
-    <h1 class="bottom-reset">Rede Conectada</h1>
+    <h1 class="bottom-reset">REDE CONECTADA</h1>
     <em>Fique por dentro das últimas notícias do universo Open Data</em><br/>
     <br>
     <% @articles.each do |article| %>
@@ -12,7 +12,7 @@
     <% end %>
   </section>
   <section id="partners_listing" class="partners-listing">
-    <h1 style="text-align: center;">Nossos Parceiros</h1>
+    <h2 style="text-align: center;">Nossos Parceiros</h2>
     <%= render partial: "partners/partners_listing", locals: {partners: @partners } %>
   </section>
 </section>
