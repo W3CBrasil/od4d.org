@@ -4,7 +4,6 @@
     <% if article.summary.size > size.to_i then %>
     <%    text += "..." %>
     <% end %>
-    <%= text %>
   </p>
 <%elsif !article.description.blank? %>
   <p class="summary" property="schema:description">
@@ -12,6 +11,6 @@
     <% if article.description.size > size.to_i then %>
     <%    text += "..." %>
     <% end %>
-    <%= text %>
   </p>
 <%end%>
+<%= strip_tags(strip_links(text)).to_s.gsub!(/(?:f|ht)tps?:\/[^\s]+/, '') %>
