@@ -15,23 +15,7 @@
 <aside class="home-right">
   <h2><%= link_to("Connected Network", controller: "articles") %></h2><br>
   <% @articles.each do |article| %>
-    <article class="feeds-home">
-      <%= article.articleSection.join(", ").upcase %>
-      <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
-      <span style="margin: 0px 0px 0px 0px;">
-        <%= render partial: "articles/article_summary_description", locals: {article: article, size: "100"} %>
-      </span>
-      <p class="sourcelink">
-        <%if !article.publisher.blank? then%>
-          <em>Source: <a href="<%=article.publisher.url%>" class="grey" target="_blank"><%= article.publisher.name%></a></em>
-        <%end%>
-      </p>
-      <% if @articles.last == article then %>
-      <p class="morenews">
-        <em><%= link_to("ver mais notícias", controller: "articles") %></em>
-      </p>
-      <% end %>
-    </article>
+    <%= render partial: "articles/article_details", locals: {article: article, home: true} %>
   <% end %>
   <h2><%= link_to("RDA and RDFa concepts", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></h2>
   <ul>

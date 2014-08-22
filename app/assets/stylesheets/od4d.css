@@ -25,6 +25,15 @@
 	vertical-align: top;
 }
 
+.articles-listing {
+	float: left;
+	width: 70%;
+}
+
+.partners-listing {
+	float: right;
+}
+
 div.separator {
 	border-right:1px solid;
 	position: relative;
@@ -111,6 +120,10 @@ h1 {
 	line-height: 1em;
 	color: #da6235;
 	margin: 20px 0px 25px 0px;
+}
+
+h1.bottom-reset {
+	margin-bottom: 0px;
 }
 
 h2 {

@@ -1,0 +1,17 @@
+<article class="feeds-home">
+  <%= article.articleSection.join(", ").upcase %>
+  <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
+  <span style="margin: 0px 0px 0px 0px;">
+    <%= render partial: "articles/article_summary_description", locals: {article: article, size: "100"} %>
+  </span>
+  <p class="sourcelink">
+    <%if !article.publisher.blank? then%>
+      <em>Source: <a href="<%=article.publisher.url%>" class="grey" target="_blank"><%= article.publisher.name%></a></em>
+    <%end%>
+  </p>
+  <% if home && @articles.last == article then %>
+  <p class="morenews">
+    <em><%= link_to("ver mais notícias", controller: "articles") %></em>
+  </p>
+  <% end %>
+</article>
