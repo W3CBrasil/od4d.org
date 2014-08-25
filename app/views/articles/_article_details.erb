@@ -1,5 +1,7 @@
 <article class="feeds-home">
-  <%= article.articleSection.join(", ").upcase %>
+  <p>
+    <%= article.articleSection.join(", ").upcase %>
+  </p>
   <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
   <%if !home && !article.datePublished.blank? then%>
     <p class="date" property="schema:datePublished" content="<%=article.datePublished.iso8601%>">
