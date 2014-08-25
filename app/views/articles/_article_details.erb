@@ -16,7 +16,7 @@
   </span>
   <p class="sourcelink">
     <%if !article.publisher.blank? then%>
-      <em>Source: <a href="<%=article.publisher.url%>" class="grey" target="_blank"><%= article.publisher.name%></a></em>
+      <em>Source: <a href="<%=article.publisher.url%>" class="grey" target="_blank"><%= article.publisher.name%> <i class="fa fa-external-link"></i></a></em>
     <%end%>
   </p>
   <% if home && @articles.last == article then %>
