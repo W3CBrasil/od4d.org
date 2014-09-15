@@ -33,7 +33,9 @@ namespace :deploy do
 
   desc "Run a rake task on remote server"
   task :migrate do  
-    execute "cd #{deploy_to}/current; /usr/bin/env rake db:migrate RAILS_ENV=staging"
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "cd #{deploy_to}/current; /usr/bin/env rake db:migrate RAILS_ENV=staging"
+    end
   end
 
   before 'deploy:starting', 'deploy:secrets'
