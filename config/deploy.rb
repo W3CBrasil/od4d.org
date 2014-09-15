@@ -34,5 +34,13 @@ namespace :deploy do
   before 'deploy:starting', 'deploy:secrets'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
-  after :deploy, "deploy:migrations"
+  after :deploy, 'rake:migrate'
+end
+
+namespace :rake do  
+  desc "Run a task on a remote server."  
+  # run like: cap staging rake:invoke task=a_certain_task  
+  task :migrate do  
+    run("rake db:migrate")  
+  end  
 end
