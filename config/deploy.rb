@@ -34,5 +34,5 @@ namespace :deploy do
   before 'deploy:starting', 'deploy:secrets'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
-  after "deploy", "deploy:migrate"
+  after :deploy, "deploy:migrations"
 end
