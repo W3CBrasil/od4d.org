@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+	#Casein routes
+	namespace :casein do
+		resources :posts
+	end
+
   root 'home#index'
 
   get '/about' => 'pages#about'
