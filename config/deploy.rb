@@ -33,8 +33,14 @@ namespace :deploy do
 
   desc "Run a rake task on remote server"
   task :migrate do  
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:staging), in: :sequence, wait: 5 do
       execute "cd #{deploy_to}/current; bundle exec rake db:migrate RAILS_ENV=staging"
+    end
+    on roles(:test), in: :sequence, wait: 5 do
+      execute "cd #{deploy_to}/current; bundle exec rake db:migrate RAILS_ENV=test"
+    end
+    on roles(:prod), in: :sequence, wait: 5 do
+      execute "cd #{deploy_to}/current; bundle exec rake db:migrate RAILS_ENV=production"
     end
   end
 
