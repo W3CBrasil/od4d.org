@@ -33,11 +33,11 @@ namespace :deploy do
 
   desc "Run a rake task on remote server"
   task :migrate do  
-    run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=#{rails_env}")
+    run("cd #{deploy_to}/current; /usr/bin/env rake db:migrate RAILS_ENV=#{rails_env}")
   end
 
   before 'deploy:starting', 'deploy:secrets'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
-  after :deploy, 'deploy:migrate task=db:migrate'
+  after :deploy, 'deploy:migrate'
 end
