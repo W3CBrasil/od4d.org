@@ -1,0 +1,15 @@
+<h3>Article</h3>
+<p><%= @article.url %></p>
+<p><%= @article.title %></p>
+<p><%= @article.author %></p>
+<p><%= @article.summary %></p>
+<p><%= @article.description %></p>
+<p><%= @article.articleBody %></p>
+<p><%= @article.articleSection.join(", ").upcase %></p>
+<p><%= @article.datePublished %></p>
+<h3>Partner</h3>
+<p><%= @article.publisher.uri %></p>
+<p><%= @article.publisher.description %></p>
+<p><%= @article.publisher.logo %></p>
+<p><%= @article.publisher.url %></p>
+<p><%= @article.publisher.name %></p>

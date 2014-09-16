@@ -11,6 +11,10 @@ class ArticlesController < ApplicationController
     @partners = PartnerDAO.new(Fuseki.new, FusekiJSONParser.new).list_partners
   end
 
+  def show
+  	@article = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).find_article(params[:uri])
+  end
+
   private
 	  def index_url
 	  	url_for controller: 'articles', action: 'index'

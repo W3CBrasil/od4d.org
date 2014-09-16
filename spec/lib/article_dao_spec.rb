@@ -2,6 +2,70 @@ require 'article'
 require 'article_dao'
 
 describe ArticleDAO do
+
+  context "#find_article" do
+    fuseki = Object.new
+            def fuseki.query(string)
+              if (string.index("schema:Article")) then
+                query_articles(string)
+              else
+                query_partners(string)
+              end
+            end
+
+            def fuseki.query_articles(string)
+                '{
+                  "head": {
+                    "vars": [ "article" , "url" , "author" , "headline" , "summary" , "description" , "articleBody" , "articleSection" , "datePublished" , "publisher" ]
+                  } ,
+                  "results": {
+                    "bindings": [
+                      {
+                        "article": { "type": "uri" , "value": "http://resource/id" } ,
+                        "url": { "type": "uri" , "value": "http://resource/id" } ,
+                        "author": { "type": "literal" , "value": "Dillon Mann" } ,
+                        "headline": { "type": "uri" , "value": "http://webfoundation.org" } ,
+                        "description": { "type": "literal" , "value": "description" } ,
+                        "articleBody": { "type": "literal" , "value": "body" } ,
+                        "articleSection": { "type": "literal" , "value": "General" } ,
+                        "datePublished": { "type": "literal" , "value": "2014-06-23T10:59:34+00:00" } ,
+                        "publisher": { "type": "uri" , "value": "http://publisher.org" }
+                      }
+                    ]
+                  }
+                }'
+              end
+              def fuseki.query_partners(string)
+                '
+                {
+                  "head": {
+                    "vars": [ "uri" , "description" , "logo" , "url" , "name" ]
+                  } ,
+                  "results": {
+                    "bindings": [
+                      {
+                        "description": { "type": "literal" , "value": "some" } ,
+                        "logo": { "type": "literal" , "value": "logo.png" } ,
+                        "url": { "type": "uri" , "value": "http://publisher.org" } ,
+                        "partner": { "type": "uri" , "value": "http://publisher.org" } ,
+                        "name": { "type": "literal" , "value": "The Publisher" }
+                      }
+                    ]
+                  }
+                }
+                '
+              end
+
+    it "should find an article by its uri" do
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      
+      article = articleDao.find_article("http://resource/id")
+
+      expect(article.url).to eq("http://resource/id")
+    end
+  
+  end
+
   context "#create_from_hash" do
     it "should convert date published to MM/DD/YYYY format" do
       articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)

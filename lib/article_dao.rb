@@ -16,13 +16,35 @@ class ArticleDAO
                 OPTIONAL { ?article schema:articleSection ?articleSection } .
                 OPTIONAL { ?article schema:datePublished ?datePublished } .
                 OPTIONAL { ?article schema:publisher ?publisher } .
-                }
-        ORDER BY DESC(?datePublished)'
+                }'
 
   def initialize(fuseki, fusekiJsonParser)
     @fuseki = fuseki || Fuseki.new
     @fusekiJsonParser = fusekiJsonParser
     @partnerDAO = PartnerDAO.new(fuseki, fusekiJsonParser)
+  end
+
+  def find_article(uri)
+    articleQuery = "
+      PREFIX schema: <http://schema.org/>
+      SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher
+      WHERE   { ?article a schema:Article .
+                OPTIONAL { ?article schema:url    ?url } .
+                OPTIONAL { ?article schema:author ?author } .
+                OPTIONAL { ?article schema:headline ?headline } .
+                OPTIONAL { ?article schema:summary  ?summary } .
+                OPTIONAL { ?article schema:description ?description } .
+                OPTIONAL { ?article schema:articleBody ?articleBody } .
+                OPTIONAL { ?article schema:articleSection ?articleSection } .
+                OPTIONAL { ?article schema:datePublished ?datePublished } .
+                OPTIONAL { ?article schema:publisher ?publisher } .
+                FILTER (?url = <#{uri}>) .
+              } LIMIT 1
+    "
+    query_data = @fuseki.query(articleQuery)
+    response_json = JSON.parse(query_data)
+    resource = response_json["results"]["bindings"]
+    create_from_hash(resource.first)
   end
 
   def list_articles
@@ -59,6 +81,7 @@ class ArticleDAO
 
   def load_articles(limit=0)
     final_query = ARTICLE_SELECT_QUERY
+    final_query = final_query + " ORDER BY DESC(?datePublished)"
     final_query = final_query + " LIMIT #{limit}" if limit != 0
     query_data = @fuseki.query(final_query)
     response_json = JSON.parse(query_data)
