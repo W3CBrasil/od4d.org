@@ -5,5 +5,5 @@
 	<p>fonte:
 		<a property="schema:publisher" href="<%= @article.publisher.url %>"><%= @article.publisher.name %></a>
 	</p>
-	<p property="schema:articleBody"><%= raw(@article.summary.gsub(/\n/, "<br/>")) %></p>
+	<p property="schema:articleBody"><%= raw(@article.article_content) %></p>
 </div>
