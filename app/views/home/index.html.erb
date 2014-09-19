@@ -2,30 +2,7 @@
   <title>Open Data for Development</title>
 <% end %>
 
-<section class="home-left">
+<section class="">
   <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
-  <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process...</p><br>
-  <div class="video-container">
-    <iframe src="//player.vimeo.com/video/69632849"></iframe>
-  </div>
+  <p>...</p><br>
 </section>
-
-<div class="separator"></div>
-
-<aside class="home-right">
-  <h2><%= link_to("Connected Network", controller: "articles") %></h2><br>
-  <% @articles.each do |article| %>
-    <%= render partial: "articles/article_details", locals: {article: article, home: true} %>
-  <% end %>
-  <h2><%= link_to("RDA and RDFa concepts", controller: "learn", action: "introduction_to_rdf_and_rdfa") %></h2>
-  <ul>
-    <li>Understanting RDF concept </li>
-    <li>RDFa and RDF? </li>
-    <li>Code examples </li>
-  </ul>
-  <h2><%= link_to("How to integrate with us", controller: "learn", action: "how_to_integrate_with_od4d") %></h2>
-  <ul>
-    <li>Understanting how to connect </li>
-    <li>Read our terms and conditions </li>
-  </ul>
-</aside>

@@ -1,0 +1,509 @@
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+li {
+  display: list-item;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.padding-0{
+  padding: 0 !important;
+}
+.margin-0{
+  margin: 0 !important;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+svg {
+  overflow: hidden;
+}
+
+pre,
+code {
+  font-family: "DejaVu Sans Mono", Monaco, Consolas, monospace;
+}
+
+hr {
+  border: none;
+  border-top: 3px solid #ccc;
+  clear: both;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 23px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 19px;
+}
+
+h5 {
+  font-size: 17px;
+}
+
+h6 {
+  font-size: 15px;
+}
+
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset,
+figure {
+  margin-bottom: 1;
+}
+
+body {
+  background: white;
+  color: #999;
+  font-family: 'Exo 2', Helvetica, Verdana, Arial, sans-serif;
+  text-align: left;
+}
+a{
+  font-family: 'Exo 2', Helvetica, Verdana, Arial, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+h1 {
+  padding-top: 1.54em;
+}
+
+img {
+  max-width: 100%;
+}
+h1 {
+  color: #4AB7A7;
+  font-size: 2.4em;
+  margin: 1em 0;
+  padding: 0;
+}
+h1 small {
+  float: right;
+  vertical-align: text-bottom;
+  margin-right: 3em;
+}
+h1 small {
+  color: #9F9F9F;
+  font-weight: 300;
+  font-size: 0.4em;
+  margin-top: 1.4em;
+}
+h1 small a {
+  color: #920000;
+  font-weight: 500;
+}
+
+h1.title, h2.title {
+  font-size: 2.8em;
+  line-height: 1.4em;
+  font-weight: 900;
+  color: #4AB7A7;
+  margin-bottom: 0.35em;
+}
+h1.title + p, h2.title + p {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 1.6em;
+}
+
+.grid-container {
+  padding-bottom: 20px;
+}
+
+.grid-container > hr {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div[class*="push-"] section {
+  background: #ddeecc;
+}
+
+div[class*="pull-"] section {
+  background: #ffccdd;
+}
+
+.dynamic-px-width {
+  display: block;
+}
+
+.floatLeft{
+  float: left;
+}
+.floatRight{
+  float: right;
+}
+.regularfont{
+  font-weight: 300;
+}
+.strongfont{
+  font-weight: 700;
+}
+img.floatLeft {
+  margin: 0 10px 5px 0;
+}
+section.with-margin {
+  margin: 3em 0;
+}
+section.first-margin {
+  margin-top: 1em;
+}
+a.btn-full.with-margin{
+  margin: 1em 0;
+}
+
+header.maintop{
+  background-color: #229AA7;
+  border-bottom: 3px solid #036A6D;
+  z-index: 99;
+  padding: 0 7%;
+  transition: all .5s linear;
+}
+@media screen and (max-width: 1076px) {
+    header.maintop {
+      padding: 0 .5em !important;
+    }
+}
+.maintop img{
+  margin-top: .2em;
+}
+.maintop nav li {
+  display: inline-block;
+  color: #fff;
+}
+.menu li a {
+  font-size: .9em;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 .8em;
+  text-align: center;
+  font-weight: 200;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 58px;
+} 
+.maintop nav li:hover a {
+  color: #000; 
+  background: #FC7C54; 
+}
+.maintop nav li a.dropdown:after{
+  content:"";
+  width:0;
+  height:0;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #03696d transparent transparent transparent;
+  margin-left: 5px;
+  margin-top: 26px;
+  position: absolute;
+}
+.maintop nav li a.dropdown{
+  padding-right: 1.5em;
+}
+.triangle{
+  width: 0;
+  height: 0;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 7px 7px 0 7px;
+  border-color: #03696d transparent transparent transparent;
+}
+
+/*banner post*/
+.callBanner{
+  background: #eee url(placeholder_banner-post2.jpg) no-repeat;
+  color: #152630;
+  text-align: center;
+}
+.destaque{
+  margin: 1em .9em 0;
+  padding: .64em; 
+}
+.breadcrumb{
+  color: #fff;
+  margin-top: 1em;
+}
+.breadcrumb a{
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 200;
+  margin: 0 .5em;
+}
+.breadcrumb a:last-child {
+  font-weight: 500;
+}
+.destaque h2{
+  font-size: 2em;
+  font-style: italic;
+  color: #fff;
+  margin: 1em 0 .5em;
+}
+.post-fonte{
+  background: #FC7C54;
+  color: #000;
+  font-size: .9em;
+  display: inline-block;
+  padding: 0px 10px 3px;
+  font-weight: 200;
+}
+.semiboldfont{
+  font-weight: 600;
+}
+.boldfont{
+  font-weight: 800;
+}
+
+.content p:first-child{
+  margin-top: 2em;
+}
+.content p{
+  font-size: 1.2em;
+  color: #636463;
+  font-weight: 200;
+  margin-top: 1em;
+  line-height: 1.5em;
+}
+.content p a{
+  color: #FC7C54;
+  font-weight: 700;
+}
+
+/* Buttons */
+button.btn, input.btn, a.btn {
+  background-color: #4AB7A7;
+  color: #fff;
+  font-family: "Exo 2";
+  font-weight: 100;
+  border:none;
+  padding: 10px 12px !important;
+  font-size: 18px;
+  text-align: center;
+}
+.btn:hover{
+  background-color: #288584;
+}
+button.btn-mini, input.btn-mini, a.btn-mini {
+  line-height: 1.5em;
+  height: 1.5em;
+  font-size: 1em;
+}
+button.btn-full, a.btn-full, input.btn-full {
+  display: block;
+  width: auto;
+}
+
+.bottom{
+  background: #009BA5;
+  height: 115px;
+}
+
+footer.mainfooter{
+  background-color: #333;
+  line-height: 60px;
+  vertical-align: middle;
+  padding: 0 1em;
+  font-size: 200;
+  font-size: .8em;
+}

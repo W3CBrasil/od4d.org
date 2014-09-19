@@ -1,9 +1,20 @@
-<div typeof="schema:Article" resource="#">
-	<h2 property="schema:headline"><%= @article.title %></h2>
-	<a href="<%= @article.url %>" target="blank">publicado em <span property="schema:datePublished"><%= @article.datePublished.strftime("%d %B %Y") %></span></a>
-	por <span property="schema:author"><%= @article.author %></span>
-	<p>fonte:
-		<a property="schema:publisher" href="<%= @article.publisher.url %>"><%= @article.publisher.name %></a>
-	</p>
-	<p property="schema:articleBody"><%= raw(@article.article_content) %></p>
-</div>
+<article typeof="schema:Article" resource="#">
+	<div class="callBanner">
+		<div class="grid-container">
+		  <div class="destaque">
+		    <p class="breadcrumb">
+		      <%= link_to "INÍCIO", controller: "home", action: "index" %>  | <a href="">EVENTOS</a>
+		    </p>
+		    <h2 property="schema:headline"><%= @article.title %></h2>
+		    <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="boldfont blackfont" property="schema:author"><%= @article.author %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
+		  </div>
+		</div>
+	</div>
+	<section property="schema:articleBody" class="grid-container content">
+		<div class="push-10 grid-80">
+			<p>
+				<%= raw(@article.article_content) %>
+			</p>
+		</div>
+	</section>
+</article>

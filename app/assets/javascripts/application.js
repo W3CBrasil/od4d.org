@@ -12,7 +12,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require foundation.topbar
 //= require_self
+//= require modernizr
+//= require jquery.slicknav
+//= require jquery.sticky
 
 $(function(){ $(document).foundation();});

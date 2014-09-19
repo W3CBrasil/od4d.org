@@ -9,6 +9,7 @@ gem 'font-awesome-sass'
 gem 'casein', '5.0.0'
 gem 'pg'
 gem 'htmlentities', '~> 4.3.2'
+gem 'modernizr-rails'
 
 group :development do
   gem 'achecker'
