@@ -12,25 +12,29 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  	article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
-  	@article = article_dao.find_article(params[:uri])
-  	@author_articles = article_dao.find_article_by_author(@article.author)
+    article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+    @article = article_dao.find_article(params[:uri])
+    if @article.nil?
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    else
+      @author_articles = article_dao.find_article_by_author(@article.author)
+    end
   end
 
   private
-	  def index_url
-	  	url_for controller: 'articles', action: 'index'
-	  end
+    def index_url
+      url_for controller: 'articles', action: 'index'
+    end
 
-	  def share_googleplus
-	     "https://plusone.google.com/_/+1/confirm?hl=en&url=#{URI.escape(index_url)}"
-	  end
+    def share_googleplus
+       "https://plusone.google.com/_/+1/confirm?hl=en&url=#{URI.escape(index_url)}"
+    end
 
-	  def share_twitter
-	     "https://twitter.com/intent/tweet?url=#{URI.escape(index_url)}&text=#{SHARE_TEXT}&via=OD4D"
-	  end
+    def share_twitter
+       "https://twitter.com/intent/tweet?url=#{URI.escape(index_url)}&text=#{SHARE_TEXT}&via=OD4D"
+    end
 
-	  def share_linkedin
-	     "http://www.linkedin.com/shareArticle?mini=true&url=#{URI.escape(index_url)}&title=#{SHARE_TEXT}&source=#{URI.escape('OD4D.org')}"
-	  end
+    def share_linkedin
+       "http://www.linkedin.com/shareArticle?mini=true&url=#{URI.escape(index_url)}&title=#{SHARE_TEXT}&source=#{URI.escape('OD4D.org')}"
+    end
 end

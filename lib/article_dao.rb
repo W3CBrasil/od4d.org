@@ -72,11 +72,8 @@ class ArticleDAO
     load_articles(record_number)
   end
 
-  def get_value_from_hash(hash, key)
-    hash[key]["value"] if hash[key]
-  end
-
   def create_from_hash(article_hash)
+    return if article_hash.nil?
     article = Article.new
     article.url = get_value_from_hash(article_hash, "url")
     article.title = get_value_from_hash(article_hash, "headline")
@@ -96,6 +93,10 @@ class ArticleDAO
 
   private
 
+  def get_value_from_hash(hash, key)
+    hash[key]["value"] if hash[key]
+  end
+  
   def load_articles(limit=0)
     final_query = ARTICLE_SELECT_QUERY
     final_query = final_query + " ORDER BY DESC(?datePublished)"
@@ -107,7 +108,6 @@ class ArticleDAO
     DateTime.iso8601(date) unless date.nil?
   end
 
-  private
   def execute_articles_query(query)
     query_data = @fuseki.query(query)
     response_json = JSON.parse(query_data)

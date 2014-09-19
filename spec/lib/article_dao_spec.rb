@@ -67,6 +67,15 @@ describe ArticleDAO do
   end
 
   context "#create_from_hash" do
+
+    it "should return nil for an nil hash" do
+      articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)
+
+      article = articleDao.create_from_hash(nil)
+
+      expect(article).to eq(nil)
+    end
+
     it "should convert date published to MM/DD/YYYY format" do
       articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)
 
@@ -287,4 +296,5 @@ describe ArticleDAO do
       expect(publisher.logo).to eq("foundation.png")
     end
   end
+
 end
