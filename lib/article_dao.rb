@@ -47,6 +47,23 @@ class ArticleDAO
     create_from_hash(resource.first)
   end
 
+  def find_article_by_author(author_name)
+    query = "
+      PREFIX schema: <http://schema.org/>
+      SELECT  ?url ?headline ?datePublished ?author
+      WHERE   { ?article a schema:Article .
+                OPTIONAL { ?article schema:url    ?url } .
+                OPTIONAL { ?article schema:headline ?headline } .
+                OPTIONAL { ?article schema:datePublished ?datePublished } .
+                OPTIONAL { ?article schema:author ?author } .
+                FILTER (?author = '#{author_name}') .
+              }
+      ORDER BY DESC(?datePublished)
+      LIMIT 5
+    "
+    execute_articles_query(query)
+  end
+
   def list_articles
     load_articles
   end
@@ -83,17 +100,21 @@ class ArticleDAO
     final_query = ARTICLE_SELECT_QUERY
     final_query = final_query + " ORDER BY DESC(?datePublished)"
     final_query = final_query + " LIMIT #{limit}" if limit != 0
-    query_data = @fuseki.query(final_query)
-    response_json = JSON.parse(query_data)
-    resources = response_json["results"]["bindings"]
-    # resources: [articles], article: prop:{type, value}
-    articles = []
-    resources.each {|article_raw| articles.push(create_from_hash(article_raw))}
-    articles
+    execute_articles_query(final_query)
   end
 
   def get_date(date)
     DateTime.iso8601(date) unless date.nil?
+  end
+
+  private
+  def execute_articles_query(query)
+    query_data = @fuseki.query(query)
+    response_json = JSON.parse(query_data)
+    resources = response_json["results"]["bindings"]
+    articles = []
+    resources.each {|article_raw| articles.push(create_from_hash(article_raw))}
+    articles
   end
 
 end

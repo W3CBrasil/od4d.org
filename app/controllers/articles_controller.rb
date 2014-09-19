@@ -12,7 +12,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  	@article = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).find_article(params[:uri])
+  	article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+  	@article = article_dao.find_article(params[:uri])
+  	@author_articles = article_dao.find_article_by_author(@article.author)
   end
 
   private

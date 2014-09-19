@@ -11,10 +11,18 @@
 		</div>
 	</div>
 	<section property="schema:articleBody" class="grid-container content">
-		<div class="push-10 grid-80">
+		<div class="grid-70">
 			<p>
 				<%= raw(@article.article_content) %>
 			</p>
 		</div>
+		<aside class="grid-30">
+			<p><h4>Mais posts por <%= @article.author %></h4></p>
+			<% @author_articles.each do |article| %>
+				<p>
+					<%= link_to article.title[0..30].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
+				</p>
+			<% end %>
+		</aside>
 	</section>
 </article>
