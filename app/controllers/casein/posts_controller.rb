@@ -59,7 +59,7 @@ module Casein
     private
       
       def post_params
-        params.require(:post).permit(:title, :author, :pub_date, :content)
+        params.require(:post).permit(:title, :author, :pub_date, :content, :about)
       end
 
   end
