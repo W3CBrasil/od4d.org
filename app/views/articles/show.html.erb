@@ -6,7 +6,7 @@
 		      <%= link_to "INÍCIO", controller: "home", action: "index" %>  | <a href="">EVENTOS</a>
 		    </p>
 		    <h2 property="schema:headline"><%= @article.title %></h2>
-		    <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="boldfont blackfont" property="schema:author"><%= @article.author %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
+		    <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="boldfont blackfont" property="schema:author"><%= @article.author %></span> sobre <span class="boldfont blackfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="boldfont blackfont" property="schema:about">')) %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
 		  </div>
 		</div>
 	</div>

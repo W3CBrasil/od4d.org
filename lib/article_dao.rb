@@ -109,12 +109,32 @@ class ArticleDAO
     article.articleSection = [article.articleSection] unless article.articleSection.is_a? Array
     article.author = get_value_from_hash(article_hash, "author")
     article.summary = get_value_from_hash(article_hash, "articleBody") if article_hash["articleBody"]
+    article.about = get_value_from_hash(article_hash, "about")
     date_raw = get_value_from_hash(article_hash, "datePublished")
     article.datePublished = get_date(date_raw)
+    article.about = find_about_by_article_uri(article.url)
     article
   end
 
   private
+
+  def find_about_by_article_uri(uri)
+    query = "     
+      PREFIX schema: <http://schema.org/>
+      SELECT  ?about
+      WHERE   { ?article a schema:Article .
+                ?article schema:url <#{uri}> .
+                ?article schema:about ?about .
+              }"
+    query_data = @fuseki.query(query)
+    response_json = JSON.parse(query_data)
+    resource = response_json["results"]["bindings"]
+    about_array = []
+    resource.each do |res|
+      about_array.push(get_value_from_hash(res, "about"))
+    end
+    about_array
+  end
 
   def get_value_from_hash(hash, key)
     hash[key]["value"] if hash[key]
