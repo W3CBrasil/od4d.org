@@ -43,7 +43,7 @@ module Casein
     
       if @post.update_attributes post_params
         articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
-        articleDAO.update(@post.attributes,Casein::ConfigHelper.casein_config_hostname)
+        articleDAO.update(@post.attributes)
         flash[:notice] = 'Post has been updated'
         redirect_to casein_posts_path
       else
@@ -56,6 +56,8 @@ module Casein
       @post = Post.find params[:id]
 
       @post.destroy
+      articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+      articleDAO.delete(@post.attributes)
       flash[:notice] = 'Post has been deleted'
       redirect_to casein_posts_path
     end

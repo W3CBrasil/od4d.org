@@ -65,22 +65,26 @@ class ArticleDAO
   end
 
   def insert(article)
-    turtle_prefixes = {
-      rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-      schema: 'http://schema.org/'
-    }
-    res = Resource.new("http://www.od4d.br/posts/#{article["id"]}", "Article")
-    add_optional_to_resource(res, "headline", article["title"])
-    add_optional_to_resource(res, "url", "http://www.od4d.br/posts/#{article["id"]}")
-    add_optional_to_resource(res, "description", article["content"][0..499])
-    add_optional_to_resource(res, "author", article["author"])
-    add_optional_to_resource(res, "datePublished", (article["pub_date"].iso8601() unless article["pub_date"].nil?))
-    add_optional_to_resource(res, "articleBody", article["content"])
-    add_optional_to_resource(res, "publisher", "http://www.od4d.br/")
-    add_optional_to_resource(res, "about", article["about"].split(','))
-    turtle = Turtle.new(turtle_prefixes)
-    turtle.add_resource(res)
-    @fuseki.insert(turtle.to_s)
+    @fuseki.insert(generate_turtle_from_article(article))
+  end
+
+  def update(article)
+    delete(article)
+    insert(article)
+  end
+
+  def delete(article)
+    url = "http://www.od4d.br/posts/#{article["id"]}"
+    query = "
+      PREFIX schema: <http://schema.org/>
+
+      DELETE
+      WHERE
+      { 
+        ?article schema:url <#{url}>; ?property ?value
+      }
+    "
+    @fuseki.update(query)
   end
 
   def add_optional_to_resource(res, field_name, field_value)
@@ -117,6 +121,25 @@ class ArticleDAO
   end
 
   private
+
+  def generate_turtle_from_article(article)
+    turtle_prefixes = {
+      rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+      schema: 'http://schema.org/'
+    }
+    res = Resource.new("http://www.od4d.br/posts/#{article["id"]}", "Article")
+    add_optional_to_resource(res, "headline", article["title"])
+    add_optional_to_resource(res, "url", "http://www.od4d.br/posts/#{article["id"]}")
+    add_optional_to_resource(res, "description", article["content"][0..499])
+    add_optional_to_resource(res, "author", article["author"])
+    add_optional_to_resource(res, "datePublished", (article["pub_date"].iso8601() unless article["pub_date"].nil?))
+    add_optional_to_resource(res, "articleBody", article["content"])
+    add_optional_to_resource(res, "publisher", "http://www.od4d.br/")
+    add_optional_to_resource(res, "about", article["about"].split(','))
+    turtle = Turtle.new(turtle_prefixes)
+    turtle.add_resource(res)
+    turtle.to_s
+  end
 
   def find_about_by_article_uri(uri)
     query = "     

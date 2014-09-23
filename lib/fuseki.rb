@@ -6,7 +6,7 @@ class Fuseki
   SERVER = "http://localhost"
   PORT = "3030"
   FUSEKI_DATASET = "articles"
-  UPDATE_PATH = '/articles/data?default'
+  INSERT_PATH = '/articles/data?default'
   REQUESTS = {:query => "query", :update => "update", :insert => "put" }
 
   def initialize
@@ -25,9 +25,25 @@ class Fuseki
       begin
         headers = {}
         headers["Content-Type"] = "text/turtle;charset=utf-8;charset=utf-8"
-        request = Net::HTTP::Post.new(UPDATE_PATH)
+        request = Net::HTTP::Post.new(INSERT_PATH)
         request.initialize_http_header(headers)
         request.body = turtle
+        response = Net::HTTP.new("localhost", PORT).start {|http| http.request(request) }
+
+      rescue => e
+        # findout what to do
+      end
+  end
+
+  def update(query, body = "")
+    queryParam = CGI::escape(query)
+    queryRequest = REQUESTS[:update]
+      begin
+        headers = {}
+        headers["Content-Type"] = "application/x-www-form-urlencoded"
+        request = Net::HTTP::Post.new("/#{@dataset}/#{queryRequest}?#{queryRequest}=#{queryParam}")
+        request.initialize_http_header(headers)
+        request.body = body
         response = Net::HTTP.new("localhost", PORT).start {|http| http.request(request) }
 
       rescue => e
