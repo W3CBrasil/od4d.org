@@ -29,7 +29,8 @@ module Casein
     
       if @post.save
         articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
-        articleDAO.insert(@post.attributes)
+        section = PostSection.find @post.post_sections_id
+        articleDAO.insert(@post.attributes, section.name)
         flash[:notice] = 'Post created'
         redirect_to casein_posts_path
       else
@@ -45,7 +46,8 @@ module Casein
     
       if @post.update_attributes post_params
         articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
-        articleDAO.update(@post.attributes)
+        section = PostSection.find @post.post_sections_id
+        articleDAO.update(@post.attributes, section.name)
         flash[:notice] = 'Post has been updated'
         redirect_to casein_posts_path
       else

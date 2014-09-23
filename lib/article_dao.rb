@@ -64,13 +64,14 @@ class ArticleDAO
     execute_articles_query(query)
   end
 
-  def insert(article)
+  def insert(article, articleSection)
+    article["articleSection"] = articleSection
     @fuseki.insert(generate_turtle_from_article(article))
   end
 
-  def update(article)
+  def update(article, articleSection)
     delete(article)
-    insert(article)
+    insert(article, articleSection)
   end
 
   def delete(article)
@@ -136,6 +137,7 @@ class ArticleDAO
     add_optional_to_resource(res, "articleBody", article["content"])
     add_optional_to_resource(res, "publisher", "http://www.od4d.br/")
     add_optional_to_resource(res, "about", article["about"].split(','))
+    add_optional_to_resource(res, "articleSection", article["articleSection"])
     turtle = Turtle.new(turtle_prefixes)
     turtle.add_resource(res)
     turtle.to_s
