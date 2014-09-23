@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	#Casein routes
 	namespace :casein do
+		resources :post_sections
 		resources :posts
   end
 

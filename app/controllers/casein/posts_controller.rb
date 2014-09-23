@@ -15,11 +15,13 @@ module Casein
     def show
       @casein_page_title = 'View post'
       @post = Post.find params[:id]
+      @post_sections = PostSection.order(sort_order(:name))
     end
   
     def new
       @casein_page_title = 'Add a new post'
-    	@post = Post.new
+      @post = Post.new
+      @post_sections = PostSection.order(sort_order(:name))
     end
 
     def create
@@ -65,7 +67,7 @@ module Casein
     private
       
       def post_params
-        params.require(:post).permit(:title, :author, :pub_date, :content, :about)
+        params.require(:post).permit(:title, :author, :pub_date, :content, :about, :post_sections_id)
       end
 
   end

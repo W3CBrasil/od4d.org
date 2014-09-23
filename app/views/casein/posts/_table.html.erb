@@ -3,11 +3,11 @@
 <table class="table table-striped table-hover table-condensed">
 	<thead>
 		<tr>
-			<th><%= casein_sort_link "Pub date", :pub_date %></th>
-			<th><%= casein_sort_link "Title", :title %></th>
-			<th><%= casein_sort_link "Author", :author %></th>
-			<th><%= casein_sort_link "Content", :content %></th>
-			<th><%= casein_sort_link "About", :about %></th>
+			<th><%= casein_sort_link "Data", :pub_date %></th>
+			<th><%= casein_sort_link "Título", :title %></th>
+			<th><%= casein_sort_link "Autor", :author %></th>
+			<th><%= casein_sort_link "Conteúdo", :content %></th>
+			<th><%= casein_sort_link "Assuntos", :about %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -20,7 +20,7 @@
 			<td><%= casein_table_cell_link post.content[0..499]+"...", casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.about, casein_post_path(post) %></td>
 			<td class="delete">
-				<%= link_to(casein_show_row_icon("trash"), casein_post_path(post), :method => :delete, :data => { :confirm => "Are you sure you want to delete this post?" }) %>
+				<%= link_to(casein_show_row_icon("trash"), casein_post_path(post), :method => :delete, :data => { :confirm => "Tem certeza que quer excluir este post?" }) %>
 			</td>
 		</tr>
 	<% end %>
