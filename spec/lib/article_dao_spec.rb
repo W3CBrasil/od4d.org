@@ -77,7 +77,15 @@ describe ArticleDAO do
     end
 
     it "should convert date published to MM/DD/YYYY format" do
-      articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)
+      fuseki = Object.new
+        def fuseki.query(string)
+          '
+          {
+            "head": {} , "results": {"bindings": []}
+          }
+          '
+        end
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
 
       article_hash = {
         "url" => { "value" => "don't care"},
