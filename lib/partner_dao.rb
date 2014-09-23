@@ -8,10 +8,10 @@ class PartnerDAO
     PREFIX schema: <http://schema.org/>
     SELECT  ?partner ?description ?logo ?url ?name
     WHERE   { ?partner a schema:Organization .
-            OPTIONAL { ?partner schema:description ?description } .
-            OPTIONAL { ?partner schema:logo ?logo } .
-            OPTIONAL { ?partner schema:url ?url } .
-            OPTIONAL { ?partner schema:name  ?name } .
+            ?partner schema:description ?description .
+            ?partner schema:logo ?logo .
+            ?partner schema:url ?url .
+            ?partner schema:name  ?name .
             }'
 
   def initialize(fuseki, fuseki_json_parser)

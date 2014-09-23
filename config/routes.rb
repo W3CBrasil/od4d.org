@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	#Casein routes
 	namespace :casein do
 		resources :posts
-	end
+  end
 
   root 'home#index'
 
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/learn/how-to-create-a-semantic-page' => 'learn#how_to_create_a_semantic_page'
   get '/learn/glossary' => 'learn#glossary'
   get '/article' => 'articles#show'
+
+  get '/posts/:id' => 'casein/posts#show'
 
   resources :articles, :only => [:index]
   resources :cases, :only => [:index]

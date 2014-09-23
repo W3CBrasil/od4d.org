@@ -26,6 +26,8 @@ module Casein
       @post = Post.new post_params
     
       if @post.save
+        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+        articleDAO.insert(@post.attributes)
         flash[:notice] = 'Post created'
         redirect_to casein_posts_path
       else
@@ -40,6 +42,8 @@ module Casein
       @post = Post.find params[:id]
     
       if @post.update_attributes post_params
+        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+        articleDAO.update(@post.attributes,Casein::ConfigHelper.casein_config_hostname)
         flash[:notice] = 'Post has been updated'
         redirect_to casein_posts_path
       else

@@ -10,6 +10,7 @@ gem 'casein', '5.0.0'
 gem 'pg'
 gem 'htmlentities', '~> 4.3.2'
 gem 'modernizr-rails'
+gem 'rdf-turtle', '~> 1.1', '>= 1.1.4'
 
 group :development do
   gem 'achecker'
