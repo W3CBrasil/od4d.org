@@ -2,11 +2,11 @@
 
 <h2>Posts<%= casein_pagination_details @posts %></h2>
 
-<%= render :partial => 'casein/posts/table', :locals => { :posts => @posts } %>
-
 <div class="text-center">
 	<%= will_paginate @posts %>
 </div>
+
+<%= render :partial => 'casein/posts/table', :locals => { :posts => @posts } %>
 
 <%= content_for :sidebar do %>
 
