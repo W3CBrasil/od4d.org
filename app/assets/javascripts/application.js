@@ -11,10 +11,7 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require_self
 //= require modernizr
 //= require jquery.slicknav
 //= require jquery.sticky
-
-$(function(){ $(document).foundation();});

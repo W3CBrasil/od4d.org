@@ -11,6 +11,7 @@ gem 'pg'
 gem 'htmlentities', '~> 4.3.2'
 gem 'modernizr-rails'
 gem 'rdf-turtle', '~> 1.1', '>= 1.1.4'
+gem 'ckeditor_rails'
 
 group :development do
   gem 'achecker'

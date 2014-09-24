@@ -51,6 +51,8 @@ GEM
       jquery-rails
       scrypt (= 1.2.1)
       will_paginate (= 3.0.5)
+    ckeditor_rails (4.4.3)
+      railties (>= 3.0)
     colorize (0.7.3)
     diff-lcs (1.2.5)
     ebnf (0.3.6)
@@ -174,6 +176,7 @@ DEPENDENCIES
   achecker
   capistrano-rails
   casein (= 5.0.0)
+  ckeditor_rails
   colorize
   font-awesome-sass
   htmlentities (~> 4.3.2)
