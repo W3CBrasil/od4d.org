@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/posts/:id' => 'casein/posts#show'
 
-  get '/section/:name' => 'articles#show_by_category'
+  get '/articles/filter/:field/:term' => 'articles#filter'
 
   resources :articles, :only => [:index]
   resources :cases, :only => [:index]

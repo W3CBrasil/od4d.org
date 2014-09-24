@@ -21,8 +21,8 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show_by_category
-    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).list_articles
+  def filter
+    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).filter_articles(params[:field], params[:term])
   end
 
   private
