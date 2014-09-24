@@ -121,6 +121,27 @@ class ArticleDAO
     article
   end
 
+  def filter_articles(field, term)
+    query = "
+            PREFIX schema: <http://schema.org/>
+            SELECT DISTINCT ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher
+            WHERE   { ?article a schema:Article .
+                      OPTIONAL { ?article schema:url    ?url } .
+                      OPTIONAL { ?article schema:author ?author } .
+                      OPTIONAL { ?article schema:headline ?headline } .
+                      OPTIONAL { ?article schema:summary  ?summary } .
+                      OPTIONAL { ?article schema:description ?description } .
+                      OPTIONAL { ?article schema:articleBody ?articleBody } .
+                      OPTIONAL { ?article schema:articleSection ?articleSection } .
+                      OPTIONAL { ?article schema:datePublished ?datePublished } .
+                      OPTIONAL { ?article schema:publisher ?publisher } .
+                      OPTIONAL { ?article schema:about ?about } .
+                      FILTER (?#{field} = '#{term}') .
+                    }"
+    query = query + " ORDER BY DESC(?datePublished)"
+    execute_articles_query(query)
+  end
+
   private
 
   def generate_turtle_from_article(article)
@@ -136,7 +157,7 @@ class ArticleDAO
     add_optional_to_resource(res, "datePublished", (article["pub_date"].iso8601() unless article["pub_date"].nil?))
     add_optional_to_resource(res, "articleBody", article["content"])
     add_optional_to_resource(res, "publisher", "http://www.od4d.br/")
-    add_optional_to_resource(res, "about", article["about"].split(','))
+    add_optional_to_resource(res, "about", article["about"].split(',').each {|s| s.strip!})
     add_optional_to_resource(res, "articleSection", article["articleSection"])
     turtle = Turtle.new(turtle_prefixes)
     turtle.add_resource(res)

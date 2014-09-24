@@ -1,0 +1,7 @@
+<% content_for :head do %>
+  <title>OD4D - Artigos</title>
+<% end %>
+
+<% @articles.each do |article| %>
+	<p><%=article.title%></p>
+<% end %>
