@@ -21,6 +21,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show_by_category
+    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).list_articles
+  end
+
   private
     def index_url
       url_for controller: 'articles', action: 'index'

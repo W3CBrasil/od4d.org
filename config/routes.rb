@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get '/posts/:id' => 'casein/posts#show'
 
+  get '/section/:name' => 'articles#show_by_category'
+
   resources :articles, :only => [:index]
   resources :cases, :only => [:index]
   resources :partners, :only => [:index]
