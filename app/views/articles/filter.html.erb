@@ -1,7 +1,30 @@
 <% content_for :head do %>
-  <title>OD4D - Artigos</title>
+  <title>OD4D - <%= params[:field] + " - " + params[:term] %></title>
 <% end %>
 
-<% @articles.each do |article| %>
-	<p><%=article.title%></p>
-<% end %>
+  <article class="post-list grid-container main">
+    <section class="content grid-70 bgwhite">
+      <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
+      <h4 class="subtitle"><%= @description %></h4>
+
+      <ul class="list-post-ul">
+		<% @articles.each do |article| %>
+	        <li>
+	            <span class="category"><%= article.articleSection.first.upcase %></span>
+	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
+	            <p class="fontitalic"><%= article.article_content_without_html[0..200] %><br/>
+	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+	            <p class="post-fonte bgwhite">publicado em <%= article.datePublished.strftime("%d/%m/%Y") %> por <span class="boldfont blackgrayfont"><%= article.author %></span></p>
+	        </li>
+		<% end %>
+      </ul>
+    </section>
+    <aside class="sharebar grid-30">
+      <div class="stickright">
+          <div class="faixa">
+            <p>OD4D no Twitter</p>
+          </div>
+      </div>
+    </aside>
+  </article>
+

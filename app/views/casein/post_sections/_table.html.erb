@@ -4,6 +4,7 @@
 	<thead>
 		<tr>
 			<th><%= casein_sort_link "Nome", :name %></th>
+			<th><%= casein_sort_link "Descrição", :description %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -11,6 +12,7 @@
 	<% post_sections.each do |post_section| %>
 		<tr>
 			<td><%= casein_table_cell_link post_section.name, casein_post_section_path(post_section) %></td>
+			<td><%= casein_table_cell_link post_section.description, casein_post_section_path(post_section) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_post_section_path(post_section), :method => :delete, :data => { :confirm => "Tem certeza que quer excluir esta Seção?" }) %>
 			</td>
