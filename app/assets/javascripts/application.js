@@ -16,6 +16,7 @@
 //= require jquery.slicknav
 //= require jquery.sticky
 //= require callbanner
+//= require easyResponsiveTabs.js
 
 $(document).ready(function(){
   $('#menu').slicknav();

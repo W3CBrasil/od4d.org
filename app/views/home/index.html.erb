@@ -2,7 +2,209 @@
   <title>Open Data for Development</title>
 <% end %>
 
-<section class="">
-  <h1><%= link_to("Understand Open Data", controller: "pages", action: "about") %></h1>
-  <p>...</p><br>
-</section>
+  <div class="grid-container">
+    <h2 class="title blackfont txtcenter">DADOS ABERTOS PARA UM DIA MELHOR</h2>
+    <h4 class="subtitle txtcenter">A maior plataforma para a nova web que queremos</h4>
+
+    <div id="call-banner" class="call-banner clearfix">
+      <h5 class="call-title">
+        POR QUE ESSE ASSUNTO ME INTERESSA?
+      </h5>
+      <ul class="push-12-5 mobile-push-10">
+        <li class="grid-25 mobile-grid-80 curioso">
+          <a href="#">
+            <span></span>
+            <p>Estou curioso</p>
+          </a>
+        </li>
+        <li class="grid-25 mobile-grid-80 dev">
+          <a href="#">
+            <span></span>
+            <p>Sou desenvolvedor</p>
+          </a>
+        </li>
+        <li class="grid-25 mobile-grid-80 produtor">
+          <a href="#">
+            <span></span>
+            <p>Sou produtor de conteúdo</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="video-call-banner bgdarkgreen video-curioso">
+      <video id="vidcur" class="video" width="539" height="270" controls>
+          <source src="dadosabertos.mp4" type="video/mp4"></source>
+      </video>
+    </div>
+    <div class="video-call-banner bgorange video-dev">
+      <video id="viddev" class="video" width="539" height="270" controls>
+          <source src="dadosabertos.mp4" type="video/mp4"></source>
+      </video>
+    </div>
+    <div class="video-call-banner bgorange video-produtor">
+      <video id="viddev" class="video" width="539" height="270" controls>
+          <source src="dadosabertos.mp4" type="video/mp4"></source>
+      </video>
+    </div>
+  </div>
+  <section class="grid-container content news">
+    <div class="grid-33">
+      <h3 class="title-subsection">ÚLTIMAS NOTÍCIAS</h3>
+      <ul class="list-news">
+      	<% @articles.each do |article| %>
+	        <li>
+	          <h4><%= article.title.upcase %></h4>
+	          <p><%= link_to article.title[0..30].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+	        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="">
+      <h3 class="title-subsection mobile-grid-100">DESTAQUES EM <a href="#">GOVERNO</a> >></h3>
+      <div class="destaquegov grid-33">
+          <h4 class="news-title-item title-item-destaque">Fique de olho</h4>
+          <img src="<%= asset_path 'placeholder_destaque_maior.jpg' %>" alt="" />
+          <h5 class="news-title-item">DADOS ABERTOS</h5>
+          <p class="news-txt-larger"><a href="">Conheça mais sobre como são catalogados os dados do Governo Brasileiro</a></p>
+      </div>
+
+      <div class="destaque2gov grid-33">
+        <div class="destaquemenor">
+          <img src="<%= asset_path 'placeholder_destaque_menor.jpg' %>" alt="">
+          <h5 class="news-title-item">FUTURO DA INTERNET</h5>
+          <p class="news-txt-larger"><a href="">AAI explora o poder da Open Web para transformar a África no Activate</a></p>
+        </div>
+        <ul class="list-news">
+          <li class="without-top">
+            <p><a href="">AAI explora o poder da Open Web para transformar a África no Activate</a></p>
+          </li>
+          <li class="without-top">
+            <p><a href="">AAI explora o poder da Open Web para transformar a África no Activate</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="bgorange">
+    <div class="grid-container">
+      <h3 class="title-engaje">ENGAJE-SE <span>em 3 partes</span></h3>
+      <ul class="list-engaje">
+        <li class="grid-33">
+          <div class="conceitos engaje-item">
+            <h4>Aprenda<br />os conceitos</h4>
+            <p><a href="">WEB SEMÂNTICA</a></p>
+            <p><a href="">RDF E RDFA</a></p>
+            <p><a href="">EXEMPLOS DE CÓDIGO</a></p>
+          </div>
+        </li>
+        <li class="grid-33">
+          <div class="engaje-item integre clearfix">
+            <h4>Integre-se <br />conosco</h4>
+            <p class="be-partner"><a href="">SEJA UM<br />PARCEIRO</a></p>
+            <p class="be-colaborator"><a href="">SEJA UM<br />COLABORADOR</a></p>
+          </div>
+        </li>
+        <li class="grid-33">
+          <div class="engaje-item compartilhe">
+            <h4>Compartilhe nas redes sociais</h4>
+            <div>
+              <p>EU DEFENDO<br />A INTERNET LIVRE</p>
+              <ul class="social-list-link">
+                <li class="twitter"><a href=""></a></li>
+                <li class="facebook"><a href=""></a></li>
+                <li class="gplus"><a href=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="grid-container casos-praticos">
+    <h3 class="fontitalic blackgrayfont">CASOS PRÁTICOS</h3>
+
+    <div id="horizontalTab">
+      <div class="resp-tabs-container bggreen">
+          <div class="text-tab clearfix">
+            <div class="text-tab clearfix">
+              <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
+              <h4>EDUCAÇÃO EM DADOS ABERTOS</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <div>
+              <div class="text-tab clearfix">
+              <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
+              <h4>PRIVACIDADE EM DADOS ABERTOS</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunPRIVACIDADEt ut labore et dolore magna alPRIVACIDADEiqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure doPRIVACIDADElor in reprPRIVACIDADEehenderit in voluptate velit esse
+              cillum dolore euPRIVACIDADE fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunPRIVACIDADEt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <div>
+              <div class="text-tab clearfix">
+              <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
+              <h4>TRÂNSITO EM DADOS ABERTOS</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enTRÂNSITOim ad minim veniam,
+              quis nostrud exTRÂNSITOercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor TRÂNSITOin reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. ExcepteuTRÂNSITOr sint occaecat cupidatat non
+              proident, sunt iTRÂNSITOn culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <div>
+              <div class="text-tab clearfix">
+              <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
+              <h4>GOVERNO EM DADOS ABERTOS</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incidGOVERNOidunt ut labore et dolore magna aliGOVERNOqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis autGOVERNOe irure dolGOVERNOor in reprehenderit inGOVERNO voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deGOVERNOserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <div>
+              <div class="text-tab clearfix">
+              <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
+              <h4>SAÚDE EM DADOS ABERTOS</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation uSAÚDEllamco laboris nisi utSAÚDE aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore SAÚDEeu fugiat nulla pariatur. ExcSAÚDEepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+      </div>
+      <ul class="resp-tabs-list">
+        <li class="grid-20">EDUCAÇÃO</li>
+        <li class="grid-20">PRIVACIDADE</li>
+        <li class="grid-20">TRÂNSITO</li>
+        <li class="grid-20">GOVERNO</li>
+        <li class="grid-20">SAÚDE</li>
+      </ul>
+    </div>
+    
+  </section>
+
+  <section class="bggray txtcenter partners">
+    <div class="grid-container">
+      <h3 class="fontitalic thinfont">PARCEIROS</h3>
+      <ul>
+        <li><a href=""><img src="<%= asset_path 'coi.png' %>" /></a></li>
+        <li><a href=""><img src="<%= asset_path 'coi.png' %>" /></a></li>
+        <li><a href=""><img src="<%= asset_path 'coi.png' %>" /></a></li>
+        <li><a href=""><img src="<%= asset_path 'coi.png' %>" /></a></li>
+      </ul>
+    </div>
+  </section>
