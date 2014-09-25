@@ -15,3 +15,7 @@
 //= require modernizr
 //= require jquery.slicknav
 //= require jquery.sticky
+
+$(document).ready(function(){
+  $('#menu').slicknav();
+});
