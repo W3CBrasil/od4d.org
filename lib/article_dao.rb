@@ -156,7 +156,7 @@ class ArticleDAO
     }
     res = Resource.new(get_post_url(article["id"]), "Article")
     add_optional_to_resource(res, "headline", article["title"])
-    add_optional_to_resource(res, "url", get_post_url(article["id"])
+    add_optional_to_resource(res, "url", get_post_url(article["id"]))
     add_optional_to_resource(res, "description", article["content"][0..499])
     add_optional_to_resource(res, "author", article["author"])
     add_optional_to_resource(res, "datePublished", (article["pub_date"].iso8601() unless article["pub_date"].nil?))
