@@ -14,7 +14,7 @@ module Casein
     # The server hostname where Casein will run
     def casein_config_hostname
       if Rails.env.production?
-        'http://www.od4d.org'
+        'http://platform.od4d.org'
       else
         'http://0.0.0.0:3000'
       end

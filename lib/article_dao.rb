@@ -5,6 +5,7 @@ require 'resource'
 
 class ArticleDAO
 
+  OD4D_PRODUCTION_URL = 'http://platform.od4d.org'
   ARTICLE_SELECT_QUERY = '
     PREFIX schema: <http://schema.org/>
     SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher
@@ -75,7 +76,7 @@ class ArticleDAO
   end
 
   def delete(article)
-    url = "http://www.od4d.br/posts/#{article["id"]}"
+    url = get_post_url(article["id"])
     query = "
       PREFIX schema: <http://schema.org/>
 
@@ -144,19 +145,23 @@ class ArticleDAO
 
   private
 
+  def get_post_url(post_id)
+    OD4D_PRODUCTION_URL + "/posts/#{post_id}"
+  end
+
   def generate_turtle_from_article(article)
     turtle_prefixes = {
       rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
       schema: 'http://schema.org/'
     }
-    res = Resource.new("http://www.od4d.br/posts/#{article["id"]}", "Article")
+    res = Resource.new(get_post_url(article["id"]), "Article")
     add_optional_to_resource(res, "headline", article["title"])
-    add_optional_to_resource(res, "url", "http://www.od4d.br/posts/#{article["id"]}")
+    add_optional_to_resource(res, "url", get_post_url(article["id"])
     add_optional_to_resource(res, "description", article["content"][0..499])
     add_optional_to_resource(res, "author", article["author"])
     add_optional_to_resource(res, "datePublished", (article["pub_date"].iso8601() unless article["pub_date"].nil?))
     add_optional_to_resource(res, "articleBody", article["content"])
-    add_optional_to_resource(res, "publisher", "http://www.od4d.br/")
+    add_optional_to_resource(res, "publisher", OD4D_PRODUCTION_URL + "/")
     add_optional_to_resource(res, "about", article["about"].split(',').each {|s| s.strip!})
     add_optional_to_resource(res, "articleSection", article["articleSection"])
     turtle = Turtle.new(turtle_prefixes)
