@@ -15,6 +15,7 @@
 //= require modernizr
 //= require jquery.slicknav
 //= require jquery.sticky
+//= require callbanner
 
 $(document).ready(function(){
   $('#menu').slicknav();

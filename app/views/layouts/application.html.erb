@@ -17,60 +17,15 @@
   </script>
 </head>
 <body prefix="schema: http://schema.org/">
-  <header class="stick maintop grid-100 mobile-grid-100">
-    <%= link_to controller: "home", action: "index"  do %>
-      <%= image_tag "logo.png", :alt => "Open Data for Development" %>
-    <% end %>
-    <nav id="menu" class="menu floatRight">
-      <ul>
-        <li><a href="">SOBRE A PLATAFORMA</a></li>
-        <li>
-          <a class="dropdown" href="">COMO PARTICIPAR</a>
-          <ul class="submenu">
-              <li><a href="#">item 1</a></li>
-              <li><a href="#">item 2</a></li>
-              <li><a href="#">item 3</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="dropdown" href="">UNIVERSO OPENDATA</a>
-          <ul class="submenu">
-              <li><a href="#">item 4</a></li>
-              <li><a href="#">item 5</a></li>
-              <li><a href="#">item 6</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="dropdown" href="">CASOS PRÁTICOS</a>
-          <ul class="submenu">
-              <li><a href="#">item 8</a></li>
-              <li><a href="#">trilha sobre Privacidade</a></li>
-              <li><a href="#">item 7</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="dropdown" href="">EVENTOS</a>
-          <ul class="submenu">
-              <li><a href="#">CURSOS</a></li>
-              <li><a href="#">CONCURSOS</a></li>
-              <li><a href="#">ENCONTROS</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <%= render :partial => '/layouts/header' %>
 
   <div role="main">
     <%= yield %>
   </div>
 
-  <div class="bottom">
+  <%= render :partial => '/layouts/footer' %>
 
-  </div>
-  <footer class="mainfooter">
-    <a href="">TERMOS E CONDIÇÕES</a>
-    <p class="floatRight">© 2014 Open Data for Development - All Rights Reserved.</p>
-  </footer>
   <%= render :partial => '/layouts/ga_script' if Rails.application.config.use_google_analytics %>
+  <%= render :partial => '/layouts/responsivetabs_script' %>
 </body>
 </html>
