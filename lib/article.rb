@@ -18,7 +18,7 @@ class Article
   end
 
   def is_third_party?
-    !@publisher.uri.to_s.include?("od4d")
+    !@publisher.to_s.include?("od4d") if @publisher
   end
 
   private 
