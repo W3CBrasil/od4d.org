@@ -20,4 +20,73 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  platform_name: "Open Data for Development"
+  od4d_title: "DADOS ABERTOS PARA UM DIA MELHOR"
+  od4d_description: "A maior plataforma para a nova web que queremos"
+  call_title: "POR QUE ESSE ASSUNTO ME INTERESSA?"
+  im_curious: "Estou curioso"
+  im_a_developer: "Sou desenvolvedor"
+  im_a_content_producer: "Sou produtor de conteúdo"
+  latest_news: "ÚLTIMAS NOTÍCIAS"
+  featured_in: "DESTAQUES EM"
+  featured_section: "Governo"
+  watch_out: "Fique de olho"
+  featured_about_1: "Dados Abertos"
+  featured_article_1: "Conheça mais sobre como são catalogados os dados do Governo Brasileiro"
+  featured_about_2: "Futuro da Internet"
+  featured_article_2: "AAI explora o poder da Open Web para transformar a África no Activate"
+  featured_article_3: "AAI explora o poder da Open Web para transformar a África no Activate"
+  featured_article_4: "AAI explora o poder da Open Web para transformar a África no Activate"
+  engage_us: "ENGAJE-SE"
+  in_3_parts: "em 3 partes"
+  concepts_title: "Aprenda<br />os conceitos"
+  concepts_websemantics: "Web SemÂntica"
+  concepts_rdfa: "RDF e RDFA"
+  concepts_examples: "Exemplos De Código"
+  integration_title: "Integre-se <br />conosco"
+  integration_beapartner: "Seja Um<br />parceiro"
+  integration_colaborator: "Seja Um<br />colaborador"
+  share_title: "Compartilhe nas redes sociais"
+  share_quote: "Eu Defendo<br />a Internet Livre"
+  cases_title: "Casos Práticos"
+  cases_headline_1: "EDUCAÇÃO EM DADOS ABERTOS"
+  cases_text_1: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  cases_headline_2: "PRIVACIDADE EM DADOS ABERTOS"
+  cases_text_2: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunPRIVACIDADEt ut labore et dolore magna alPRIVACIDADEiqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure doPRIVACIDADElor in reprPRIVACIDADEehenderit in voluptate velit esse
+              cillum dolore euPRIVACIDADE fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunPRIVACIDADEt mollit anim id est laborum."
+  cases_headline_3: "TRÂNSITO EM DADOS ABERTOS"
+  cases_text_3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enTRÂNSITOim ad minim veniam,
+              quis nostrud exTRÂNSITOercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor TRÂNSITOin reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. ExcepteuTRÂNSITOr sint occaecat cupidatat non
+              proident, sunt iTRÂNSITOn culpa qui officia deserunt mollit anim id est laborum."
+  cases_headline_4: "GOVERNO EM DADOS ABERTOS"
+  cases_text_4: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incidGOVERNOidunt ut labore et dolore magna aliGOVERNOqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis autGOVERNOe irure dolGOVERNOor in reprehenderit inGOVERNO voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deGOVERNOserunt mollit anim id est laborum."
+  cases_headline_5: "SAÚDE EM DADOS ABERTOS"
+  cases_text_5: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation uSAÚDEllamco laboris nisi utSAÚDE aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore SAÚDEeu fugiat nulla pariatur. ExcSAÚDEepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  cases_tab_1: "EDUCAÇÃO"
+  cases_tab_2: "PRIVACIDADE"
+  cases_tab_3: "TRÂNSITO"
+  cases_tab_4: "GOVERNO"
+  cases_tab_5: "SAÚDE"
+  partners_title: "PARCEIROS"
