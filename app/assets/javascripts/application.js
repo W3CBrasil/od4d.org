@@ -42,47 +42,55 @@ $(document).ready(function(){
       fit: true
   });
 
-  $('.call-banner').mouseover(function(){
-    //classe do background de cada opção para hover
-    $('.call-banner .curioso').mouseover(function() {
-      $('#call-banner').addClass('bgCuriosoCallBanner');
-    });
-    $('.call-banner .dev').mouseover(function() {
-      $('#call-banner').addClass('bgDevCallBanner');
-    });
-    $('.call-banner .produtor').mouseover(function() {
-      $('#call-banner').addClass('bgProdutorCallBanner');
-    });
+  //classe do background de cada opção para hover
+  $('.curioso').mouseover(function() {
+    $('#call-banner').addClass('bgCuriosoCallBanner');
+    $('.pos-call-banner').addClass('bgCuriosoCallBanner');
+  });
+  $('.dev').mouseover(function() {
+    $('#call-banner').addClass('bgDevCallBanner');
+    $('.pos-call-banner').addClass('bgDevCallBanner');
+  });
+  $('.produtor').mouseover(function() {
+    $('#call-banner').addClass('bgProdutorCallBanner');
+    $('.pos-call-banner').addClass('bgProdutorCallBanner');
+  });
 
-    $('.call-banner .curioso').mouseout(function() {
-      $('#call-banner').removeClass('bgCuriosoCallBanner');
-    });
-    $('.call-banner .dev').mouseout(function() {
-      $('#call-banner').removeClass('bgDevCallBanner');
-    });
-    $('.call-banner .produtor').mouseout(function() {
-      $('#call-banner').removeClass('bgProdutorCallBanner');
-    });
+  $('.curioso').mouseout(function() {
+    $('#call-banner').removeClass('bgCuriosoCallBanner');
+    $('.pos-call-banner').removeClass('bgCuriosoCallBanner');
+  });
+  $('.dev').mouseout(function() {
+    $('#call-banner').removeClass('bgDevCallBanner');
+    $('.pos-call-banner').removeClass('bgDevCallBanner');
+  });
+  $('.produtor').mouseout(function() {
+    $('#call-banner').removeClass('bgProdutorCallBanner');
+    $('.pos-call-banner').removeClass('bgProdutorCallBanner');
   });
 
 
+
   //play de vídeo ou slideshare de cada opção
-  $('.call-banner .curioso').click(function() {
-    $('#call-banner').fadeOut( 100 );
-    $('.video-curioso').fadeIn( 100 );
+  $('.curioso').click(function() {
+    $('#call-banner').fadeOut( 0 );
+    $('.pos-call-banner').fadeOut( 0 );
+    $('.video-curioso').fadeIn( 0 );
 
     $('#vidcur').get(0).play();
   });
 
-  $('.call-banner .dev').click(function() {
-    $('#call-banner').fadeOut( 100 );
-    $('.video-dev').fadeIn( 100 );
+  $('.dev').click(function() {
+    $('#call-banner').fadeOut( 0 );
+    $('.pos-call-banner').fadeOut( 0 );
+    $('.video-dev').fadeIn( 0 );
 
     $('#viddev').get(0).play()
   });
-  $('.call-banner .produtor').click(function() {
-    $('#call-banner').fadeOut( 100 );
-    $('.video-produtor').fadeIn( 100 );
+  $('.produtor').click(function() {
+    $('#call-banner').fadeOut( 0 );
+    $('.pos-call-banner').fadeOut( 0 );
+    $('.video-produtor').fadeIn( 0 );
 
     $('#vidprod').get(0).play()
   });
@@ -90,14 +98,16 @@ $(document).ready(function(){
   //TODO: fazer ao TÉRMINO do vídeo ou slideshare VOLTAR para as outras opções
   $('#vidcur').get(0).addEventListener('ended',function(){
     $('.video-call-banner').fadeOut( 0 );
-    $('#call-banner').fadeIn( 0 );
+    $('.pos-curioso').fadeIn( 0 );
   });
   $('#viddev').get(0).addEventListener('ended',function(){
     $('.video-call-banner').fadeOut( 0 );
-    $('#call-banner').fadeIn( 0 );
+    $('.pos-dev').fadeIn( 0 );
   });
   $('#vidprod').get(0).addEventListener('ended',function(){
     $('.video-call-banner').fadeOut( 0 );
-    $('#call-banner').fadeIn( 0 );
+    $('.pos-prod').fadeIn( 0 );
   });
+      
+
 });

@@ -31,20 +31,102 @@
         </li>
       </ul>
     </div>
-    <div class="video-call-banner bgdarkgreen video-curioso">
-      <video id="vidcur" class="video" width="539" height="270" controls>
-          <source src="dadosabertos.mp4" type="video/mp4"></source>
+    <div class="video-call-banner video-curioso">
+      <%= video_tag('dadosabertos.mp4', id: 'vidcur', class: 'video', size: '550x300', controls: true)  %>
+    </div>
+   <div class="video-call-banner video-dev">
+      <video id="viddev" class="video" width="539" height="300" controls>
+          <source src="<%= asset_path 'dadosabertos.mp4' %>" type="video/mp4"></source>
       </video>
     </div>
-    <div class="video-call-banner bgorange video-dev">
-      <video id="viddev" class="video" width="539" height="270" controls>
-          <source src="dadosabertos.mp4" type="video/mp4"></source>
+    <div class="video-call-banner video-produtor">
+      <video id="vidprod" class="video" width="539" height="300" controls>
+          <source src="<%= asset_path 'dadosabertos.mp4' %>" type="video/mp4"></source>
       </video>
     </div>
-    <div class="video-call-banner bgorange video-produtor">
-      <video id="viddev" class="video" width="539" height="270" controls>
-          <source src="dadosabertos.mp4" type="video/mp4"></source>
-      </video>
+    <div class="pos-call-banner bgdarkgreen pos-curioso">
+      <div class="push-15 grid-90">
+        <div class="grid-40">
+          <h3>GOSTOU?</h3>
+          <a class="more" href="">
+            <span></span>
+            <p>Saiba mais sobre o assunto</p>
+          </a>
+        </div>
+        <div class="grid-40">
+          <h4>VEJA TAMBÉM</h4>
+          <ul>
+            <li class="dev dev-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou desenvolvedor</p>
+              </a>
+            </li>
+            <li class="produtor prod-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou produtor de conteúdo</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pos-call-banner pos-dev">
+      <div class="push-15 grid-90">
+        <div class="grid-40">
+          <h3>GOSTOU?</h3>
+          <a class="more" href="">
+            <span></span>
+            <p>Saiba mais sobre o assunto</p>
+          </a>
+        </div>
+        <div class="grid-40">
+          <h4>VEJA TAMBÉM</h4>
+          <ul>
+            <li class="curioso curioso-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou curioso</p>
+              </a>
+            </li>
+            <li class="produtor prod-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou produtor de conteúdo</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pos-call-banner pos-prod">
+      <div class="push-15 grid-90">
+        <div class="grid-40">
+          <h3>GOSTOU?</h3>
+          <a class="more" href="">
+            <span></span>
+            <p>Saiba mais sobre o assunto</p>
+          </a>
+        </div>
+        <div class="grid-40">
+          <h4>VEJA TAMBÉM</h4>
+          <ul>
+            <li class="curioso curioso-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou curioso</p>
+              </a>
+            </li>
+            <li class="dev dev-horizontal clearfix">
+              <a href="#">
+                <span></span>
+                <p>Sou desenvolvedor</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <section class="grid-container content news">
@@ -62,7 +144,7 @@
     <div class="">
       <h3 class="title-subsection mobile-grid-100"><%= t('featured_in') %> 
         <a href='<%="/articles/filter/articleSection/#{t('featured_section')}"%>'>
-        <%= t('featured_section').upcase %></a> >></h3>
+        <%= t('featured_section').upcase %></a> <span class="semiboldfont">&gt;&gt;</span></h3>
       <div class="destaquegov grid-33">
           <h4 class="news-title-item title-item-destaque"><%= t('watch_out') %></h4>
           <img src="<%= asset_path 'placeholder_destaque_maior.jpg' %>" alt="" />
@@ -132,6 +214,7 @@
               <img src="<%= asset_path 'img-casos.png' %>" class="img-tab" />
               <h4><%= t('cases_headline_1') %></h4>
               <p><%= t('cases_text_1') %></p>
+              <a class="casos-praticos-link" href=""><%= t('cases_more_link') %></a>
             </div>
           </div>
           <div>
@@ -171,6 +254,8 @@
         <li class="grid-20"><%= t('cases_tab_5') %></li>
       </ul>
     </div>
+
+    <p class="others-cases">Conheça outros casos práticos de <a href="">Projetos</a> e <a href="">Produtos</a> na plataforma OD4D.</p>
     
   </section>
 

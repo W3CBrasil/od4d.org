@@ -1,6 +1,9 @@
-﻿ul.resp-tabs-list, p {
+﻿ul.resp-tabs-list {
     margin: 0px;
     padding: 0;
+    clear: both;
+    display: block;
+    height: 4.7em;
 }
 .resp-tabs-list li {
     font-weight: 600;
@@ -42,22 +45,24 @@
 .resp-tabs-container h4{
     font-weight: 200;
     font-style: italic;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    padding: 2em 1em 1em 2em;
+    font-size: 1.3em;
+    margin-bottom: .5em;
+    padding: 2em 1em 1em 2.3em;
 }
 .resp-tabs-container p{
     font-size: .78em;
     line-height: 1.5em;
     font-weight: 200;
-    padding: 0em 1em 0em 4em;
+    padding: 0em 1em 1em 4em;
+    width: 30em;
 }
 .text-tab{
-    
+    padding: 1em 2em 1em 1em;
 }
 .img-tab{
     float: right;
-    margin: 1em 1em 1em 3em;
+    margin: 1em 2em 1em 3em;
+    max-width: 90%;
 }
 
 h2.resp-accordion {
@@ -162,6 +167,9 @@ h2.resp-tab-active span.resp-arrow {
 /*-----------Accordion styles-----------*/
 h2.resp-tab-active {
     background: #DBDBDB !important;
+}
+h2.resp-tab-active:before {
+    display: none;
 }
 .resp-easy-accordion  h2.resp-accordion {
         display: block;
