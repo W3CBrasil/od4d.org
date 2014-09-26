@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
 
   def filter
     @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).filter_articles(params[:field], params[:term])
-    @description = PostSection.find_by_name(params[:term]).description if params[:field] == 'articleSection'
+    post_section = PostSection.find_by_name(params[:term]) if params[:field] == 'articleSection'
+    @description = post_section.description if post_section
   end
 
   private
