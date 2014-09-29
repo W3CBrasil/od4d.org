@@ -7,4 +7,10 @@ class LearnController < ApplicationController
   end
   def glossary
   end
+  def concepts
+  end
+  def ref_material
+  end
+  def capacity_building
+  end
 end
