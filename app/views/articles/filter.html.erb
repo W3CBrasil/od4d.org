@@ -2,33 +2,42 @@
   <title>OD4D - <%= params[:field] + " - " + params[:term] %></title>
 <% end %>
 
-  <article class="post-list grid-container main">
-    <section class="content grid-70 bgwhite">
-      <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
-      <h4 class="subtitle"><%= @description %></h4>
 
-      <ul class="list-post-ul">
-		<% @articles.each do |article| %>
-	        <li>
-	            <span class="category"><%= article.articleSection.first.upcase %></span>
-	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
-	            <p class="fontitalic"><%= article.article_content_without_html[0..200] %><br/>
-	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
-	            <p class="post-fonte bgwhite">publicado em <%= article.datePublished.strftime("%d/%m/%Y") %> por <span class="boldfont blackgrayfont"><%= article.author %></span></p>
-	        </li>
-		<% end %>
-      </ul>
-    </section>
-    <aside class="sharebar grid-30">
-      <div class="stickright">
-          <div class="faixa">
-            <p>OD4D no Twitter</p>
+
+  <article class="post-list grid-container main">
+    <div class="container2">
+      <div class="container1">
+        <section class="content col2 grid-70 bgwhite">
+          <p class="breadcrumb breadcrumb-default">
+            <%= link_to "INICIO", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
+          </p>
+          <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
+          <h4 class="subtitle"><%= @description %></h4>
+
+          <ul class="list-post-ul">
+    		<% @articles.each do |article| %>
+    	        <li>
+    	            <span class="category"><%= article.articleSection.first.upcase %></span>
+    	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
+    	            <p class="fontitalic"><%= article.article_content_without_html %>
+    	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+    	            <p class="post-fonte bgwhite">publicado em <%= article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
+    	        </li>
+    		<% end %>
+          </ul>
+        </section>
+        <aside class="sharebar col1 grid-30">
+          <div class="stickright">
+              <div class="faixa">
+                <p>OD4D no Twitter</p>
+              </div>
+              <div class="tweet">
+                <a class="twitter-timeline" href="https://twitter.com/od4_d" data-widget-id="515600616467353600">Tweets by @od4_d</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </div>
           </div>
-          <div>
-<a class="twitter-timeline" href="https://twitter.com/od4_d" data-widget-id="515600616467353600">Tweets by @od4_d</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
+        </aside>
       </div>
-    </aside>
+    </div>
   </article>
 

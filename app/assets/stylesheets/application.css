@@ -12,9 +12,8 @@
  *
  *= require reset
  *= require partners
-
- *= require grid
  *= require style
+ *= require grid
  *= require slicknav
  *= require easy-responsive-tabs
  */

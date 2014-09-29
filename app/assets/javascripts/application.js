@@ -96,18 +96,26 @@ $(document).ready(function(){
   });
 
   //TODO: fazer ao TÉRMINO do vídeo ou slideshare VOLTAR para as outras opções
-  $('#vidcur').get(0).addEventListener('ended',function(){
-    $('.video-call-banner').fadeOut( 0 );
-    $('.pos-curioso').fadeIn( 0 );
-  });
-  $('#viddev').get(0).addEventListener('ended',function(){
-    $('.video-call-banner').fadeOut( 0 );
-    $('.pos-dev').fadeIn( 0 );
-  });
-  $('#vidprod').get(0).addEventListener('ended',function(){
-    $('.video-call-banner').fadeOut( 0 );
-    $('.pos-prod').fadeIn( 0 );
-  });
-      
+  var vidcur = $('#vidcur').get(0);
+  if (vidcur) {
+    vidcur.addEventListener('ended',function(){
+      $('.video-call-banner').fadeOut( 0 );
+      $('.pos-curioso').fadeIn( 0 );
+    });
+  }
+  var viddev = $('#viddev').get(0);
+  if(viddev) {
+    viddev.addEventListener('ended',function(){
+      $('.video-call-banner').fadeOut( 0 );
+      $('.pos-dev').fadeIn( 0 );
+    });
+  }
+  var vidprod = $('#vidprod').get(0);
+  if(vidprod) {
+    vidprod.addEventListener('ended',function(){
+      $('.video-call-banner').fadeOut( 0 );
+      $('.pos-prod').fadeIn( 0 );
+    });
+  }
 
 });
