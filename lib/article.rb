@@ -2,6 +2,7 @@ require 'htmlentities'
 
 class Article
   attr_accessor :url, :title, :author, :summary, :description, :articleBody, :articleSection, :datePublished, :publisher, :about
+  SHARE_TEXT = "OD4D Platform"
 
   def slug
     title.parameterize
@@ -18,7 +19,20 @@ class Article
   end
 
   def is_third_party?
+    return !@publisher.url.to_s.include?("od4d") if @publisher.url
     !@publisher.to_s.include?("od4d") if @publisher
+  end
+
+  def share_googleplus
+     "https://plusone.google.com/_/+1/confirm?hl=en&url=#{URI.escape(@url.to_s)}"
+  end
+
+  def share_twitter
+     "https://twitter.com/intent/tweet?url=#{URI.escape(@url.to_s)}&text=#{@title}&via=OD4D"
+  end
+
+  def share_facebook
+    "https://www.facebook.com/sharer/sharer.php?u=#{URI.escape(@url.to_s)}"
   end
 
   private 
@@ -37,4 +51,5 @@ class Article
   def replace_html_codes(str)
     HTMLEntities.new.decode(str)
   end
+
 end

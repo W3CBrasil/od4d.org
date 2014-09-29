@@ -52,12 +52,13 @@ class ArticleDAO
   def find_article_by_author(author_name)
     query = "
       PREFIX schema: <http://schema.org/>
-      SELECT  ?url ?headline ?datePublished ?author
+      SELECT  ?url ?headline ?datePublished ?author ?articleSection
       WHERE   { ?article a schema:Article .
                 ?article schema:url    ?url .
                 ?article schema:headline ?headline .
                 ?article schema:datePublished ?datePublished .
                 ?article schema:author ?author .
+                OPTIONAL { ?article schema:articleSection ?articleSection } .
                 FILTER (?author = '#{author_name}') .
               }
       ORDER BY DESC(?datePublished)

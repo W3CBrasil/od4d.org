@@ -2,36 +2,53 @@
   <title>OD4D - <%= @article.title %></title>
 <% end %>
 
-<article typeof="schema:Article" resource="#">
-	<div class="callBanner">
-		<div class="grid-container">
-		  <div class="destaque">
-		    <p class="breadcrumb">
-		      <%= link_to "INÍCIO", controller: "home", action: "index" %>  |
-		      <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}"%>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article.articleSection.first %></span></a>
-		    </p>
-		    <h2 property="schema:headline"><%= @article.title %></h2>
-		    <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont" property="schema:author"><%= @article.author %></span> sobre <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
-		  </div>
-		</div>
-	</div>
-	<section property="schema:articleBody" class="grid-container content">
-		<div class="grid-70">
-			<p>
-				<%= raw(@article.article_content) %>
-				<% if @article.article_content.size == 500 && @article.is_third_party? %>
-					...<br/>
-					[<a href="<%=@article.url%>" target="_blank">Leia mais</a>]
-				<% end %>
-			</p>
-		</div>
-		<aside class="grid-30">
-			<p><h4>Mais posts por <%= @article.author %></h4></p>
-			<% @author_articles.each do |article| %>
-				<p>
-					<%= link_to article.title[0..30].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
-				</p>
-			<% end %>
-		</aside>
-	</section>
+<article typeof="schema:Article" resource="#" class="main post">
+  <div class="callBanner">
+    <div class="grid-container">
+      <div class="destaque">
+        <p class="breadcrumb">
+          <%= link_to "INÍCIO", controller: "home", action: "index" %>  |
+          <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}"%>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article.articleSection.first %></span></a>
+        </p>
+        <h2 property="schema:headline"><%= @article.title %></h2>
+        <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont" property="schema:author"><%= @article.author %></span> sobre <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
+      </div>
+    </div>
+  </div>
+  <section property="schema:articleBody" class="grid-container content post-list">
+    <div class="container2">
+      <div class="container1">
+        <div class="grid-70 col2 bgwhite">
+          <p>
+            <%= raw(@article.article_content) %>
+            <% if @article.article_content.size == 500 && @article.is_third_party? %>
+              ...<br/>
+              [<a href="<%=@article.url%>" target="_blank">Leia mais</a>]
+            <% end %>
+          </p>
+          <div class="share-post">
+            <p>Gostou? Compartilhe!</p>
+            <ul class="social-list-link">
+              <a target="_blank" href="<%= @article.share_twitter %>"><li class="twitter"></li></a>
+              <a target="_blank" href="<%= @article.share_facebook %>"><li class="facebook"></li></a>
+              <a target="_blank" href="<%= @article.share_googleplus %>"><li class="gplus"></li></a>
+            </ul>
+          </div>
+        </div>
+        <aside class="grid-30 col1 box-author share-bar">
+        <div class="box-author-inner">
+          <h4><%= @article.author.upcase %> TAMBÉM ESCREVEU</h4>
+          <ul class="list-news">
+            <% @author_articles.each do |article| %>
+              <li class="without-top">
+                <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
+                <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        </aside>
+      </div>
+    </div>
+  </section>
 </article>

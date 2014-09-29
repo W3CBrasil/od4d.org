@@ -4,7 +4,7 @@ require 'string'
 class ArticlesController < ApplicationController
 
   helper_method :share_googleplus, :share_twitter, :share_linkedin
-  SHARE_TEXT = "OD4D Network"
+   SHARE_TEXT = "OD4D Network"
 
   def index
     @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).list_articles
