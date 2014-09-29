@@ -2,75 +2,49 @@
   <title>Open Data for Development - About</title>
 <% end %>
 
-  <article resource="#about" typeof="schema:Article">
-    <h1 property="schema:headline">About the Project</h1>
-    <meta property="schema:datePublished" content="2014-06-20"/>
+  <article resource="#about" typeof="schema:Article" class="main post institucional">
+    <meta property="schema:headline" content="About the Project"/>
+    <meta property="schema:datePublished" content="2014-09-29"/>
     <meta property="schema:inLanguage" content="en-US"/>
     <meta property="schema:copyrightHolder" content="W3C"/>
     <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
     <meta property="schema:keywords" content="about;od4d"/>
 
-    <div id="od4d-about-video" resource="#od4d-about-video" property="schema:video" typeof="schema:VideoObject">
-      <meta property="schema:name" content="Open Government Data and OD4D "/>
-      <div class="video-container">
-        <iframe property="schema:embedUrl" src="//player.vimeo.com/video/69632849"> </iframe>
+    <div class="grid-container content">
+      <p class="breadcrumb breadcrumb-default">
+      <%= link_to "INÍCIO", controller: "home", action: "index" %>
+       | <a href="#">ABOUT</a>
+      </p>
+      <h1 class="title blackgrayfont grid-100">Sobre o Projeto</h1>
+      <div class="">
+        <div class="grid-100">
+          <div class="od4d-about-video">
+            <div class="video-container">
+              <video id="vidcur" class="video" width="550" height="300" controls>
+                  <source src="dadosabertos.mp4" type="video/mp4"></source>
+              </video>
+            </div>
+          </div>
+
+          <section class="introduction grid-100">
+            <p>The project Open Data for Development Platform (OD4D) is a <a href="http://www.w3c.br">W3C Brazil Office</a> project. Initially, the OD4D project was a partnership with the Economic Commission for Latin America and the Caribbean (<a href="http://www.cepal.org/">ECLAC</a>) and funded by the International Development Research Center of Canada (<a href="http://www.idrc.ca/">IDRC</a>). One of its primary objectives was to contribute to the development of strategies on open data for government transparency, innovative services and the effectiveness of public policies in key industry sectors, fostering a more inclusive knowledge economy in the Latin America and Caribbean region.</p>
+            <p>In its first phase of implementation, which occurred from 2011 to 2013, <a href="http://platform.od4d.org/about/">several products</a> were generated, as the portal Open Data for Development (OD4D), launched in October 2012 in Portuguese, English and Spanish; the development of applications using open data; mapping of the major initiatives for the dissemination of economic, social and environmental structured data in Latin America and the Caribbean; the Tool Kit for Publishing Data in Open Format, licensed under Creative Commons; the first <a href="http://confdatosabiertos.uy/">Regional Conference for Latin America and the Caribbean</a>; among many other actions.</p>
+            <p>To continue OD4D project and also to support the IDRC proposal to extend it to Africa and Asia, the W3C Brazil proposed a OD4D re-designing to make it a semantic, linked data platform. W3C Brazil had in mind to transform the platform into a reference in linked data system enabling technology learning, community information exchange and the production of semantic content. Currently the development of OD4D Platform is funded by the Brazilian Network Information Center (NIC.br) and the Brazilian Internet Steering Committee (CGI.br).</p>
+            <p>To accommodate the new Platform, a new structure of domains and email addresses was considered. The URL www.od4d.org points to the main website of all OD4D initiatives that link visitors to other addresses:
+              <ul>
+                <li><a href="http://platform.od4d.org">platform.od4d.org</a> - "Open Data for Development Platform" is the website that hosts the platform for interaction with the linked data community, with educational resources on the topic and use cases;</li>
+                <li><a href="http://www.od4d.net">www.od4d.net</a> - "Open Data for Development Network" consists of a website that focuses OD4D project partners such as the Initiative Latinoamericana por los Datos Abiertos (ILDA); the Caribbean Open Institute (COI); the Open Data Research Network (ODDC); and funders such as the International Development Research Center of Canada (IDRC); World Wide Web Foundation; Avina Foundation; Economic Commission for Latin America and the Caribbean (ECLAC) and the Organization of American States (OAS).</li>
+              </ul>
+            </p>
+            <p>The goal of building this new platform is to strengthen and expand the existing community, meet new cases, point to good practices in data on the Web, promote relevant standards and vocabularies, as well as emphasizing the value of content in multiple languages ​​within the platform.</p>
+            <p>Besides being a space for knowledge exchange, the platform also aims at being itself an example of implementation of semantic web and linked data technologies. Thus, the platform acts as a hub for investors, governments, institutions and individuals that have intention to work together in creating a collaborative network around the theme of publishing data for development in Latin America, Africa, Asia and the Caribbean.</p>
+            <p>Among its many features, the platform offers an environment where people can post information and also be informed about open data and related topics. The system consists of three main modules: the publisher, the parser and the storer. The publisher module enables the input of new content into the platform. The parser processes partners' RSS channel and extracts semantic triples about this content. Finally, the storer stores RDF triples using the Turtle syntax with the help of Jena suite.</p>
+            <p>Finally, the platform provides an end-point (web service that answers semantic queries) so that users can access this information from the collected triple repository. This whole platform is available on Github for anyone who wants to build a website or semantic platform on some other domain.</p>
+            <p>Its usability was placed first in the development of the platform. The entire design was thought to facilitate the integration of users and their demands for content. The free flow of information among the various users will reflect the dynamic and decentralized structure of the global network of interconnected data.</p>
+            <p>The platform was built with semantic web and linked data technologies. The web application runs the Ruby on Rails framework. The RDF triples use Turtle syntax and their interface with an HTTP server were implemented using the Jena and Fuseki technologies by Apache Software Foundation.</p>
+            <p>It is also expected that interfaces of interaction provided on the platform enable greater integration of experts and enthusiasts of open data and semantic web technology community, facilitating an intensive exchange of information and the advancement of knowledge on open data, linked data and semantic web the American region, Caribbean and other regions covered by the initiative.</p>
+          </section>
+        </div>
       </div>
-    </div>
-
-    <section id="introduction" property="schema:description">
-      <h2>Introduction</h2>
-      <p>The release of information in open, accessible and structured formats has the potential to substantially improve transparency and accountability regarding the development and implementation of public policies, as well as opening doors for wide participation of civil society in the process.</p>
-
-      <p>The availability of data and can bring greater recognition of the demands of the citizen and transform the way governments do business and public policies. This can be a tool for promoting social equality and effectiveness of public administration.</p>
-
-      <p>The research project on the impact and potential of Open Data to Public Policy in Latin America and the Caribbean took place for two years - July 2011 to July 2013 - and was conducted by the W3C Brazil Office and the Economic Commission for Latin America and the Caribbean (<a href="http://www.eclac.org/"><em>ECLAC</em></a>), of the United Nations, and funded by the Canada's International Development Research Centre (<a href="http://www.idrc.ca/EN/Pages/default.aspx"><em>IDRC</em></a>).</p>
-
-      <p>The main goal was to contribute for the development of Open Data strategies that lead to accountability of public policies, supporting new analysis, creating new services and and fostering an equitable development of key industries, promoting a more inclusive knowledge economy in Latin America and the Caribbean. To achieve this goal, the potential of Open Data in public policy was investigated in 3 areas: transparency, new services and equitable development.</p>
-      <p>Strategies were adopted to sensitize governments and civil society regarding the usefulness and potential of Open Data to public policy. The research emerged that the use of Open Data can be a large contribution to the development of local economies.</p>
-      <p>There is the need to design a value chain of open data, considering its supply and demand. Finally, the project concluded that it would be important to comprehend a business model that could be sustainable in order to build a model of maturity in open data.</p>
-      <p>The strategy for the new website is to achieve relevant impact through actions and tangible products. This is crucial to get the attention of the community of experts, government officials and researchers to establish new strategies around open data. Open data works better through examples and cases. <em>Examples and cases means cyclic and mature processes.</em></p>
-      <p>To continue the project Open Data for Development and to extend it beyond this region, <a href="http://www.w3c.org"><em>W3C Brazil</em></a> proposes to reformulate the platform www.od4d.org to expand and <em>strengthen the existing community, collecting use cases, referencing best practices, promoting standards and relevant vocabularies, emphasizing the value of multilingual content in the existing platform.</em></p>
-    </section>
-
-    <div property="schema:articleBody" class="articleContainer">
-      <section id="objectives" class="leftColumn">
-        <h2>OD4D Objectives</h2>
-          <p>The new OD4D platform should be inclusive and accessible to provide a common space for the open data community, which will serve as a reference for individuals and institutions interested in putting into practice concepts of data on the web, open data and transparency.</p>
-          <p>The platform serves as a hub for investors, governments, institutions and individuals who intend to work together to create a collaborative network around the theme.</p>
-          <p>To this end, the overall objectives of the platform are:</p>
-          <ul>
-            <li>To aggregate initiatives of data on Web, from partner organizations and individuals, demonstrating in detail the step by step of structuring open data use cases;</li>
-            <li> To promote integration and dissemination of knowledge on open data using native languages;</li>
-            <li>To promote standards and specific vocabularies;</li>
-            <li>To be a reference about open data;</li>
-            <li><em>To be an open data case itself.</em></li>
-          </ul>
-          <p>The expected final result will be <em>the use of a Open Data website as a case for Open Data, connecting networks with innovative resources to foster the Open Data value chain.</em></p>
-      </section>
-
-      <section id="specific-Tasks" class="rightColumn">
-        <h2>Goals</h2>
-        <ul>
-          <li>The od4d.org new platform will serve as connection among regional open data initiatives in Latin America, Africa, Asia and the Caribbean.</li>
-          <li>The site will be a case of Open Data itself, transforming it's data in one open repository of knowledge, always respecting privacy guidelines.</li>
-          <li>The new OD4D platform will bring a new experience for the user of the Open Data for Development Network. Through a multilingual website, we expect that it will connect people and foster the open data ecosystem.</li>
-        </ul>
-      </section>
-
-      <section id="intended-Results">
-        <h2>Intended results:</h2>
-        <ul>
-          <li>
-          Raising awareness among governments and civil society of the usefulness and potential of Open Data in public policies.
-          </li>
-          <li>
-          Supporting capacity building for the opening and the “meaningful use” of government Data.
-          </li>
-          <li>
-          Fostering the development of new data opening initiatives in the region, with a long-term and sustainable perspective.
-          </li>
-        </ul>
-        <p>Check out the whole OD4D proposal (in English): <a href="http://www.od4d.org/wp-content/uploads/2012/10/Open-Data-Projet-Proposal-29-de-marzo-31.pdf"><em>Open-Data-Projet-Proposal</em></a> - PDF (616KB)</p>
-      </section>
     </div>
   </article>
