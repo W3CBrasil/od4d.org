@@ -9,7 +9,11 @@
   <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
   <meta property="schema:keywords" content="terms;conditions;od4d"/>
   <div class="grid-container content">
-    <h1 class="title blackgrayfont" property="schema:headline">GENERAL TERMS AND CONDITIONS OF USE OF THE OD4D (OPEN DATA FOR DEVELOPMENT) PLATFORM</h1>
+      <p class="breadcrumb breadcrumb-default">
+      <%= link_to t('home'), controller: "home", action: "index" %>
+       | <a href="#"><%= t('terms_condit_title').mb_chars.upcase %></a>
+      </p>
+    <h1 class="title blackgrayfont" property="schema:headline"><%= t('terms_condit_full_title').mb_chars.upcase %></h1>
     <div class="grid-100">
       <div>
         <p>To be better understand the General Terms and Conditions of Use of the Platform, the meanings of different terms are presented below:</p>
