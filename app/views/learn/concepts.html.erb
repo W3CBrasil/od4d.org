@@ -18,7 +18,76 @@
       <h1 class="title blackgrayfont grid-100"><%= t('concepts_title') %></h1>
       <div class="">
         <div class="grid-100">
+  <section>
+    <h2>1. Understanting RDF concept</h2>
+    <p>
+      Resource Description Framework it's a way to write XML that describes relashionship, concept or things.
+There are 3 things that makes an RDF statement: the subject, the predicate and the object.
+    </p>
+    <pre class=" language-markup"><code class=" language-markup">  &lt;http://www.od4d.org/about#about&gt;  rdf:type  schema:Article</code></pre>
+    <p>
+      RDF needs Uniform Resource Identifiers to specify subjects and predicates. To know more about them <a href="http://www.w3.org/TR/cooluris/">here</a>
+    </p>
+    <pre class=" language-markup"><code class=" language-markup">  &lt;http://www.od4d.org/about#about&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>2. RDFa and RDF: WTF?</h2>
+    <p>
+      RDFa it's not the same thing of RDF. They're different because RDF is just a data model designed for the Web and it serves for specify relations. RDFa is how you can describe RDF relations in your HTML code (<a href="http://manu.sporny.org/2012/mythical-differences/">Read why it's better than microformats!</a>)
+    </p>
+    <br>
+    <section>
+      <h3>Some concepts of RDFa are important:</h3>
+      <p>
+        Remember that you will always have a triple: a described relation between objects.
+      </p>
+      <p>
+        The @prefix, that is an <a href="http://www.w3.org/TeamSubmission/turtle/">turtle</a> expression, serves to declare the abreviation of the URI, specified by a <a href="http://www.w3.org/blog/data/2014/01/06/vocabularies-at-w3c/">vocabulary</a> described by RDF triples in a single domain. Vocabularies defines what triple means, because it allows desambiguation.
+      </p>
+      <p>
+        RDFa lite is a simple version of <a href="http://www.w3.org/TR/rdfa-primer/">RDFa Primer</a> and it's used to describe RFD to browsers. You can read the documentation of RDFa Lite at W3C's <a href="http://www.w3.org/TR/rdfa-lite/">docs</a>.
+      </p>
+    </section>
+    <br>
+    <section>
+      <h3>RDFa uses basically:</h3>
+      <p>
+        Atributes: vocab, typeof, property, resource, prefix. See this example, from W3C RDFa Lite docs:
+      </p>
+      <br>
+      <pre class=" language-markup"><code class=" language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">vocab</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schema.org/<span class="token punctuation">"</span></span> <span class="token attr-name">typeof</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Person<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+   My name is
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Manu Sporny<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+   and you can give me a ring via
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>telephone<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>1-800-555-0199<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+   or visit
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://manu.sporny.org/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>my homepage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+      <p>
+        and Resource. See this example, from W3C RDFa Lite docs:
+      </p>
+      <pre class=" language-markup"><code class=" language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">vocab</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schema.org/<span class="token punctuation">"</span></span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#manu<span class="token punctuation">"</span></span> <span class="token attr-name">typeof</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Person<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+   My name is
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Manu Sporny<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+   and you can give me a ring via
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>telephone<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>1-800-555-0199<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>.
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://manu.sporny.org/images/manu.png<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+      <p>
+        Another example describing the subject of the picture, using RDFa triples.:
+      </p>
+      <pre class=" language-markup"><code class=" language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">vocab</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schema.org/<span class="token punctuation">"</span></span> <span class="token attr-name">typeof</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Product<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>droid.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Android Phone<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+    </section>
+  </section>
+
+
         </div>
       </div>
     </div>
+       </div>
+     </div>
   </article>

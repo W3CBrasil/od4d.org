@@ -16,6 +16,7 @@
 //= require jquery.slicknav
 //= require jquery.sticky
 //= require easyResponsiveTabs
+//= require prism
 
 $(document).ready(function(){
   $('#menu').slicknav();
