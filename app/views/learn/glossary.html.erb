@@ -12,7 +12,11 @@
 
   <div class="grid-container content">
     <div class="grid-container content">
-    <h1 class="title blackgrayfont">Glossary</h1>
+      <p class="breadcrumb breadcrumb-default">
+      <%= link_to t('home'), controller: "home", action: "index" %>
+       | <a href="#"><%= t('glossary_title').mb_chars.upcase %></a>
+      </p>
+    <h1 class="title blackgrayfont"><%= t('glossary_title') %></h1>
       <div class="grid-100">
         <div>
           <div class="term-glossary">
