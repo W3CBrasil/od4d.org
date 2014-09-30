@@ -7,7 +7,7 @@
       <div class="container1">
         <section class="content col2 grid-70 bgwhite">
           <p class="breadcrumb breadcrumb-default">
-            <%= link_to "INICIO", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
+            <%= link_to "#{t('home')}", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
           </p>
           <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
           <h4 class="subtitle"><%= @description %></h4>
@@ -20,7 +20,7 @@
     	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
     	            <p class="fontitalic"><%= article.article_content_without_html[0..350] %>
     	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
-    	            <p class="post-fonte bgwhite">publicado em <%= article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
+    	            <p class="post-fonte bgwhite"><%= t('published_in') %> <%= article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
     	        </li>
     		  <% end %>
         <% else %>
@@ -31,7 +31,7 @@
         <aside class="sharebar col1 grid-30">
           <div class="stickright">
               <div class="faixa">
-                <p>OD4D no Twitter</p>
+                <p>OD4D Twitter</p>
               </div>
               <div class="tweet">
                 <a class="twitter-timeline" href="https://twitter.com/od4_d" data-widget-id="515600616467353600">Tweets by @od4_d</a>

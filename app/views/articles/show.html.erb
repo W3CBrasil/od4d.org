@@ -7,11 +7,11 @@
     <div class="grid-container">
       <div class="destaque">
         <p class="breadcrumb">
-          <%= link_to "INÍCIO", controller: "home", action: "index" %>  |
+          <%= link_to "#{t('home')}", controller: "home", action: "index" %>  |
           <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}"%>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article.articleSection.first %></span></a>
         </p>
         <h2 property="schema:headline"><%= @article.title %></h2>
-        <p property="schema:datePublished" class="post-fonte">publicado em <%= @article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont" property="schema:author"><%= @article.author %></span> sobre <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> em <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
+        <p property="schema:datePublished" class="post-fonte"><%= t('published_in') %> <%= @article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont" property="schema:author"><%= @article.author %></span> <%= "#{t('about')}" unless @article.about.empty? %> <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> at <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
             <%= raw(@article.article_content) %>
             <% if @article.article_content.size == 500 && @article.is_third_party? %>
               ...<br/>
-              [<a href="<%=@article.url%>" target="_blank">Leia mais</a>]
+              [<a href="<%=@article.url%>" target="_blank"><%= t('read_more') %></a>]
             <% end %>
           </p>
           <div class="share-post">
@@ -32,7 +32,7 @@
         </div>
         <aside class="grid-30 col1 box-author share-bar">
         <div class="box-author-inner">
-          <h4><%= @article.author.mb_chars.upcase %> TAMBÉM ESCREVEU</h4>
+          <h4><%= @article.author.mb_chars.upcase %> <%= t('also_wrote').mb_chars.upcase %></h4>
           <ul class="list-news">
             <% @author_articles.each do |article| %>
               <li class="without-top">
