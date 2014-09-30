@@ -3,32 +3,32 @@
 <% end %>
 
   <article class="post-list grid-container main">
-    <div class="container2">
-      <div class="container1">
-        <section class="content col2 grid-70 bgwhite">
-          <p class="breadcrumb breadcrumb-default">
-            <%= link_to "#{t('home')}", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
-          </p>
-          <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
-          <h4 class="subtitle"><%= @description %></h4>
+        <section class="content grid-70 bgwhite">
+          <div class="post-list-content-inner">
+            <p class="breadcrumb breadcrumb-default">
+              <%= link_to "INICIO", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
+            </p>
+            <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
+            <h4 class="subtitle"><%= @description %></h4>
 
-          <ul class="list-post-ul">
-        <% if @articles && @articles.size > 0 %>
-    		  <% @articles.each do |article| %>
-    	        <li>
-    	            <span class="category"><%= article.articleSection.first.upcase %></span>
-    	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
-    	            <p class="fontitalic"><%= article.article_content_without_html[0..350] %>
-    	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
-    	            <p class="post-fonte bgwhite"><%= t('published_in') %> <%= article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
-    	        </li>
-    		  <% end %>
-        <% else %>
-          <li><span class="category">No articles could be found.</span><span style="color: #ffffff">No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.</span></li>
-        <% end %>
-          </ul>
+            <ul class="list-post-ul">
+            <% if @articles && @articles.size > 0 %>
+              <% @articles.each do |article| %>
+                  <li>
+                      <span class="category"><%= article.articleSection.first.upcase %></span>
+                      <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
+                      <p class="fontitalic"><%= article.article_content_without_html[0..350] %>
+                        <%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+                      <p class="post-fonte bgwhite"><%= t('published_in') %> <%= article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
+                  </li>
+              <% end %>
+            <% else %>
+            <li><span class="category">No articles could be found.</span><span style="color: #ffffff">No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.No articles could be found.</span></li>
+          <% end %>
+            </ul>
+          </div>
         </section>
-        <aside class="sharebar col1 grid-30">
+        <aside class="sharebar grid-30">
           <div class="stickright">
               <div class="faixa">
                 <p>OD4D Twitter</p>
@@ -39,7 +39,5 @@
               </div>
           </div>
         </aside>
-      </div>
-    </div>
   </article>
 

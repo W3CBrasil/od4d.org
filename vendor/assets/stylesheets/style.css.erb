@@ -571,6 +571,9 @@ p.others-cases a{
   font-weight: 200;
   margin-bottom:2.5em;
 }
+.post-list{
+padding: 0 !important;
+}
 .list-post-ul li{
   margin: 2em 0;
   list-style: none;
@@ -584,32 +587,8 @@ p.others-cases a{
 .list-post-ul li h3.title-item:hover, .list-post-ul li a:hover, .content p a:hover{
   color: #e06b48;
 }
-
-.container2{
-  clear: left;
-  float: left;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-}
-.post .container2{
-  background: #eee;
-}
-.container1{
-  float: left;
-  position: relative;
-  right: 35%;
-  background: #fff;
-}
-.col1{
-  left: 35%;
-  overflow: hidden;
-  position: relative;
-}
-.col2{
-  position: relative;
-  left: 35%;
-  overflow: hidden;
+.post-list-content-inner{
+min-height: 600px;
 }
 .content .list-post-ul p {
   margin-top: .5em;
@@ -655,8 +634,9 @@ a:hover{
 
 
 /*aside*/
-.stickright{
+.stickright {
   min-width: 280px;
+  min-height: 600px;
   padding-top: 4em;
   padding-bottom: 2em;
 }
@@ -725,7 +705,9 @@ a:hover{
 .box-author-inner > h4{
   line-height: 1.5em;
 }
-
+.box-author{
+min-height: 600px;
+}
 /*backgrounds and fonts*/
 .bgwhite{
   background-color: #fff;
