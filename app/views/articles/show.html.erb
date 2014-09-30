@@ -18,7 +18,7 @@
   <section property="schema:articleBody" class="grid-container content post-list">
     <div class="container2">
       <div class="container1">
-        <div class="grid-70 col2 bgwhite">
+        <div class="grid-70 col2 bgwhite" style="min-height: 300px; min-width: 600px;">
           <p>
             <%= raw(@article.article_content) %>
             <% if @article.article_content.size == 500 && @article.is_third_party? %>

@@ -1,6 +1,6 @@
 <article class="feeds-home">
   <p>
-    <%= article.articleSection.join(", ").upcase %>
+    <%= article.articleSection.join(", ").mb_chars.upcase %>
   </p>
   <h3><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h3>
   <%if !home && !article.datePublished.blank? then%>

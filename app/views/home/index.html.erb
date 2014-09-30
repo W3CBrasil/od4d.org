@@ -131,7 +131,7 @@
       <ul class="list-news">
       	<% @articles.each do |article| %>
 	        <li>
-	          <h4><%= article.articleSection.first.upcase if article.articleSection.first %></h4>
+	          <h4><%= article.articleSection.first.mb_chars.upcase if article.articleSection.first %></h4>
 	          <p><%= link_to article.title.strip, controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
 	        </li>
         <% end %>
