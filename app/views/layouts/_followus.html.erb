@@ -1,6 +1,18 @@
-<h3>SIGA A GENTE!</h3>
+<h3><%= title unless title.empty? %></h3>
+<%
+	if @article
+		link_twitter = @article.share_twitter
+		link_facebook = @article.share_facebook
+		link_gplus = @article.share_googleplus
+	else
+		od4d_link = "http://platform.od4d.org"
+		link_twitter = "https://twitter.com/intent/tweet?url=#{URI.escape(od4d_link)}&text=#{t('od4d_title')}&via=OD4D"
+		link_facebook = "https://www.facebook.com/sharer/sharer.php?u=#{URI.escape(od4d_link)}"
+		link_gplus = "https://plusone.google.com/_/+1/confirm?hl=en&url=#{URI.escape(od4d_link)}"
+	end
+%>
 <ul class="social-list-link">
-	<li class="twitter"><a href=""></a></li>
-	<li class="facebook"><a href=""></a></li>
-	<li class="gplus"><a href=""></a></li>
+	<a target="_blank" href="<%= link_twitter %>"><li class="twitter"></li></a>
+	<a target="_blank" href="<%= link_facebook %>"><li class="facebook"></li></a>
+	<a target="_blank" href="<%= link_gplus %>"><li class="gplus"></li></a>
 </ul>

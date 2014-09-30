@@ -27,12 +27,7 @@
             <% end %>
           </p>
           <div class="share-post">
-            <p>Gostou? Compartilhe!</p>
-            <ul class="social-list-link">
-              <a target="_blank" href="<%= @article.share_twitter %>"><li class="twitter"></li></a>
-              <a target="_blank" href="<%= @article.share_facebook %>"><li class="facebook"></li></a>
-              <a target="_blank" href="<%= @article.share_googleplus %>"><li class="gplus"></li></a>
-            </ul>
+            <%= render :partial => '/layouts/followus', locals: {title: t('likeit_shareit')} %>
           </div>
         </div>
         <aside class="grid-30 col1 box-author share-bar">

@@ -85,14 +85,14 @@ $(document).ready(function(){
     $('.pos-call-banner').fadeOut( 0 );
     $('.video-dev').fadeIn( 0 );
 
-    $('#viddev').get(0).play()
+    $('#viddev').get(0).play();
   });
   $('.produtor').click(function() {
     $('#call-banner').fadeOut( 0 );
     $('.pos-call-banner').fadeOut( 0 );
     $('.video-produtor').fadeIn( 0 );
 
-    $('#vidprod').get(0).play()
+    $('#vidprod').get(0).play();
   });
 
   //TODO: fazer ao TÉRMINO do vídeo ou slideshare VOLTAR para as outras opções

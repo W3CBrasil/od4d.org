@@ -32,40 +32,36 @@
       </ul>
     </div>
     <div class="video-call-banner video-curioso">
-      <%= video_tag('dadosabertos.mp4', id: 'vidcur', class: 'video', size: '550x300', controls: true)  %>
+      <%= video_tag(['dadosabertos.mp4'], id: 'vidcur', class: 'video', size: '550x300', controls: true)  %>
     </div>
    <div class="video-call-banner video-dev">
-      <video id="viddev" class="video" width="539" height="300" controls>
-          <source src="<%= asset_path 'dadosabertos.mp4' %>" type="video/mp4"></source>
-      </video>
+      <%= video_tag(['dadosabertos.mp4'], id: 'viddev', class: 'video', size: '550x300', controls: true)  %>
     </div>
     <div class="video-call-banner video-produtor">
-      <video id="vidprod" class="video" width="539" height="300" controls>
-          <source src="<%= asset_path 'dadosabertos.mp4' %>" type="video/mp4"></source>
-      </video>
+      <%= video_tag(['dadosabertos.mp4'], id: 'vidprod', class: 'video', size: '550x300', controls: true)  %>
     </div>
     <div class="pos-call-banner bgdarkgreen pos-curioso">
       <div class="push-15 grid-90">
         <div class="grid-40">
-          <h3>GOSTOU?</h3>
-          <a class="more" href="">
+          <h3><%= t('liked_it') %></h3>
+          <a class="more" href="/about">
             <span></span>
-            <p>Saiba mais sobre o assunto</p>
+            <p><%= t('get_to_know_more') %></p>
           </a>
         </div>
         <div class="grid-40">
-          <h4>VEJA TAMBÉM</h4>
+          <h4><%= t('see_also') %></h4>
           <ul>
             <li class="dev dev-horizontal clearfix">
               <a href="#">
                 <span></span>
-                <p>Sou desenvolvedor</p>
+                <p><%= t('im_a_developer') %></p>
               </a>
             </li>
             <li class="produtor prod-horizontal clearfix">
               <a href="#">
                 <span></span>
-                <p>Sou produtor de conteúdo</p>
+                <p><%= t('im_a_content_producer') %></p>
               </a>
             </li>
           </ul>
@@ -75,25 +71,25 @@
     <div class="pos-call-banner pos-dev">
       <div class="push-15 grid-90">
         <div class="grid-40">
-          <h3>GOSTOU?</h3>
-          <a class="more" href="">
+          <h3><%= t('liked_it') %></h3>
+          <a class="more" href="/about">
             <span></span>
-            <p>Saiba mais sobre o assunto</p>
+            <p><%= t('get_to_know_more') %></p>
           </a>
         </div>
         <div class="grid-40">
-          <h4>VEJA TAMBÉM</h4>
+          <h4><%= t('see_also') %></h4>
           <ul>
             <li class="curioso curioso-horizontal clearfix">
               <a href="#">
                 <span></span>
-                <p>Sou curioso</p>
+                <p><%= t('im_curious') %></p>
               </a>
             </li>
             <li class="produtor prod-horizontal clearfix">
               <a href="#">
                 <span></span>
-                <p>Sou produtor de conteúdo</p>
+                <p><%= t('im_a_content_producer') %></p>
               </a>
             </li>
           </ul>
@@ -103,14 +99,14 @@
     <div class="pos-call-banner pos-prod">
       <div class="push-15 grid-90">
         <div class="grid-40">
-          <h3>GOSTOU?</h3>
-          <a class="more" href="">
+          <h3><%= t('liked_it') %></h3>
+          <a class="more" href="/about">
             <span></span>
-            <p>Saiba mais sobre o assunto</p>
+            <p><%= t('get_to_know_more') %></p>
           </a>
         </div>
         <div class="grid-40">
-          <h4>VEJA TAMBÉM</h4>
+          <h4><%= t('see_also') %></h4>
           <ul>
             <li class="curioso curioso-horizontal clearfix">
               <a href="#">
@@ -121,7 +117,7 @@
             <li class="dev dev-horizontal clearfix">
               <a href="#">
                 <span></span>
-                <p>Sou desenvolvedor</p>
+                <p><%= t('im_a_developer') %></p>
               </a>
             </li>
           </ul>
@@ -176,16 +172,16 @@
         <li class="grid-33">
           <div class="conceitos engaje-item">
             <h4><%= raw(t('concepts_title')) %></h4>
-            <p><a href=""><%= t('concepts_websemantics').upcase %></a></p>
-            <p><a href=""><%= t('concepts_rdfa').upcase %></a></p>
-            <p><a href=""><%= t('concepts_examples').upcase %></a></p>
+            <p><%= link_to t('concepts_websemantics').upcase, {controller: "learn", action: "concepts"} %></p>
+            <p><%= link_to t('concepts_rdfa').upcase, {controller: "learn", action: "introduction_to_rdf_and_rdfa"} %></p>
+            <p><%= link_to t('concepts_examples').upcase, {controller: "learn", action: "how_to_create_a_semantic_page"} %></p>
           </div>
         </li>
         <li class="grid-33">
           <div class="engaje-item integre clearfix">
             <h4><%= raw(t('integration_title')) %></h4>
-            <p class="be-partner"><a href=""><%= raw(t('integration_beapartner').upcase) %></a></p>
-            <p class="be-colaborator"><a href=""><%= raw(t('integration_colaborator').upcase) %></a></p>
+            <p class="be-partner"><%= link_to t('integration_beapartner').upcase, {controller: "pages", action: "become_partner"} %></p>
+            <p class="be-colaborator"><%= link_to t('integration_colaborator').upcase, {controller: "pages", action: "become_contributor"} %></p>
           </div>
         </li>
         <li class="grid-33">
@@ -193,11 +189,7 @@
             <h4><%= raw(t('share_title')) %></h4>
             <div>
               <p><%= raw(t('share_quote').upcase) %></p>
-              <ul class="social-list-link">
-                <li class="twitter"><a href=""></a></li>
-                <li class="facebook"><a href=""></a></li>
-                <li class="gplus"><a href=""></a></li>
-              </ul>
+              <%= render :partial => '/layouts/followus', locals: {title: ""} %>
             </div>
           </div>
         </li>
@@ -255,7 +247,7 @@
       </ul>
     </div>
 
-    <p class="others-cases">Conheça outros casos práticos de <a href="">Projetos</a> e <a href="">Produtos</a> na plataforma OD4D.</p>
+    <p class="others-cases">Get to know other use cases, <%= link_to t('menu_6_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Projects" }%> and <%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Products" }%> in OD4D Platform.</p>
     
   </section>
 
