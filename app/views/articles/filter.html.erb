@@ -18,7 +18,7 @@
     	        <li>
     	            <span class="category"><%= article.articleSection.first.upcase %></span>
     	            <%= link_to raw("<h3 class='title-item'>#{article.title}</h3>"), controller: "articles", action: "show", params: {uri: "#{article.url}"} %>
-    	            <p class="fontitalic"><%= article.article_content_without_html %>
+    	            <p class="fontitalic"><%= article.article_content_without_html[0..350] %>
     	            	<%= link_to "[...] Leia mais", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
     	            <p class="post-fonte bgwhite">publicado em <%= article.datePublished.strftime("%d/%m/%Y") %> por <span class="semiboldfont600 blackgrayfont"><%= article.author %></span></p>
     	        </li>
