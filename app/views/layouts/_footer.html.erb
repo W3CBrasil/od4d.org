@@ -2,40 +2,40 @@
     <div class="grid-15">
       <h3>OD4D</h3>
       <ul>
-        <li><a href="">SOBRE O PROJETO</a></li>
-        <li><a href="">TERMOS E CONDIÇÕES</a></li>
-        <li><a href="">POLÍTICA DE PRIVACIDADE</a></li>
+        <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
+        <li><%= link_to t('menu_2'), {controller: "pages", action: "terms_and_conditions"} %></li>
+        <li><%= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
       </ul>
     </div>
     <div class="grid-15">
-      <h3>COMO PARTICIPAR</h3>
+      <h3><%= t('menu_4') %></h3>
       <ul>
-        <li><a href="">SEJA UM PARCEIRO</a></li>
-        <li><a href="">COLABORE COM POSTS</a></li>
+        <li><%= link_to t('menu_4_1'), {controller: "pages", action: "become_partner"} %></li>
+        <li><%= link_to t('menu_4_2'), {controller: "pages", action: "become_contributor"} %></li>
       </ul>
     </div>
     <div class="grid-15">
-      <h3>UNIVERSO OPEN DATA</h3>
+      <h3><%= t('menu_5') %></h3>
       <ul>
-        <li><a href="">INTRODUÇÃO AOS CONCEITOS</a></li>
-        <li><a href="">MATERIAIS DE REFERÊNCIA</a></li>
-        <li><a href="">CAPACITAÇÃO</a></li>
-        <li><a href="">GLOSSÁRIO</a></li>
+        <li><%= link_to t('menu_5_1'), {controller: "learn", action: "concepts"} %></li>
+        <li><%= link_to t('menu_5_2'), {controller: "learn", action: "ref_material"} %></li>
+        <li><%= link_to t('menu_5_3'), {controller: "learn", action: "capacity_building"} %></li>
+        <li><%= link_to t('menu_5_4'), {controller: "learn", action: "glossary"} %></li>
       </ul>
     </div>
     <div class="grid-15">
-      <h3>CASOS PRÁTICOS</h3>
+      <h3><%= t('menu_6') %></h3>
       <ul>
-        <li><a href="">PRODUTOS</a></li>
-        <li><a href="">PROJETOS</a></li>
+        <li><%= link_to t('menu_6_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Projects" }%></li>
+        <li><%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Products" }%></li>
       </ul>
     </div>
     <div class="grid-15">
-      <h3>EVENTOS</h3>
+      <h3><%= t('menu_7') %></h3>
       <ul>
-        <li><a href="">ENCONTROS</a></li>
-        <li><a href="">CONCURSOS</a></li>
-        <li><a href="">CURSOS</a></li>
+        <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Conferences"} %></li>
+        <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Courses"} %></li>
+        <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: "Contests"} %></li>
       </ul>
     </div>
     <div class="grid-20 social-bottom">

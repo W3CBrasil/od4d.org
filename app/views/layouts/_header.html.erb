@@ -4,9 +4,7 @@
     <% end %>
     <nav id="menu" class="menu floatRight">
       <ul>
-        <li><%= link_to t('menu_1'), {controller: "home", action: "index"} %></li>
-        <li><%= link_to t('menu_2'), {controller: "pages", action: "terms_and_conditions"} %></li>
-        <li><%= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
+        <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
         <li>
           <a class="dropdown" href="#"><%= link_to t('menu_4') %></a>
           <ul class="submenu">
