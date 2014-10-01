@@ -28,6 +28,10 @@ class ArticlesController < ApplicationController
     @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).filter_articles(params[:field], params[:term])
     post_section = PostSection.find_by_name(params[:term]) if params[:field] == 'articleSection'
     @description = post_section.description if post_section
+
+    if @articles.size == 1
+      redirect_to action: :show, params: {uri: @articles.first.url}
+    end
   end
 
   private

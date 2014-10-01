@@ -16,7 +16,7 @@
           <a class="dropdown" href="#"><%= t('menu_5') %></a>
           <ul class="submenu">
             <li><%= link_to t('menu_5_1'), {controller: "learn", action: "concepts"} %></li>
-            <li><%= link_to t('menu_5_2'), {controller: "learn", action: "ref_material"} %></li>
+            <li><%= link_to t('menu_5_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Reference Materials" }%></li>
             <li><%= link_to t('menu_5_3'), {controller: "learn", action: "capacity_building"} %></li>
             <li><%= link_to t('menu_5_4'), {controller: "learn", action: "glossary"} %></li>
           </ul>
