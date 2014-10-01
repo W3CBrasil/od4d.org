@@ -17,7 +17,7 @@
     <div class="grid-15">
       <h3><%= t('menu_5') %></h3>
       <ul>
-        <li><%= link_to t('menu_5_1'), {controller: "learn", action: "concepts"} %></li>
+        <li><%= link_to t('menu_5_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_concepts') }%></li>
         <li><%= link_to t('menu_5_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_ref_materials') }%></li>
         <li><%= link_to t('menu_5_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_cap_building') }%></li>
         <li><%= link_to t('menu_5_4'), {controller: "learn", action: "glossary"} %></li>

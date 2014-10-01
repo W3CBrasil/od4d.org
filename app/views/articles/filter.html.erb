@@ -6,7 +6,7 @@
         <section class="content grid-70 bgwhite">
           <div class="post-list-content-inner">
             <p class="breadcrumb breadcrumb-default">
-              <%= link_to "INICIO", {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
+              <%= link_to t('home'), {controller: "home", action: "index"} %> | <a href="#"><%= params[:term].upcase %></a>
             </p>
             <h2 class="title blackgrayfont"><%= params[:term].upcase %></h2>
             <h4 class="subtitle"><%= @description %></h4>
