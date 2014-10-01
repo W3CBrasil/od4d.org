@@ -171,7 +171,7 @@
       <ul class="list-engaje">
         <li class="grid-33">
           <div class="conceitos engaje-item">
-            <h4><%= raw(t('concepts_home_title')) %></h4>
+            <h4><span class="number-engaje">1.</span><span class="title-item-engaje-content"><%= raw(t('concepts_home_title')) %></span></h4>
             <p><%= link_to t('concepts_websemantics').upcase, {controller: "learn", action: "concepts"} %></p>
             <p><%= link_to t('concepts_rdfa').upcase, {controller: "learn", action: "introduction_to_rdf_and_rdfa"} %></p>
             <p><%= link_to t('concepts_examples').upcase, {controller: "learn", action: "how_to_create_a_semantic_page"} %></p>
@@ -179,14 +179,14 @@
         </li>
         <li class="grid-33">
           <div class="engaje-item integre clearfix">
-            <h4><%= raw(t('integration_title')) %></h4>
+            <h4><span class="number-engaje">2.</span><span class="title-item-engaje-content"><%= raw(t('integration_title')) %></span></h4>
             <p class="be-partner"><%= link_to t('integration_beapartner').upcase, {controller: "pages", action: "become_partner"} %></p>
             <p class="be-colaborator"><%= link_to t('integration_colaborator').upcase, {controller: "pages", action: "become_contributor"} %></p>
           </div>
         </li>
         <li class="grid-33">
           <div class="engaje-item compartilhe">
-            <h4><%= raw(t('share_title')) %></h4>
+            <h4><span class="number-engaje">3.</span><span class="title-item-engaje-content"><%= raw(t('share_title')) %></span></h4>
             <div>
               <p><%= raw(t('share_quote').upcase) %></p>
               <%= render :partial => '/layouts/followus', locals: {footer: false} %>
