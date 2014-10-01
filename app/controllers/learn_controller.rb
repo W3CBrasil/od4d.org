@@ -10,6 +10,7 @@ class LearnController < ApplicationController
   def concepts
   end
   def ref_material
+    redirect_to controller: :articles, action: :show, params: {uri: "http://platform.od4d.org/posts/40"}
   end
   def capacity_building
   end

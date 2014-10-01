@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <title>OD4D - <%= @article.title %></title>
+  <title>OD4D - <%= @article.title if @article %></title>
 <% end %>
 
 <article typeof="schema:Article" resource="#" class="main post">
@@ -8,7 +8,7 @@
       <div class="destaque">
         <p class="breadcrumb">
           <%= link_to "#{t('home')}", controller: "home", action: "index" %>  |
-          <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}"%>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article.articleSection.first %></span></a>
+          <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}" if @article %>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article && @article.articleSection.first %></span></a>
         </p>
         <h2 property="schema:headline"><%= @article.title %></h2>
         <p property="schema:datePublished" class="post-fonte"><%= t('published_in') %> <%= @article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont" property="schema:author"><%= @article.author %></span> <%= "#{t('about')}" unless @article.about.empty? %> <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> at <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>

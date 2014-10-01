@@ -15,10 +15,13 @@ class ArticlesController < ApplicationController
     article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
     @article = article_dao.find_article(params[:uri])
     if @article.nil?
-      render :file => 'public/404.html', :status => :not_found, :layout => false
+      render :article_not_found
     else
       @author_articles = article_dao.find_article_by_author(@article.author)
     end
+  end
+
+  def no_show
   end
 
   def filter

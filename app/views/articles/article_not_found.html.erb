@@ -1,0 +1,17 @@
+<% content_for :head do %>
+  <title>OD4D - <%= t('article_not_found') %></title>
+<% end %>
+
+<article typeof="schema:Article" resource="#" class="main post">
+  <div class="callBanner">
+    <div class="grid-container">
+      <div class="destaque">
+        <p class="breadcrumb">
+          <%= link_to "#{t('home')}", controller: "home", action: "index" %>  |
+          <a href="#"><span property="schema:articleSection"><%= t('not_found') %></span></a>
+        </p>
+        <h2 property="schema:headline"><%= t('article_not_found') %></h2>
+      </div>
+    </div>
+  </div>
+</article>
