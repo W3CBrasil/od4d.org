@@ -4,7 +4,7 @@
       <ul>
         <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
         <li><%= link_to t('menu_2'), {controller: "pages", action: "terms_and_conditions"} %></li>
-        <li><%= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
+        <li><%#= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
       </ul>
     </div>
     <div class="grid-15">
@@ -30,14 +30,14 @@
         <li><%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Products" }%></li>
       </ul>
     </div>
-    <div class="grid-15">
-      <h3><%= t('menu_7') %></h3>
+<!--     <div class="grid-15">
+      <h3><%#= t('menu_7') %></h3>
       <ul>
-        <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Conferences"} %></li>
-        <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Courses"} %></li>
-        <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: "Contests"} %></li>
+        <li><%#= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Conferences"} %></li>
+        <li><%#= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Courses"} %></li>
+        <li><%#= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: "Contests"} %></li>
       </ul>
-    </div>
+    </div> -->
     <div class="grid-20 social-bottom">
       <h3><%=t 'follow_us' %></h3>
       <%= render :partial => '/layouts/followus' %>
