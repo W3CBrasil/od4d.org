@@ -145,21 +145,21 @@
           <h4 class="news-title-item title-item-destaque"><%= t('watch_out') %></h4>
           <img src="<%= asset_path 'shutterstock_114997978-b.jpg' %>" alt="" />
           <h5 class="news-title-item"><%= t('featured_about_1').upcase %></h5>
-          <p class="news-txt-larger"><a href=""><%= t('featured_article_1') %></a></p>
+          <p class="news-txt-larger"><%= link_to t('featured_article_1'), {controller: "articles", action: "show", params: {uri: "http://platform.od4d.org/posts/43"}} %></p>
       </div>
 
       <div class="destaque2gov grid-33">
         <div class="destaquemenor">
           <img src="<%= asset_path 'shutterstock_173451446-b.jpg' %>" alt="">
           <h5 class="news-title-item"><%= t('featured_about_2').upcase %></h5>
-          <p class="news-txt-larger"><a href=""><%= t('featured_article_2') %></a></p>
+          <p class="news-txt-larger"><%= link_to t('featured_article_2'), {controller: "pages", action: "about"} %></p>
         </div>
         <ul class="list-news">
           <li class="without-top">
-            <p><a href=""><%= t('featured_article_3') %></a></p>
+            <p><%= link_to t('featured_article_3'), {controller: "pages", action: "become_partner"} %></p>
           </li>
           <li class="without-top">
-            <p><a href=""><%= t('featured_article_4') %></a></p>
+            <p><%= link_to t('featured_article_4'), {controller: "pages", action: "become_contributor"} %></p>
           </li>
         </ul>
       </div>
