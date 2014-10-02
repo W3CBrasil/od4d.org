@@ -31,7 +31,7 @@ module Casein
         articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
         section = PostSection.find @post.post_sections_id
         articleDAO.insert(@post.attributes, section.name)
-        flash[:notice] = 'Post created'
+        flash[:notice] = "Post #{@post.id} created"
         redirect_to casein_posts_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new post'
@@ -48,7 +48,7 @@ module Casein
         articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
         section = PostSection.find @post.post_sections_id
         articleDAO.update(@post.attributes, section.name)
-        flash[:notice] = 'Post has been updated'
+        flash[:notice] = "Post #{@post.id} has been updated"
         redirect_to casein_posts_path
       else
         flash.now[:warning] = 'There were problems when trying to update this post'
