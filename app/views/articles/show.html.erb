@@ -20,7 +20,7 @@
           <div class="post-list-content-inner">
             <p>
               <%= raw(@article.article_content) %>
-              <% if @article.article_content.size == 500 && @article.is_third_party? %>
+              <% if @article.is_third_party? %>
                 ...<br/>
                 [<a href="<%=@article.url%>" target="_blank"><%= t('read_more') %></a>]
               <% end %>
