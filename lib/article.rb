@@ -38,13 +38,18 @@ class Article
   def get_tokenized_html_about
     return "" if @about.empty?
     html_array = []
-    @about.each { |about| html_array.push(wrap_html about) }
+    @about.each { |about| html_array.push(wrap_about_html about) }
     return html_array.join(', ')
+  end
+
+  def publisher_html_element
+    return "<a class='semiboldfont' property='schema:publisher' href='#{@publisher.url}' target='_blank'>#{@publisher.name}</a>" unless @publisher.url.include? "od4d"
+    "<span class='semiboldfont' property='schema:publisher'>#{@publisher.name}</span>"
   end
 
   private
 
-  def wrap_html(about)
+  def wrap_about_html(about)
     "<a href=\"/articles/filter/about/#{about}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
   end
 

@@ -19,7 +19,7 @@
             <% unless @article.about.empty? %>
               <%= "#{t('about')}" %>              
               <%= raw(@article.get_tokenized_html_about) %>
-            <% end %> at <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a>
+            <% end %> at <%= raw(@article.publisher_html_element) %></a>
         </p>
       </div>
     </div>
