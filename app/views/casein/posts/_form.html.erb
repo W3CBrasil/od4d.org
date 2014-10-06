@@ -21,7 +21,7 @@
 		<%= casein_select f, f.object, :post_sections_id, options_for_select(sections, f.object["post_sections_id"]), :casein_label => "Seção" %>
 	</div>
 	<div class="col-lg-6">
-		<%= casein_text_area f, f.object, :about, {:casein_label => "Assunto"} %>
+		<%= casein_text_area f, f.object, :about, {:casein_label => "Assunto ("+t('casein_post_form_about_tip')+")"} %>
 	</div>
 </div>
 
