@@ -11,38 +11,47 @@
           <a href='<%="/articles/filter/articleSection/#{@article.articleSection.first}" if @article %>'><span property="schema:articleSection"><%= @article.articleSection.first.upcase if @article && @article.articleSection.first %></span></a>
         </p>
         <h2 property="schema:headline"><%= @article.title %></h2>
-        <p property="schema:datePublished" class="post-fonte"><%= t('published_in') %> <%= @article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %> <span class="semiboldfont" property="schema:author"><%= @article.author %></span> <%= "#{t('about')}" unless @article.about.empty? %> <span class="semiboldfont" property="schema:about"><%= raw(@article.about.join('</span>, <span class="semiboldfont" property="schema:about">')) %></span> at <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a></p>
+        <p property="schema:datePublished" class="post-fonte">
+          <%= t('published_in') %> <%= @article.datePublished.strftime("%d/%m/%Y") %> <%= t('by_author') %>
+            <span class="semiboldfont" property="schema:author">
+              <%= @article.author %>
+            </span>
+            <% unless @article.about.empty? %>
+              <%= "#{t('about')}" %>              
+              <%= raw(@article.get_html_tokenized_about) %>
+            <% end %> at <a class="semiboldfont" property="schema:publisher" href="<%= @article.publisher.url %>" target="_blank"><%= @article.publisher.name %></a>
+        </p>
       </div>
     </div>
   </div>
   <section property="schema:articleBody" class="grid-container content post-list">
-        <div class="grid-70 bgwhite">
-          <div class="post-list-content-inner">
-            <p>
-              <%= raw(@article.article_content) %>
-              <% if @article.is_third_party? %>
-                ...<br/>
-                [<a href="<%=@article.url%>" target="_blank"><%= t('read_more') %></a>]
-              <% end %>
-            </p>
-            <div class="share-post">
-              <p><%=t 'likeit_shareit' %></p>
-              <%= render :partial => '/layouts/followus', locals: {footer: false} %>
-            </div>
-          </div>
+    <div class="grid-70 bgwhite">
+      <div class="post-list-content-inner">
+        <p>
+          <%= raw(@article.article_content) %>
+          <% if @article.is_third_party? %>
+            ...<br/>
+            [<a href="<%=@article.url%>" target="_blank"><%= t('read_more') %></a>]
+          <% end %>
+        </p>
+        <div class="share-post">
+          <p><%=t 'likeit_shareit' %></p>
+          <%= render :partial => '/layouts/followus', locals: {footer: false} %>
         </div>
-        <aside class="grid-30 box-author share-bar">
-        <div class="box-author-inner">
-          <h4><%= @article.author.mb_chars.upcase %> <%= t('also_wrote').mb_chars.upcase %></h4>
-          <ul class="list-news">
-            <% @author_articles.each do |article| %>
-              <li class="without-top">
-                <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
-                <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        </aside>
+      </div>
+    </div>
+    <aside class="grid-30 box-author share-bar">
+    <div class="box-author-inner">
+      <h4><%= @article.author.mb_chars.upcase %> <%= t('also_wrote').mb_chars.upcase %></h4>
+      <ul class="list-news">
+        <% @author_articles.each do |article| %>
+          <li class="without-top">
+            <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
+            <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    </aside>
   </section>
 </article>

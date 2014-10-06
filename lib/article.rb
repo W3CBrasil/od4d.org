@@ -35,7 +35,18 @@ class Article
     "https://www.facebook.com/sharer/sharer.php?u=#{URI.escape(@url.to_s)}"
   end
 
-  private 
+  def get_html_tokenized_about
+    return "" if @about.empty?
+    html_array = []
+    @about.each { |about| html_array.push(wrap_html about) }
+    return html_array.join(', ')
+  end
+
+  private
+
+  def wrap_html(about)
+    "<a href=\"/articles/filter/about/#{about}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
+  end
 
   def get_content
     return @summary unless @summary.to_s.empty?
