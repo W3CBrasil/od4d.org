@@ -35,7 +35,7 @@ class Article
     "https://www.facebook.com/sharer/sharer.php?u=#{URI.escape(@url.to_s)}"
   end
 
-  def get_html_tokenized_about
+  def get_tokenized_html_about
     return "" if @about.empty?
     html_array = []
     @about.each { |about| html_array.push(wrap_html about) }

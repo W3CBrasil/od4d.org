@@ -72,13 +72,13 @@ describe Article do
 
 	end
 
-	describe "#get_html_tokenized_about" do
+	describe "#get_tokenized_html_about" do
 		context "given an article with no about" do
 			it "should return an empty string" do
 				article = Article.new
 				article.about = []
 
-				result = article.get_html_tokenized_about
+				result = article.get_tokenized_html_about
 
 				expect(result).to eq("")
 			end
@@ -89,7 +89,7 @@ describe Article do
 				article = Article.new
 				article.about = ["about"]
 
-				result = article.get_html_tokenized_about
+				result = article.get_tokenized_html_about
 
 				expect(result).to eq('<a href="/articles/filter/about/about"><span class="semiboldfont" property="schema:about">about</span></a>')
 			end
@@ -100,7 +100,7 @@ describe Article do
 				article = Article.new
 				article.about = ["about","another_about"]
 
-				result = article.get_html_tokenized_about
+				result = article.get_tokenized_html_about
 
 				first_about = "<a href=\"/articles/filter/about/about\"><span class=\"semiboldfont\" property=\"schema:about\">about</span></a>"
 				separator = ", "
