@@ -106,8 +106,8 @@ class ArticleDAO
     article.articleSection = [article.articleSection] unless article.articleSection.is_a? Array
     article.author = get_value_from_hash(article_hash, "author")
     article.summary = get_value_from_hash(article_hash, "articleBody") if article_hash["articleBody"]
-    article.about = get_value_from_hash(article_hash, "about")
     date_raw = get_value_from_hash(article_hash, "datePublished")
+    article.inLanguage = get_value_from_hash(article_hash, "inLanguage")
     article.datePublished = get_date(date_raw)
     article.about = find_about_by_article_uri(article.url)
     article
@@ -169,7 +169,6 @@ class ArticleDAO
       WHERE   { ?article a schema:Article .
                 ?article schema:url <#{uri}> .
                 ?article schema:about ?about .
-                FILTER (?inLanguage = \"#{@locale}\")
               }"
     query_data = @fuseki.query(query)
     response_json = JSON.parse(query_data)
