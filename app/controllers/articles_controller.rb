@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
       render :article_not_found
     else
       @author_articles = article_dao.find_article_by_author(@article.author)
+      @about_articles = find_articles_by_about(@article.about)
     end
   end
 

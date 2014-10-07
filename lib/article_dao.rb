@@ -55,6 +55,15 @@ class ArticleDAO
     execute_articles_query(query)
   end
 
+  def find_articles_by_about(about_array)
+    result_hash = []
+    about_array.each do |about|
+      articles = filter_articles('about', about)
+      result_hash.push({about => articles})
+    end
+    result_hash
+  end
+
   def insert(article, articleSection, language)
     article["articleSection"] = articleSection
     article["inLanguage"] = language

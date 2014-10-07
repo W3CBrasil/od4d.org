@@ -41,17 +41,17 @@
       </div>
     </div>
     <aside class="grid-30 box-author share-bar">
-    <div class="box-author-inner">
-      <h4><%= @article.author.mb_chars.upcase %> <%= t('also_wrote').mb_chars.upcase %></h4>
-      <ul class="list-news">
-        <% @author_articles.each do |article| %>
-          <li class="without-top">
-            <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
-            <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="box-author-inner">
+        <h4><%= @article.author.mb_chars.upcase %> <%= t('also_wrote').mb_chars.upcase %></h4>
+        <ul class="list-news">
+          <% @author_articles.each do |article| %>
+            <li class="without-top">
+              <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
+              <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </aside>
   </section>
 </article>

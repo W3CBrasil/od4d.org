@@ -13,7 +13,7 @@
 		</tr>
 	</thead>
 	<% posts.each do |post| %>
-	<%	section = sections.find_by_id(post.post_sections_id) 
+	<%	section = sections.find_by_id(post.post_sections_id) if post.post_sections_id
 		section_name = ""
 		section_name = section.name if section %>
 		<tr>
