@@ -10,6 +10,7 @@ module Casein
     def index
       @casein_page_title = 'Posts'
   		@posts = Post.order(pub_date: :desc).paginate :page => params[:page]
+      @sections = PostSection.all
     end
   
     def show
@@ -69,7 +70,7 @@ module Casein
     private
       
       def post_params
-        params.require(:post).permit(:title, :author, :pub_date, :content, :about, :post_sections_id)
+        params.require(:post).permit(:title, :author, :pub_date, :content, :about, :post_sections_id, :languages_id)
       end
 
   end

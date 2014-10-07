@@ -6,7 +6,7 @@
 	<%= will_paginate @posts %>
 </div>
 
-<%= render :partial => 'casein/posts/table', :locals => { :posts => @posts } %>
+<%= render :partial => 'casein/posts/table', :locals => { :posts => @posts, :sections => @sections } %>
 
 <%= content_for :sidebar do %>
 

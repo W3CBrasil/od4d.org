@@ -16,11 +16,15 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-6">
-		<% sections = PostSection.all.map { |section| [section.name, section.id] } %>
-		<%= casein_select f, f.object, :post_sections_id, options_for_select(sections, f.object["post_sections_id"]), :casein_label => "Seção" %>
+	<div class="col-lg-4">
+		<% languages = Language.all.map { |lang| [lang.name, lang.id] } %>
+		<%= casein_select f, f.object, :languages_id, options_for_select(languages, f.object["languages_id"]), casein_label: "Língua",include_blank: '--' %>
 	</div>
-	<div class="col-lg-6">
+	<div class="col-lg-4">
+		<% sections = PostSection.all.map { |section| [section.name, section.id] } %>
+		<%= casein_select f, f.object, :post_sections_id, options_for_select(sections, f.object["post_sections_id"]), :casein_label => "Seção",include_blank: '--' %>
+	</div>
+	<div class="col-lg-4">
 		<%= casein_text_area f, f.object, :about, {:casein_label => "Assunto ("+t('casein_post_form_about_tip')+")"} %>
 	</div>
 </div>

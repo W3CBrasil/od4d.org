@@ -7,19 +7,21 @@
 			<th><%= casein_sort_link "Data", :pub_date %></th>
 			<th><%= casein_sort_link "Título", :title %></th>
 			<th><%= casein_sort_link "Autor", :author %></th>
-			<th><%= casein_sort_link "ID Seção", :post_sections_id %></th>
+			<th><%= casein_sort_link "Seção", :post_sections_id %></th>
 			<th><%= casein_sort_link "Assuntos", :about %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
-	
 	<% posts.each do |post| %>
+	<%	section = sections.find_by_id(post.post_sections_id) 
+		section_name = ""
+		section_name = section.name if section %>
 		<tr>
 			<td><%= casein_table_cell_link post.id, casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.pub_date, casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.title, casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.author, casein_post_path(post) %></td>
-			<td><%= casein_table_cell_link post.post_sections_id, casein_post_path(post) %></td>
+			<td><%= casein_table_cell_link section_name, casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.about, casein_post_path(post) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_post_path(post), :method => :delete, :data => { :confirm => "Tem certeza que quer excluir este post?" }) %>
