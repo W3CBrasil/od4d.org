@@ -1,7 +1,7 @@
 require 'htmlentities'
 
 class Article
-  attr_accessor :url, :title, :author, :summary, :description, :articleBody, :articleSection, :datePublished, :publisher, :about
+  attr_accessor :url, :title, :author, :summary, :description, :articleBody, :articleSection, :datePublished, :publisher, :about, :inLanguage
   SHARE_TEXT = "OD4D Platform"
 
   def slug
@@ -50,7 +50,7 @@ class Article
   private
 
   def wrap_about_html(about)
-    "<a href=\"/articles/filter/about/#{about}?locale=#{I18n.locale}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
+    "<a href=\"/articles/filter/about/#{about}?locale=#{@inLanguage}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
   end
 
   def get_content

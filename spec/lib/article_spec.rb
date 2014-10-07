@@ -87,24 +87,26 @@ describe Article do
 		context "given an article with an about" do
 			it "should return the about wrapped with <a> and <span>" do
 				article = Article.new
+				article.inLanguage = "any"
 				article.about = ["about"]
 
 				result = article.get_tokenized_html_about
 
-				expect(result).to eq('<a href="/articles/filter/about/about"><span class="semiboldfont" property="schema:about">about</span></a>')
+				expect(result).to eq('<a href="/articles/filter/about/about?locale=any"><span class="semiboldfont" property="schema:about">about</span></a>')
 			end
 		end
 
 		context "given an article with many abouts" do
 			it "should return each about wrapped with <a> and <span> and comma separated" do
 				article = Article.new
+				article.inLanguage = "any"
 				article.about = ["about","another_about"]
 
 				result = article.get_tokenized_html_about
 
-				first_about = "<a href=\"/articles/filter/about/about\"><span class=\"semiboldfont\" property=\"schema:about\">about</span></a>"
+				first_about = "<a href=\"/articles/filter/about/about?locale=any\"><span class=\"semiboldfont\" property=\"schema:about\">about</span></a>"
 				separator = ", "
-				second_about = "<a href=\"/articles/filter/about/another_about\"><span class=\"semiboldfont\" property=\"schema:about\">another_about</span></a>"
+				second_about = "<a href=\"/articles/filter/about/another_about?locale=any\"><span class=\"semiboldfont\" property=\"schema:about\">another_about</span></a>"
 				expect(result).to eq(first_about + separator + second_about)
 			end
 		end

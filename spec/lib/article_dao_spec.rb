@@ -57,7 +57,7 @@ describe ArticleDAO do
               end
 
     it "should find an article by its uri" do
-      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new, "locale")
       
       article = articleDao.find_article("http://resource/id")
 
@@ -69,7 +69,7 @@ describe ArticleDAO do
   context "#create_from_hash" do
 
     it "should return nil for an nil hash" do
-      articleDao = ArticleDAO.new(nil, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(nil, FusekiJSONParser.new, "locale")
 
       article = articleDao.create_from_hash(nil)
 
@@ -85,7 +85,7 @@ describe ArticleDAO do
           }
           '
         end
-      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new, "locale")
 
       article_hash = {
         "url" => { "value" => "don't care"},
@@ -196,7 +196,7 @@ describe ArticleDAO do
                     }
                   }'
               end
-      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new, "locale")
       article = articleDao.list_articles[0]
 
       expect(article.articleSection).to eq(["General"])
@@ -292,13 +292,13 @@ describe ArticleDAO do
     end
 
     it "should return 2 articles" do
-      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new, "locale")
       articles = articleDao.list_articles_limitted_by(2)
       expect(articles.length).to eq(2)
     end
 
     it "should return an article with publisher" do
-      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new)
+      articleDao = ArticleDAO.new(fuseki, FusekiJSONParser.new, "locale")
       article = articleDao.list_articles_limitted_by(1)[0]
       publisher = article.publisher
       expect(publisher.logo).to eq("foundation.png")

@@ -1,14 +1,14 @@
 require 'fuseki'
 require 'json'
-require "turtle"
+require 'turtle'
 require 'resource'
 
 class ArticleDAO
 
-  OD4D_PRODUCTION_URL = 'http://platform.od4d.org'
-  ARTICLE_SELECT_QUERY = '
+  OD4D_PRODUCTION_URL = "http://platform.od4d.org"
+  ARTICLE_SELECT_QUERY = "
     PREFIX schema: <http://schema.org/>
-    SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher
+    SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher ?inLanguage
     WHERE   { ?article a schema:Article .
             ?article schema:url    ?url .
             ?article schema:author ?author .
@@ -19,9 +19,12 @@ class ArticleDAO
             OPTIONAL { ?article schema:articleSection ?articleSection } .
             ?article schema:datePublished ?datePublished .
             ?article schema:publisher ?publisher .
-            }'
+            ?article schema:inLanguage ?inLanguage .
+            FILTER (?inLanguage = \"#{@locale}\")
+            }"
 
-  def initialize(fuseki, fusekiJsonParser)
+  def initialize(fuseki, fusekiJsonParser, locale)
+    @locale = locale
     @fuseki = fuseki || Fuseki.new
     @fusekiJsonParser = fusekiJsonParser
     @partnerDAO = PartnerDAO.new(fuseki, fusekiJsonParser)
@@ -30,7 +33,7 @@ class ArticleDAO
   def find_article(uri)
     articleQuery = "
       PREFIX schema: <http://schema.org/>
-      SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher
+      SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher ?inLanguage
       WHERE   { ?article a schema:Article .
                 ?article schema:url    ?url .
                 ?article schema:author ?author .
@@ -41,7 +44,8 @@ class ArticleDAO
                 OPTIONAL { ?article schema:articleSection ?articleSection } .
                 ?article schema:datePublished ?datePublished .
                 ?article schema:publisher ?publisher .
-                FILTER (?url = <#{uri}>) .
+                ?article schema:inLanguage ?inLanguage .
+                FILTER (?url = <#{uri}> && ?inLanguage = \"#{@locale}\") .
               } LIMIT 1"
     query_data = @fuseki.query(articleQuery)
     response_json = JSON.parse(query_data)
@@ -52,28 +56,30 @@ class ArticleDAO
   def find_article_by_author(author_name)
     query = "
       PREFIX schema: <http://schema.org/>
-      SELECT  ?url ?headline ?datePublished ?author ?articleSection
+      SELECT  ?url ?headline ?datePublished ?author ?articleSection ?inLanguage
       WHERE   { ?article a schema:Article .
                 ?article schema:url    ?url .
                 ?article schema:headline ?headline .
                 ?article schema:datePublished ?datePublished .
                 ?article schema:author ?author .
                 OPTIONAL { ?article schema:articleSection ?articleSection } .
-                FILTER (?author = '#{author_name}') .
+                ?article schema:inLanguage ?inLanguage .
+                FILTER (?author = '#{author_name}' && ?inLanguage = \"#{@locale}\") .
               }
       ORDER BY DESC(?datePublished)
       LIMIT 5"
     execute_articles_query(query)
   end
 
-  def insert(article, articleSection)
+  def insert(article, articleSection, language)
     article["articleSection"] = articleSection
+    article["inLanguage"] = language
     @fuseki.insert(generate_turtle_from_article(article))
   end
 
-  def update(article, articleSection)
+  def update(article, section, language)
     delete(article)
-    insert(article, articleSection)
+    insert(article, section, language)
   end
 
   def delete(article)
@@ -138,7 +144,8 @@ class ArticleDAO
                       OPTIONAL { ?article schema:datePublished ?datePublished } .
                       OPTIONAL { ?article schema:publisher ?publisher } .
                       OPTIONAL { ?article schema:about ?about } .
-                      FILTER (?#{field} = '#{term}') .
+                      ?article schema:inLanguage ?inLanguage .
+                      FILTER (?#{field} = '#{term}' && ?inLanguage = \"#{@locale}\") .
                     }"
     query = query + " ORDER BY DESC(?datePublished)"
     execute_articles_query(query)
@@ -165,6 +172,7 @@ class ArticleDAO
     add_optional_to_resource(res, "publisher", OD4D_PRODUCTION_URL + "/")
     add_optional_to_resource(res, "about", article["about"].split(',').each {|s| s.strip!})
     add_optional_to_resource(res, "articleSection", article["articleSection"])
+    add_optional_to_resource(res, "inLanguage", article["inLanguage"])
     turtle = Turtle.new(turtle_prefixes)
     turtle.add_resource(res)
     turtle.to_s
@@ -177,6 +185,7 @@ class ArticleDAO
       WHERE   { ?article a schema:Article .
                 ?article schema:url <#{uri}> .
                 ?article schema:about ?about .
+                FILTER (?inLanguage = \"#{@locale}\")
               }"
     query_data = @fuseki.query(query)
     response_json = JSON.parse(query_data)

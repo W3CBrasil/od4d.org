@@ -7,12 +7,12 @@ class ArticlesController < ApplicationController
    SHARE_TEXT = "OD4D Network"
 
   def index
-    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).list_articles
+    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale).list_articles
     @partners = PartnerDAO.new(Fuseki.new, FusekiJSONParser.new).list_partners
   end
 
   def show
-    article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+    article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale)
     @article = article_dao.find_article(params[:uri])
     if @article.nil?
       render :article_not_found
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   end
 
   def filter
-    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new).filter_articles(params[:field], params[:term])
+    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale).filter_articles(params[:field], params[:term])
     post_section = PostSection.find_by_name(params[:term]) if params[:field] == 'articleSection'
     @description = post_section.description if post_section
 

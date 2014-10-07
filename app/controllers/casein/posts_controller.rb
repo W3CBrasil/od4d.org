@@ -29,9 +29,10 @@ module Casein
       @post = Post.new post_params
     
       if @post.save
-        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale)
         section = PostSection.find @post.post_sections_id
-        articleDAO.insert(@post.attributes, section.name)
+        language = Language.find @post.languages_id
+        articleDAO.insert(@post.attributes, section.name, language.name)
         flash[:notice] = "Post #{@post.id} created"
         redirect_to casein_posts_path
       else
@@ -46,9 +47,10 @@ module Casein
       @post = Post.find params[:id]
     
       if @post.update_attributes post_params
-        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+        articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale)
         section = PostSection.find @post.post_sections_id
-        articleDAO.update(@post.attributes, section.name)
+        language = Language.find @post.languages_id
+        articleDAO.update(@post.attributes, section.name, language.name)
         flash[:notice] = "Post #{@post.id} has been updated"
         redirect_to casein_posts_path
       else
@@ -61,7 +63,7 @@ module Casein
       @post = Post.find params[:id]
 
       @post.destroy
-      articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new)
+      articleDAO = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale)
       articleDAO.delete(@post.attributes)
       flash[:notice] = 'Post has been deleted'
       redirect_to casein_posts_path

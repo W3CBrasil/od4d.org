@@ -48,11 +48,8 @@ ActiveRecord::Schema.define(version: 20141007181003) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "languages_id"
     t.string   "description"
   end
-
-  add_index "post_sections", ["languages_id"], name: "index_post_sections_on_languages_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
