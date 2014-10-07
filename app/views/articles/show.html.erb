@@ -52,6 +52,21 @@
           <% end %>
         </ul>
       </div>
+      <% if !@article.about.empty? && @about_articles %>
+          <div class="box-about-inner">
+            <h4><%= t('more_about').mb_chars.upcase %>:</h4>
+            <% @article.about.each do |about| %>
+              <p>
+              <span class="category"><%=about.upcase%></span>
+              <ul class="list-news">
+              <% @about_articles[about.to_sym].each do |article| %>
+                  <li><%= link_to article.title, {controller: 'articles', action: 'show', params: {uri: article.url}} %></li>
+              <% end %>
+              </ul>
+              </p>
+            <% end %>
+          </div>
+      <% end %>
     </aside>
   </section>
 </article>

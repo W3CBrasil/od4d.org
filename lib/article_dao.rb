@@ -56,10 +56,12 @@ class ArticleDAO
   end
 
   def find_articles_by_about(about_array)
-    result_hash = []
-    about_array.each do |about|
-      articles = filter_articles('about', about)
-      result_hash.push({about => articles})
+    result_hash = {}
+    if about_array
+      about_array.each do |about|
+        articles = filter_articles('about', about)
+        result_hash[about.to_sym] = articles
+      end
     end
     result_hash
   end
