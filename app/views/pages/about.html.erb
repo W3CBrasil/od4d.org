@@ -1,5 +1,4 @@
 <% content_for :head do %>
-<% content_for :head do %>
   <title>Open Data for Development - About</title>
 <% end %>
 
@@ -14,12 +13,12 @@
     <div class="grid-container content">
       <p class="breadcrumb breadcrumb-default">
       <%= link_to t('home'), controller: "home", action: "index" %>
-       | <a href="#">ABOUT</a>
+       | <a href="#"><%= t('about').upcase %></a>
       </p>
       <div class="">
         <div class="grid-100">
           <section class="introduction grid-100">
-            <h1 class="title blackgrayfont grid-100">About OD4D</h1>
+            <h1 class="title blackgrayfont grid-100"><%= t('about_title_project') %></h1>
             <p>Open Data for development (OD4D) is a coalition of global and regional open data initiatives to harness open data to achieve development outcomes. It includes:</p>
             <ul>
             <li>The Latin American Open Data Initiative (<a href="http://idatosabiertos.org/">ILDA</a>)</li>
@@ -33,7 +32,7 @@
   International Development Research Centre">IDRC</a>). Achievements include the first R<a href="http://confdatosabiertos.uy/" title="Inicio">egional Conference for Latin America and the Caribbean</a>; among many other actions.
             For more information on the broad OD4D initiatives, please visit www.od4d.org</p>
 
-            <h1 class="title blackgrayfont grid-100">About OD4D Platform</h1>
+            <h1 class="title blackgrayfont grid-100"><%= t('about_title') %></h1>
              
             <p>"Open Data for Development Platform" is the platform for interaction with the linked data community, with educational resources and use cases on the topic;</p>
              

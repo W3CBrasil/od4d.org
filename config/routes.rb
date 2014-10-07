@@ -2,11 +2,14 @@ Rails.application.routes.draw do
 
 	#Casein routes
 	namespace :casein do
+		resources :languages
 		resources :post_sections
 		resources :posts
   end
 
   root 'home#index'
+
+  get '/change_locale' => 'home#change_locale'
 
   get '/about' => 'pages#about'
   get '/terms-and-conditions' => 'pages#terms_and_conditions'

@@ -115,3 +115,6 @@ en:
   section_concepts: "Concepts"
   beta_disclaimer: "[This is a beta test version. Please, give us your feedback on the platform's functionality and code: <a href='mailto:od4d@nic.br'>od4d at nic.br</a>]"
   casein_post_form_about_tip: "Comma-separeted values"
+  intro_rdfa_title: "Introduction to RDF and RDFa"
+  howto_create_sempage: "How to create a semantic page"
+  about_title_project: "About OD4D"

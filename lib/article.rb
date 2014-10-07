@@ -50,7 +50,7 @@ class Article
   private
 
   def wrap_about_html(about)
-    "<a href=\"/articles/filter/about/#{about}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
+    "<a href=\"/articles/filter/about/#{about}?locale=#{I18n.locale}\"><span class=\"semiboldfont\" property=\"schema:about\">#{about}</span></a>"
   end
 
   def get_content

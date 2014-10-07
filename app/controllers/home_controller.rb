@@ -7,4 +7,9 @@ class HomeController < ApplicationController
     fuseki_parser = FusekiJSONParser.new
     @articles = ArticleDAO.new(fuseki, fuseki_parser).list_articles_limitted_by(5)
   end
+
+  def change_locale
+  	I18n.locale = params[:locale]
+  	redirect_to controller: "home", action: "index"
+  end
 end

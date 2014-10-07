@@ -4,6 +4,8 @@
     <% end %>
     <nav id="menu" class="menu floatRight">
       <ul>
+        <li <%= "class=active" if I18n.locale == :pt %>><%= link_to "pt", {controller: "home", action: "change_locale", params: {locale: "pt"}} %></li>
+        <li <%= "class=active" if I18n.locale == :en %>><%= link_to "en", {controller: "home", action: "change_locale", params: {locale: "en"}} %></li>
         <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
         <li>
           <a class="dropdown" href="#"><%= t('menu_4') %></a>

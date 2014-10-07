@@ -216,7 +216,7 @@
               <img src="<%= asset_path 'shutterstock_144889669-b.jpg' %>" class="img-tab" />
               <h4><%= t('cases_headline_1') %></h4>
               <p><%= raw t('cases_text_1') %></p>
-              <a class="casos-praticos-link" href="/article?uri=http://platform.od4d.org/posts/8"><%= t('cases_more_link') %></a>
+                <%= link_to t('cases_more_link'), {controller: "articles", action: "show", params: {uri: 'http://platform.od4d.org/posts/8'}}, class: 'casos-praticos-link' %>
             </div>
           </div>
           <div>
@@ -224,7 +224,7 @@
               <img src="<%= asset_path 'shutterstock_144889669-b.jpg' %>" class="img-tab" />
               <h4><%= t('cases_headline_2') %></h4>
               <p><%= t('cases_text_2') %></p>
-              <a class="casos-praticos-link" href="/article?uri=http://platform.od4d.org/posts/33"><%= t('cases_more_link') %></a>
+              <%= link_to t('cases_more_link'), {controller: "articles", action: "show", params: {uri: 'http://platform.od4d.org/posts/33'}}, class: 'casos-praticos-link' %>
             </div>
           </div>
           <div>
@@ -232,7 +232,7 @@
               <img src="<%= asset_path 'shutterstock_144889669-b.jpg' %>" class="img-tab" />
               <h4><%= t('cases_headline_3') %></h4>
               <p><%= t('cases_text_3') %></p>
-              <a class="casos-praticos-link" href="/article?uri=http://platform.od4d.org/posts/48"><%= t('cases_more_link') %></a>
+              <%= link_to t('cases_more_link'), {controller: "articles", action: "show", params: {uri: 'http://platform.od4d.org/posts/48'}}, class: 'casos-praticos-link' %>
             </div>
           </div>
           <div>
@@ -240,7 +240,7 @@
               <img src="<%= asset_path 'shutterstock_144889669-b.jpg' %>" class="img-tab" />
               <h4><%= t('cases_headline_4') %></h4>
               <p><%= t('cases_text_4') %></p>
-              <a class="casos-praticos-link" href="/article?uri=http://platform.od4d.org/posts/1"><%= t('cases_more_link') %></a>
+              <%= link_to t('cases_more_link'), {controller: "articles", action: "show", params: {uri: 'http://platform.od4d.org/posts/1'}}, class: 'casos-praticos-link' %>
             </div>
           </div>
           <div>
@@ -248,7 +248,7 @@
               <img src="<%= asset_path 'shutterstock_144889669-b.jpg' %>" class="img-tab" />
               <h4><%= t('cases_headline_5') %></h4>
               <p><%= t('cases_text_5') %></p>
-              <a class="casos-praticos-link" href="/article?uri=http://platform.od4d.org/posts/30"><%= t('cases_more_link') %></a>
+              <%= link_to t('cases_more_link'), {controller: "articles", action: "show", params: {uri: 'http://platform.od4d.org/posts/30'}}, class: 'casos-praticos-link' %>
             </div>
           </div>
       </div>
@@ -261,6 +261,6 @@
       </ul>
     </div>
 
-    <p class="others-cases">Get to know other use cases, <%= link_to t('menu_6_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Projects" }%> and <%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Products" }%> in OD4D Platform.</p>
+    <p class="others-cases">Get to know other use cases, <%= link_to t('section_projects'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_projects') }%> and <%= link_to t('section_products'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }%> in OD4D Platform.</p>
     
   </section>

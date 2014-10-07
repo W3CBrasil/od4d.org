@@ -22,5 +22,9 @@ module Od4d
     config.autoload_paths += %W( #{config.root}/lib #{config.root}/lib/ext )
 
     config.assets.precompile += %w( prism-only.js prism-only.css )
+
+    config.i18n.available_locales = ["pt", "en", "es"]
+
+    config.i18n.default_locale = "pt"
   end
 end
