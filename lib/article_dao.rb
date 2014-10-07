@@ -6,22 +6,6 @@ require 'resource'
 class ArticleDAO
 
   OD4D_PRODUCTION_URL = "http://platform.od4d.org"
-  ARTICLE_SELECT_QUERY = "
-    PREFIX schema: <http://schema.org/>
-    SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher ?inLanguage
-    WHERE   { ?article a schema:Article .
-            ?article schema:url    ?url .
-            ?article schema:author ?author .
-            OPTIONAL { ?article schema:headline ?headline } .
-            OPTIONAL { ?article schema:summary  ?summary } .
-            OPTIONAL { ?article schema:description ?description } .
-            OPTIONAL { ?article schema:articleBody ?articleBody } .
-            OPTIONAL { ?article schema:articleSection ?articleSection } .
-            ?article schema:datePublished ?datePublished .
-            ?article schema:publisher ?publisher .
-            ?article schema:inLanguage ?inLanguage .
-            FILTER (?inLanguage = \"#{@locale}\")
-            }"
 
   def initialize(fuseki, fusekiJsonParser, locale)
     @locale = locale
@@ -202,7 +186,22 @@ class ArticleDAO
   end
   
   def load_articles(limit=0)
-    final_query = ARTICLE_SELECT_QUERY
+    final_query = "
+    PREFIX schema: <http://schema.org/>
+    SELECT  ?article ?url ?author ?headline ?summary ?description ?articleBody ?articleSection ?datePublished ?publisher ?inLanguage
+    WHERE   { ?article a schema:Article .
+            ?article schema:url    ?url .
+            ?article schema:author ?author .
+            OPTIONAL { ?article schema:headline ?headline } .
+            OPTIONAL { ?article schema:summary  ?summary } .
+            OPTIONAL { ?article schema:description ?description } .
+            OPTIONAL { ?article schema:articleBody ?articleBody } .
+            OPTIONAL { ?article schema:articleSection ?articleSection } .
+            ?article schema:datePublished ?datePublished .
+            ?article schema:publisher ?publisher .
+            ?article schema:inLanguage ?inLanguage .
+            FILTER (?inLanguage = \"#{@locale}\")
+            }"
     final_query = final_query + " ORDER BY DESC(?datePublished)"
     final_query = final_query + " LIMIT #{limit}" if limit != 0
     execute_articles_query(final_query)
