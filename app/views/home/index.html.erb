@@ -150,18 +150,18 @@
     <div class="">
       <h3 class="title-subsection mobile-grid-100"><%= t('featured_in') %> 
         <a href='<%="/articles/filter/articleSection/#{t('featured_section')}"%>'>
-        <%= t('featured_section').upcase %></a> <span class="semiboldfont">&gt;&gt;</span></h3>
+        <%= t('featured_section').mb_chars.upcase %></a> <span class="semiboldfont">&gt;&gt;</span></h3>
       <div class="destaquegov grid-33">
           <h4 class="news-title-item title-item-destaque"><%= t('watch_out') %></h4>
           <img src="<%= asset_path 'shutterstock_114997978-b.jpg' %>" alt="" />
-          <h5 class="news-title-item"><%= t('featured_about_1').upcase %></h5>
+          <h5 class="news-title-item"><%= t('featured_about_1').mb_chars.upcase %></h5>
           <p class="news-txt-larger"><%= link_to t('featured_article_1'), {controller: "articles", action: "show", params: {uri: "http://platform.od4d.org/posts/43"}} %></p>
       </div>
 
       <div class="destaque2gov grid-33">
         <div class="destaquemenor">
           <img src="<%= asset_path 'shutterstock_173451446-b.jpg' %>" alt="">
-          <h5 class="news-title-item"><%= t('featured_about_2').upcase %></h5>
+          <h5 class="news-title-item"><%= t('featured_about_2').mb_chars.upcase %></h5>
           <p class="news-txt-larger"><%= link_to t('featured_article_2'), {controller: "pages", action: "about"} %></p>
         </div>
         <ul class="list-news">
@@ -182,23 +182,23 @@
         <li class="grid-33">
           <div class="conceitos engaje-item">
             <h4><span class="number-engaje">1.</span><span class="title-item-engaje-content"><%= raw(t('concepts_home_title')) %></span></h4>
-            <p><%= link_to t('concepts_websemantics').upcase, {controller: "learn", action: "concepts"} %></p>
-            <p><%= link_to t('concepts_rdfa').upcase, {controller: "learn", action: "introduction_to_rdf_and_rdfa"} %></p>
-            <p><%= link_to t('concepts_examples').upcase, {controller: "learn", action: "how_to_create_a_semantic_page"} %></p>
+            <p><%= link_to t('concepts_websemantics').mb_chars.upcase, {controller: "learn", action: "concepts"} %></p>
+            <p><%= link_to t('concepts_rdfa').mb_chars.upcase, {controller: "learn", action: "introduction_to_rdf_and_rdfa"} %></p>
+            <p><%= link_to t('concepts_examples').mb_chars.upcase, {controller: "learn", action: "how_to_create_a_semantic_page"} %></p>
           </div>
         </li>
         <li class="grid-33">
           <div class="engaje-item integre clearfix">
             <h4><span class="number-engaje">2.</span><span class="title-item-engaje-content"><%= raw(t('integration_title')) %></span></h4>
-            <p class="be-partner"><%= link_to t('integration_beapartner').upcase, {controller: "pages", action: "become_partner"} %></p>
-            <p class="be-colaborator"><%= link_to t('integration_colaborator').upcase, {controller: "pages", action: "become_contributor"} %></p>
+            <p class="be-partner"><%= link_to t('integration_beapartner').mb_chars.upcase, {controller: "pages", action: "become_partner"} %></p>
+            <p class="be-colaborator"><%= link_to t('integration_colaborator').mb_chars.upcase, {controller: "pages", action: "become_contributor"} %></p>
           </div>
         </li>
         <li class="grid-33">
           <div class="engaje-item compartilhe">
             <h4><span class="number-engaje">3.</span><span class="title-item-engaje-content"><%= raw(t('share_title')) %></span></h4>
             <div>
-              <p><%= raw(t('share_quote').upcase) %></p>
+              <p><%= raw(t('share_quote').mb_chars.upcase) %></p>
               <%= render :partial => '/layouts/followus', locals: {footer: false} %>
             </div>
           </div>
@@ -207,7 +207,7 @@
     </div>
   </section>
   <section class="grid-container casos-praticos">
-    <h3 class="fontitalic blackgrayfont"><%= t('cases_title').upcase %></h3>
+    <h3 class="fontitalic blackgrayfont"><%= t('cases_title').mb_chars.upcase %></h3>
 
     <div id="horizontalTab">
       <div class="resp-tabs-container bggreen">

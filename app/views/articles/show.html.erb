@@ -46,7 +46,7 @@
         <ul class="list-news">
           <% @author_articles.each do |article| %>
             <li class="without-top">
-              <span class="category"><%= article.articleSection.first.upcase if article.articleSection.first %></span>
+              <span class="category"><%= article.articleSection.first.mb_chars.upcase if article.articleSection.first %></span>
               <p><%= link_to article.title[0..50].strip + "...", controller: "articles", action: "show", params: {uri: "#{article.url}"} %></p>
             </li>
           <% end %>
@@ -57,7 +57,7 @@
             <h4><%= t('more_about').mb_chars.upcase %>:</h4>
             <% @article.about.each do |about| %>
               <p>
-              <span class="category"><%=about.upcase%></span>
+              <span class="category"><%=about.mb_chars.upcase%></span>
               <ul class="list-news">
               <% @about_articles[about.to_sym].each do |article| %>
                   <li><%= link_to article.title, {controller: 'articles', action: 'show', params: {uri: article.url}} %></li>

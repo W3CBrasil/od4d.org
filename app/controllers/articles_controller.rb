@@ -6,11 +6,6 @@ class ArticlesController < ApplicationController
   helper_method :share_googleplus, :share_twitter, :share_linkedin
    SHARE_TEXT = "OD4D Network"
 
-  def index
-    @articles = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale).list_articles
-    @partners = PartnerDAO.new(Fuseki.new, FusekiJSONParser.new).list_partners
-  end
-
   def show
     article_dao = ArticleDAO.new(Fuseki.new, FusekiJSONParser.new, I18n.locale)
     @article = article_dao.find_article(params[:uri])
@@ -20,9 +15,6 @@ class ArticlesController < ApplicationController
       @author_articles = article_dao.find_article_by_author(@article.author)
       @about_articles = article_dao.find_articles_by_about(@article.about)
     end
-  end
-
-  def no_show
   end
 
   def filter
