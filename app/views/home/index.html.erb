@@ -261,6 +261,6 @@
       </ul>
     </div>
 
-    <p class="others-cases">Get to know other use cases, <%= link_to t('section_projects'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_projects') }%> and <%= link_to t('section_products'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }%> in OD4D Platform.</p>
+    <p class="others-cases"><%= t('others_cases_part1') %>, <%= link_to t('section_projects'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_projects') }%> <%= t('others_cases_part2') %> <%= link_to t('section_products'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }%> <%= t('others_cases_part3') %></p>
     
   </section>
