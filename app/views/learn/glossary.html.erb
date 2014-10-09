@@ -5,7 +5,7 @@
 
 <article class="main post institucional" resource="<%= request.original_url %>" typeof="schema:Article">
   <meta property="schema:datePublished" content="2014-09-29"/>
-  <meta property="schema:inLanguage" content="en-US"/>
+  <meta property="schema:inLanguage" content="<%= I18n.locale %>"/>
   <meta property="schema:copyrightHolder" content="W3C"/>
   <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
   <meta property="schema:keywords" content="glossary;od4d"/>
@@ -18,54 +18,7 @@
       </p>
     <h1 class="title blackgrayfont"><%= t('glossary_title') %></h1>
       <div class="grid-100">
-        <div>
-          <div class="term-glossary">
-            <h3>Copyright</h3>
-            <p>Moral right, irrevocable and inalienable. It is an exclusive right of exploitation that a person has over its literary, artistic and scientific creations.
-          </p>
-
-          <div class="term-glossary">
-            <h3>License</h3>
-            <p>Information about the copyright of the dataset. Using a license is essential to provide clarity and certainty to users about the possible uses of the information contained in the datasets. For purposes of the release of the datasets and to facilitate their reuse, the following basic conditions must be respected: a) keep the original sense of the information b) cite the source of the information, c) publish when the information was updated the last time.
-          </p>
-
-          <div class="term-glossary">
-            <h3>Onthology</h3>
-            <p>Onthologies are a set of vocabularies that are able to describe an subject area. For instance an Onthology of Intelectual property, might include vocabularies to describe any form of text, media, etc. Article, Video, Audio, are examples of vocabularies that could be inside a Onthology called "Intelectual Property Onthology".
-          </p>
-
-          <div class="term-glossary">
-            <h3>Open Data</h3>
-            <p>According to the Open Knowledge Foundation, a non-profit organization, “open data is data that can be freely used, reused and redistributed by anyone.” It involves the publication and sharing of information online in open formats, readable by machines, which may be freely and automatically reused by society.</p>
-            <p>Data is regarded as open when there is:</p>
-            <ul>
-              <li>Availability and access: data must be fully available for a reasonable reproduction cost, preferably through downloading; it must also be available in a convenient and changeable format.</li>
-              <li>Reuse and redistribution: data must be provided so as to enable reuse and redistribution, including cross referencing with other datasets.</li>
-              <li>Universal participation: anyone can use, reuse and redistribute it, without discrimination against industry, people or groups (restrictions such as “non-commercial” that prevent commercial use are forbidden, as well as limited use for certain purposes, such as “education only”).</li>
-            </ul>
-          </div>
-
-          <div class="term-glossary">
-            <h3>RDFa (Resource Description Framework-in-attributes):</h3>
-            <p>Information about the copyright of the dataset. Using a license is essential to provide clarity and certainty to users about the possible uses of the information contained in the datasets. For purposes of the release of the datasets and to facilitate their reuse, the following basic conditions must be respected: a) keep the original sense of the information b) cite the source of the information, c) publish when the information was updated the last time.
-          </p>
-
-          <div class="term-glossary">
-            <h3>Semantic</h3>
-            <p>Semantic: Particular way of inferring facts or ideas from a word or phrase.
-          </p>
-
-          <div class="term-glossary">
-            <h3>URI (Uniform Resource Identifier):</h3>
-            <p>It is a short string that uniquely identifies a resource (service, page, document, email, encyclopedia, etc.). Usually these resources are accessible on a network or system. The URI can be Uniform Resource Locators (URLs), Uniform Resource Name (URN), or both (URL + URN).
-          </p>
-
-          <div class="term-glossary">
-            <h3>Vocabulary</h3>
-            <p>Vocabularies are predefined terms for different Objects in certain subject areas, with this predefined vocabularies, applications/tools/other web sites that makes use of this data can better understand it when common and popular vocabularies are used.
-          </p>
-
-        </div>
+        <%= render 'glossary_'+I18n.locale.to_s %>
       </div>
     </div>
     </div>
