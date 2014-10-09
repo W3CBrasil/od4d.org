@@ -28,7 +28,7 @@ class Article
   end
 
   def share_twitter
-     "https://twitter.com/intent/tweet?url=#{URI.escape(@url.to_s)}&text=#{@title}&via=OD4D"
+     "https://twitter.com/intent/tweet?url=#{URI.escape(@url.to_s)}&text=#{@title}&via=od4_d"
   end
 
   def share_facebook
