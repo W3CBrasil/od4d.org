@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
     end
 
     def share_twitter
-       "https://twitter.com/intent/tweet?url=#{URI.escape(index_url)}&text=#{SHARE_TEXT}&via=OD4D"
+       "https://twitter.com/intent/tweet?url=#{URI.escape(index_url)}&text=#{SHARE_TEXT}&via=od4_d"
     end
 
     def share_linkedin
