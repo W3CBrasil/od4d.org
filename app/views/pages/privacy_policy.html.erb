@@ -1,11 +1,11 @@
 <% content_for :head do %>
-  <title>Open Data for Development - About</title>
+  <title><%= t('platform_name') %> - <%= t('privacy_police_title') %></title>
 <% end %>
 
   <article resource="#about" typeof="schema:Article" class="main post institucional">
     <meta property="schema:headline" content="About the Project"/>
     <meta property="schema:datePublished" content="2014-09-29"/>
-    <meta property="schema:inLanguage" content="en-US"/>
+    <meta property="schema:inLanguage" content="<%= I18n.locale.to_s %>"/>
     <meta property="schema:copyrightHolder" content="W3C"/>
     <meta property="schema:license" content="http://creativecommons.org/licenses/by-sa/4.0/"/>
     <meta property="schema:keywords" content="about;od4d"/>
@@ -18,6 +18,7 @@
       <h1 class="title blackgrayfont grid-100"><%= t('privacy_police_title') %></h1>
       <div class="">
         <div class="grid-100">
+          <%= render 'ppolicy_'+I18n.locale.to_s %>
         </div>
       </div>
     </div>

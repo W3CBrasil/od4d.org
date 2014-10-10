@@ -4,7 +4,7 @@
       <ul>
         <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
         <li><%= link_to t('menu_2'), {controller: "pages", action: "terms_and_conditions"} %></li>
-        <li><%#= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
+        <li><%= link_to t('menu_3'), {controller: "pages", action: "privacy_policy"} %></li>
       </ul>
     </div>
     <div class="grid-15">
@@ -30,14 +30,14 @@
         <li><%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }%></li>
       </ul>
     </div>
-<!--     <div class="grid-15">
-      <h3><%#= t('menu_7') %></h3>
+     <div class="grid-15">
+      <h3><%= t('menu_7') %></h3>
       <ul>
-        <li><%#= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: "Conferences"} %></li>
-        <li><%#= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: "Courses"} %></li>
-        <li><%#= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: "Contests"} %></li>
+        <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_1')} %></li>
+        <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_2')} %></li>
+        <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_3')} %></li>
       </ul>
-    </div> -->
+    </div>
     <div class="grid-20 social-bottom">
       <h3><%=t 'follow_us' %></h3>
       <%= render :partial => '/layouts/followus', locals: {footer: true} %>
@@ -46,8 +46,6 @@
     </div>
   </div>
   <footer class="mainfooter">
-    <a href="index.html">
-      <img src="<%= asset_path 'logo.png' %>" alt="Open Data - development for platform" />
-    </a>
-    <p class="floatRight">© 2014 Open Data for Development - All Rights Reserved.</p>
+    <%= link_to image_tag('logo.png', alt: t('platform_name')), {controller: "home", action: "index"} %>
+    <p class="floatRight">© 2014 <%= t('platform_name') %> - All Rights Reserved.</p>
   </footer>
