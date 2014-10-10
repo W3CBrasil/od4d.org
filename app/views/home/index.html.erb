@@ -35,19 +35,19 @@
     <div class="video-call-banner video-curioso">
       <%#= video_tag(['dadosabertos.webm'], id: 'vidcur', class: 'video', size: '550x300', controls: true)  %>
       <div id="vidcur" class="video">
-        <iframe src="//player.vimeo.com/video/69632849" width="550" height="309" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="//player.vimeo.com/video/69632849" class="vimeo-iframe" allowfullscreen></iframe>
       </div>
     </div>
    <div class="video-call-banner video-dev">
       <%#= video_tag(['dadosabertos.webm'], id: 'viddev', class: 'video', size: '550x300', controls: true)  %>
       <div id="viddev" class="video">
-        <iframe src="//player.vimeo.com/video/69632849" width="550" height="309" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="//player.vimeo.com/video/69632849" class="vimeo-iframe" allowfullscreen></iframe>
       </div>
     </div>
     <div class="video-call-banner video-produtor">
       <%#= video_tag(['dadosabertos.webm'], id: 'vidprod', class: 'video', size: '550x300', controls: true)  %>
       <div id="vidprod" class="video">
-        <iframe src="//player.vimeo.com/video/69632849" width="550" height="309" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="//player.vimeo.com/video/69632849" class="vimeo-iframe" allowfullscreen></iframe>
       </div>
     </div>
     <div class="pos-call-banner bgdarkgreen pos-curioso">
@@ -153,14 +153,14 @@
         <%= t('featured_section').mb_chars.upcase %></a> <span class="semiboldfont">&gt;&gt;</span></h3>
       <div class="destaquegov grid-33">
           <h4 class="news-title-item title-item-destaque"><%= t('watch_out') %></h4>
-          <img src="<%= asset_path 'shutterstock_114997978-b.jpg' %>" title="This is a placeholder image" />
+          <img src="<%= asset_path 'shutterstock_114997978-b.jpg' %>" alt="This is a placeholder image" />
           <h5 class="news-title-item"><%= t('featured_about_1').mb_chars.upcase %></h5>
           <p class="news-txt-larger"><%= link_to t('featured_article_1'), {controller: "articles", action: "show", params: {uri: "http://platform.od4d.org/posts/"+t('featured_article_1_linkid')}} %></p>
       </div>
 
       <div class="destaque2gov grid-33">
         <div class="destaquemenor">
-          <img src="<%= asset_path 'shutterstock_173451446-b.jpg' %>" title="This is a placeholder image">
+          <img src="<%= asset_path 'shutterstock_173451446-b.jpg' %>" alt="This is a placeholder image">
           <h5 class="news-title-item"><%= t('featured_about_2').mb_chars.upcase %></h5>
           <p class="news-txt-larger"><%= link_to t('featured_article_2'), {controller: "pages", action: "about"} %></p>
         </div>
