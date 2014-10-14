@@ -4,8 +4,6 @@
     <% end %>
     <nav id="menu" class="menu floatRight">
       <ul>
-        <li <%= "class=active" if I18n.locale == :pt %>><%= link_to "pt", {controller: "home", action: "change_locale", params: {locale: "pt"}} %></li>
-        <li <%= "class=active" if I18n.locale == :en %>><%= link_to "en", {controller: "home", action: "change_locale", params: {locale: "en"}} %></li>
         <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
         <li>
           <a class="dropdown" href="#"><%= t('menu_4') %></a>
@@ -36,6 +34,14 @@
               <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_1')} %></li>
               <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_2')} %></li>
               <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_3')} %></li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown" href="#"><%= t('menu_8') %></a>
+          <ul class="submenu">
+            <li <%= "class=active" if I18n.locale == :pt %>><%= link_to "pt", {controller: "home", action: "change_locale", params: {locale: "pt"}} %></li>
+            <li <%= "class=active" if I18n.locale == :en %>><%= link_to "en", {controller: "home", action: "change_locale", params: {locale: "en"}} %></li>
+            <li <%= "class=active" if I18n.locale == :es %>><%= link_to "es", {controller: "home", action: "change_locale", params: {locale: "es"}} %></li>
           </ul>
         </li>
         <li><a href="/casein"><span class="login">LOGIN</span></a></li>
