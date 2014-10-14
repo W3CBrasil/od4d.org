@@ -13,12 +13,18 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
+  private
+
   def set_locale
     if request.fullpath.include? 'casein'
       I18n.locale = "en" 
     else
-      I18n.locale = params[:locale] || I18n.default_locale
+      I18n.locale = params[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
     end
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
  
 end
