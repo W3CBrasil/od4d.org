@@ -38,7 +38,7 @@ pt:
   menu_7_1: "Conferências"
   menu_7_2: "Cursos"
   menu_7_3: "Concursos"
-  menu_8: "LÍNGUA"
+  menu_8: "IDIOMA"
   platform_name: "Dados Abertos para o Desenvolvimento"
   od4d_title: "DADOS ABERTOS PARA UM DIA A DIA MELHOR"
   od4d_description: "A melhor platforma para a Web que queremos"
@@ -135,3 +135,4 @@ pt:
   imgalt_share_knowledge: "Compartilhe conhecimento, usando a plataforma para publicar seu conteúdo"
   imgalt_linked_data: "Participe e contribua com a plataforma através de dados conectados! Use as tags sugeridas para construir o RSS"
   imgalt_linked_web: "Desenvolva a plataforma OD4D e faça a Web Conectada"
+  part_of: "Parte Da"
