@@ -9,7 +9,7 @@ module Casein
   
     def index
       @casein_page_title = 'Posts'
-  		@posts = Post.order(pub_date: :desc).paginate :page => params[:page]
+  		@posts = Post.order(sort_order(:pub_date)).paginate :page => params[:page]
       @sections = PostSection.all
     end
   
