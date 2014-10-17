@@ -55,7 +55,8 @@ class Article
 
   def get_content
     return @summary unless @summary.to_s.empty?
-    @description
+    return @description unless @description.to_s.empty?
+    ""
   end
 
   def strip_html(str)
