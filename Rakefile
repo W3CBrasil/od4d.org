@@ -33,7 +33,7 @@ namespace :deploy do
   def deploy(environment)
     server = get_server(environment)
     command = get_ci_setup_command(server) if ENV['CI']
-    sh "#{command} cap #{environment} deploy"
+    sh "#{command} cap #{environment} deploy" unless ENV['SNAP_PULL_REQUEST_NUMBER']
   end
 
   def get_ci_setup_command(server)
