@@ -107,7 +107,7 @@
     display:none;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1278px) {
     .js #menu {
         display:none;
     }

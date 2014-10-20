@@ -1,50 +1,51 @@
   <header class="stick maintop grid-100 mobile-grid-100">
     <%= link_to controller: "home", action: "index"  do %>
-      <%= image_tag "logo.png", :alt => "Open Data for Development" %>
+      <%= image_tag "logo.png", {:alt => "Open Data for Development", :tabindex => "1"} %>
     <% end %>
     <nav id="menu" class="menu floatRight">
       <ul>
-        <li><%= link_to t('menu_1'), {controller: "pages", action: "about"} %></li>
+        <li class="jump-menu"><a href="#main-content" tabindex="2">Ir para conteúdo</a></li>
+        <li><%= link_to t('menu_1'), {controller: "pages", action: "about"}, {:tabindex => "3"} %></li>
         <li>
-          <a class="dropdown" href="#"><%= t('menu_4') %></a>
+          <a class="dropdown" href="#" tabindex="4"><%= t('menu_4') %></a>
           <ul class="submenu">
-            <li><%= link_to t('menu_4_1'), {controller: "pages", action: "become_partner"} %></li>
-            <li><%= link_to t('menu_4_2'), {controller: "pages", action: "become_contributor"} %></li>
+            <li><%= link_to t('menu_4_1'), {controller: "pages", action: "become_partner"}, {:tabindex => "5"} %></li>
+            <li><%= link_to t('menu_4_2'), {controller: "pages", action: "become_contributor"}, {:tabindex => "6"} %></li>
           </ul>
         </li>
         <li>
-          <a class="dropdown" href="#"><%= t('menu_5') %></a>
+          <a class="dropdown" href="#" tabindex="7"><%= t('menu_5') %></a>
           <ul class="submenu">
-            <li><%= link_to t('menu_5_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_concepts') }%></li>
-            <li><%= link_to t('menu_5_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_ref_materials') }%></li>
-            <li><%= link_to t('menu_5_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_cap_building') }%></li>
-            <li><%= link_to t('menu_5_4'), {controller: "learn", action: "glossary"} %></li>
+            <li><%= link_to t('menu_5_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_concepts') }, {:tabindex => "8"}%></li>
+            <li><%= link_to t('menu_5_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_ref_materials') }, {:tabindex => "9"}%></li>
+            <li><%= link_to t('menu_5_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_cap_building') }, {:tabindex => "10"}%></li>
+            <li><%= link_to t('menu_5_4'), {controller: "learn", action: "glossary"}, {:tabindex => "11"} %></li>
           </ul>
         </li>
         <li>
-          <a class="dropdown" href="#"><%= t('menu_6') %></a>
+          <a class="dropdown" href="#" tabindex="12"><%= t('menu_6') %></a>
           <ul class="submenu">
-              <li><%= link_to t('menu_6_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_projects') }%></li>
-              <li><%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }%></li>
+              <li><%= link_to t('menu_6_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_projects') }, {:tabindex => "13"}%></li>
+              <li><%= link_to t('menu_6_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('section_products') }, {:tabindex => "14"}%></li>
           </ul>
         </li>
          <li>
-          <a class="dropdown" href=""><%= t('menu_7') %></a>
+          <a class="dropdown" href="" tabindex="15"><%= t('menu_7') %></a>
           <ul class="submenu">
-              <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_1')} %></li>
-              <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_2')} %></li>
-              <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_3')} %></li>
+              <li><%= link_to t('menu_7_1'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_1')}, {:tabindex => "16"} %></li>
+              <li><%= link_to t('menu_7_2'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_2')}, {:tabindex => "17"} %></li>
+              <li><%= link_to t('menu_7_3'), {controller: "articles", action: "filter", field: "articleSection", term: t('menu_7_3')}, {:tabindex => "18"} %></li>
           </ul>
         </li>
         <li>
-          <a class="dropdown" href="#"><%= t('menu_8') %></a>
+          <a class="dropdown" href="#" tabindex="19"><%= t('menu_8') %></a>
           <ul class="submenu">
-            <li <%= "class=active" if I18n.locale == :pt %>><%= link_to "pt", {controller: "home", action: "change_locale", params: {locale: "pt"}} %></li>
-            <li <%= "class=active" if I18n.locale == :en %>><%= link_to "en", {controller: "home", action: "change_locale", params: {locale: "en"}} %></li>
-            <li <%= "class=active" if I18n.locale == :es %>><%= link_to "es", {controller: "home", action: "change_locale", params: {locale: "es"}} %></li>
+            <li <%= "class=active" if I18n.locale == :pt %>><%= link_to "pt", {controller: "home", action: "change_locale", params: {locale: "pt"}}, {:tabindex => "20"} %></li>
+            <li <%= "class=active" if I18n.locale == :en %>><%= link_to "en", {controller: "home", action: "change_locale", params: {locale: "en"}}, {:tabindex => "21"} %></li>
+            <li <%= "class=active" if I18n.locale == :es %>><%= link_to "es", {controller: "home", action: "change_locale", params: {locale: "es"}}, {:tabindex => "22"} %></li>
           </ul>
         </li>
-        <li><a href="/casein"><span class="login">LOGIN</span></a></li>
+        <li><a href="/casein" tabindex="23"><span class="login">LOGIN</span></a></li>
       </ul>
     </nav>
   </header>

@@ -17,7 +17,8 @@
 //= require jquery.sticky
 //= require easyResponsiveTabs
 //= require prism
-
+//= require jquery.keyboard-focus
+(function( $ ){
 $(document).ready(function(){
   $('#menu').slicknav();
 
@@ -77,46 +78,48 @@ $(document).ready(function(){
     $('#call-banner').fadeOut( 0 );
     $('.pos-call-banner').fadeOut( 0 );
     $('.video-curioso').fadeIn( 0 );
-
-    //$('#vidcur').get(0).play();
   });
 
   $('.dev').click(function() {
     $('#call-banner').fadeOut( 0 );
     $('.pos-call-banner').fadeOut( 0 );
     $('.video-dev').fadeIn( 0 );
-
-    //$('#viddev').get(0).play();
   });
   $('.produtor').click(function() {
     $('#call-banner').fadeOut( 0 );
     $('.pos-call-banner').fadeOut( 0 );
     $('.video-produtor').fadeIn( 0 );
-
-    //$('#vidprod').get(0).play();
   });
 
-  //TODO: fazer ao TÉRMINO do vídeo ou slideshare VOLTAR para as outras opções
-  // var vidcur = $('#vidcur').get(0);
-  // if (vidcur) {
-  //   vidcur.addEventListener('ended',function(){
-  //     $('.video-call-banner').fadeOut( 0 );
-  //     $('.pos-curioso').fadeIn( 0 );
-  //   });
-  // }
-  // var viddev = $('#viddev').get(0);
-  // if(viddev) {
-  //   viddev.addEventListener('ended',function(){
-  //     $('.video-call-banner').fadeOut( 0 );
-  //     $('.pos-dev').fadeIn( 0 );
-  //   });
-  // }
-  // var vidprod = $('#vidprod').get(0);
-  // if(vidprod) {
-  //   vidprod.addEventListener('ended',function(){
-  //     $('.video-call-banner').fadeOut( 0 );
-  //     $('.pos-prod').fadeIn( 0 );
-  //   });
-  // }
+  $("nav#menu ul:not(.submenu) > li > a").focus(function() {
+    $("nav#menu ul:not(.submenu) > li > a").not(":focus").siblings(".submenu").removeClass("submenu-visible");
 
+    $(this).siblings(".submenu").addClass("submenu-visible");
+    
+    $(this).siblings(".submenu").find("li:last-child a").focusout(function() {
+      $(".submenu").removeClass("submenu-visible");
+    });
+
+    $("html").click(function(){
+      $(".submenu").removeClass("submenu-visible");
+    });
+    $('#menu a').hover(function() {
+      $(".submenu").removeClass("submenu-visible");
+    });
+  });
+
+  $('.jump-menu a').focus(function() {
+    $("#main-content").css("padding-top", "60px");
+  });
+  $('.jump-menu a').click(function() {
+    $("#main-content").css("padding-top", "80px");
+    $(".curioso a").focus();
+  });
+  $('.jump-menu a').focusout(function() {
+    $("#main-content").css("padding-top", "0px");
+  });
+  $(".curioso a").focus(function(){
+    $("#main-content").css("padding-top", "0px");
+  });
 });
+})(jQuery);

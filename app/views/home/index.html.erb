@@ -2,10 +2,10 @@
   <title><%= t('platform_name') %></title>
 <% end %>
 
-  <div class="grid-container">
-    <h2 class="title blackfont txtcenter"><%= t('od4d_title') %></h2>
-    <h4 class="subtitle txtcenter"><%= t('od4d_description') %></h4>
-    <h5 class="subtitle txtcenter"><%= raw(t('beta_disclaimer')) %></h5>
+  <div id="main-content" class="grid-container">
+    <h1 class="title blackfont txtcenter"><%= t('od4d_title') %></h2>
+    <h2 class="subtitle txtcenter"><%= t('od4d_description') %></h4>
+    <h4 class="subtitle txtcenter"><%= raw(t('beta_disclaimer')) %></h5>
 
     <div id="call-banner" class="call-banner clearfix">
       <h5 class="call-title">
@@ -13,19 +13,19 @@
       </h5>
       <ul class="">
         <li class="curioso">
-          <a href="#">
+          <a href="#" tabindex="24">
             <span></span>
             <p><%= t('im_curious') %></p>
           </a>
         </li>
         <li class="dev">
-          <a href="#">
+          <a href="#" tabindex="25">
             <span></span>
             <p><%= t('im_a_developer') %></p>
           </a>
         </li>
         <li class="produtor">
-          <a href="#">
+          <a href="#" tabindex="26">
             <span></span>
             <p><%= t('im_a_content_producer') %></p>
           </a>
@@ -206,7 +206,7 @@
       </ul>
     </div>
   </section>
-  <section class="grid-container casos-praticos">
+  <section id="casos" class="grid-container casos-praticos">
     <h3 class="fontitalic blackgrayfont"><%= t('cases_title').mb_chars.upcase %></h3>
 
     <div id="horizontalTab">
@@ -253,11 +253,11 @@
           </div>
       </div>
       <ul class="resp-tabs-list">
-        <li class="grid-20"><%= t('cases_tab_1') %></li>
-        <li class="grid-20"><%= t('cases_tab_2') %></li>
-        <li class="grid-20"><%= t('cases_tab_3') %></li>
-        <li class="grid-20"><%= t('cases_tab_4') %></li>
-        <li class="grid-20"><%= t('cases_tab_5') %></li>
+        <li class="grid-20"><a href="#casos"><%= t('cases_tab_1') %></a></li>
+        <li class="grid-20"><a href="#casos"><%= t('cases_tab_2') %></a></li>
+        <li class="grid-20"><a href="#casos"><%= t('cases_tab_3') %></a></li>
+        <li class="grid-20"><a href="#casos"><%= t('cases_tab_4') %></a></li>
+        <li class="grid-20"><a href="#casos"><%= t('cases_tab_5') %></a></li>
       </ul>
     </div>
 

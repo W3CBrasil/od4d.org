@@ -340,7 +340,7 @@ header.maintop{
   padding: 0 7%;
   transition: all .5s linear;
 }
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1337px) {
     header.maintop {
       padding: 0 .5em !important;
     }
@@ -366,9 +366,21 @@ header.maintop{
   text-transform: uppercase;
   line-height: 58px;
 }
-.maintop nav li:hover a {
+.maintop nav li:hover a, .maintop nav li a:focus{
   background: rgba(51,51,51,.45);
 }
+/*.maintop nav li a.dropdown:after{
+  content:"";
+  width:0;
+  height:0;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #03696d transparent transparent transparent;
+  margin-left: 5px;
+  margin-top: 26px;
+  position: absolute;
+}*/
 .maintop nav li a.dropdown{
   padding-right: 1.5em;
   cursor: default;
@@ -408,17 +420,17 @@ header.maintop{
   background: #FC7C54;
   display: none;
   z-index:999;
-}
-.maintop nav li:hover .submenu{
-  display: block;
-  position: absolute;
   min-width: 100px;
+}
+.maintop nav li:hover .submenu, .submenu-visible.submenu{
+  display: block;
+  position: absolute;  
   border-radius: 0 0 5px 5px;
 }
-.maintop nav li:hover .submenu li{
+.maintop nav li:hover .submenu li, a + .submenu li{
   display: block;
 }
-.maintop nav li:hover .submenu a{
+.maintop nav li:hover .submenu a, .submenu a{
   background: #FC7C54;
   font-style: italic;
   text-align: left;
@@ -427,14 +439,32 @@ header.maintop{
   display: block;
   color: #000;
 }
-.maintop nav li:hover .submenu a:hover{
+.maintop nav li:hover .submenu a:hover, .submenu a:focus{
   /* background: #bf583c; */
   background: #e06b48;
   color: #fff;
 }
-.maintop nav li:hover .submenu li:last-child a{
+.maintop nav li:hover .submenu li:last-child a, .submenu.submenu-visible{
   border-radius: 0 0 5px 5px;
   border-bottom: 2px solid rgba(51,51,51,.7);
+}
+li.jump-menu a{
+  opacity: 0.0;
+}
+
+.maintop nav li.jump-menu a:focus {
+  position: absolute;
+  opacity:1.0;  
+  display: block;
+  background: #000;
+  top: 60px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  height: 2.75em;
+}
+.maintop nav li.jump-menu a:hover{
+  background: #FC7C54;
 }
 
 /*banner post*/

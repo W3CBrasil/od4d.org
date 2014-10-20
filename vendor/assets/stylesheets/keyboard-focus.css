@@ -1,0 +1,25 @@
+/*
+	Modify the focussed elements you wish to style here.
+ */
+a:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus,
+.button:focus {
+	/*
+		Tweak your desired keyboard focus styling here.
+		Obvious is good!
+		The default styling is based on Chrome's default styling
+		of keyboard focus.
+	 */
+	outline: 2px solid #FC7C54;
+}
+a.mouse-focus:focus,
+input.mouse-focus:focus,
+textarea.mouse-focus:focus,
+button.mouse-focus:focus,
+select.mouse-focus:focus,
+.button.mouse-focus:focus {
+	outline: none;
+}
