@@ -95,10 +95,6 @@ $(document).ready(function(){
     $("nav#menu ul:not(.submenu) > li > a").not(":focus").siblings(".submenu").removeClass("submenu-visible");
 
     $(this).siblings(".submenu").addClass("submenu-visible");
-    
-    $(this).siblings(".submenu").find("li:last-child a").focusout(function() {
-      $(".submenu").removeClass("submenu-visible");
-    });
 
     $("html").click(function(){
       $(".submenu").removeClass("submenu-visible");
